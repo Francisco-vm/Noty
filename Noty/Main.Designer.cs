@@ -178,7 +178,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.icon_Folder_x48;
+            pictureBox1.Image = Properties.Resources.icon_Notebook_x48;
             pictureBox1.Location = new Point(69, 6);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(49, 49);

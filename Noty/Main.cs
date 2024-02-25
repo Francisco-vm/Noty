@@ -4,6 +4,10 @@ namespace Noty
     {
 
         private string folderPath;
+        private bool creatingInNotebook;
+        private string selectedNotebook;
+        private int numberNote = 0;
+        private int numberNotebook = 0;
         //List<string> carpetas = new List<string>();
         //List<string> notas = new List<string>();
         public Main()
@@ -98,10 +102,26 @@ namespace Noty
 
             // Actualizar la lista de archivos .txt según la nueva carpeta seleccionada
             UpdateNotes(NoteBookSelected);
+
+            // Manejar el evento de selección cambiada en la ListBox de cuadernos
+            selectedNotebook = ls_NoteBooks.SelectedItem as string;
+            creatingInNotebook = !string.IsNullOrEmpty(selectedNotebook);
+
+            if (creatingInNotebook)
+            {
+                UpdateNotes(selectedNotebook);
+            }
+            else
+            {
+                UpdateNotes();
+            }
         }
 
         private void ls_Notes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Manejar el evento de selección cambiada en el ListBox
+
+            // Obtener el archivo seleccionado
             string archivoSeleccionado = ls_Notes.SelectedItem?.ToString();
 
             if (!string.IsNullOrEmpty(archivoSeleccionado))
@@ -109,8 +129,19 @@ namespace Noty
                 // Obtener la carpeta seleccionada en la ListBox de cuadernos
                 string cuadernoSeleccionado = ls_NoteBooks.SelectedItem?.ToString();
 
-                // Construir la ruta completa del archivo utilizando la carpeta raíz y el cuaderno
-                string rutaCompleta = Path.Combine(folderPath, cuadernoSeleccionado, $"{archivoSeleccionado}.txt");
+                // Obtener la ruta completa del archivo
+                string rutaCompleta;
+
+                if (string.IsNullOrEmpty(cuadernoSeleccionado))
+                {
+                    // Carpeta raíz
+                    rutaCompleta = Path.Combine(folderPath, $"{archivoSeleccionado}.txt");
+                }
+                else
+                {
+                    // Cuaderno seleccionado
+                    rutaCompleta = Path.Combine(folderPath, cuadernoSeleccionado, $"{archivoSeleccionado}.txt");
+                }
 
                 try
                 {
@@ -125,6 +156,53 @@ namespace Noty
                     MessageBox.Show($"Error al cargar el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btn_Note_Click(object sender, EventArgs e)
+        {
+            btn_Note.Visible = false;
+            btn_NoteBook.Visible = false;
+
+            // Lógica para crear nota...
+            numberNote++;
+            string nombreNota = $"NuevaNota{numberNote}";
+
+            // Obtén la carpeta del cuaderno seleccionado (o la carpeta raíz)
+            string carpetaCuaderno = creatingInNotebook ? selectedNotebook : folderPath;
+
+            // Asegúrate de que la carpeta del cuaderno exista
+            string carpetaCuadernoPath = Path.Combine(folderPath, carpetaCuaderno);
+            if (!Directory.Exists(carpetaCuadernoPath))
+            {
+                MessageBox.Show($"Error: La carpeta del cuaderno '{carpetaCuaderno}' no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Crea la nota en la carpeta del cuaderno
+            Note newNote = new Note(nombreNota);
+            newNote.CreateNote(carpetaCuadernoPath);
+
+            // Después de crear la nota, actualizar la lista según el contexto
+            if (creatingInNotebook)
+            {
+                UpdateNotes(selectedNotebook);
+            }
+            else
+            {
+                UpdateNotes();
+            }
+        }
+
+        private void btn_NoteBook_Click(object sender, EventArgs e)
+        {
+            Notebook newNotebook = new Notebook();
+            newNotebook.CreateNotebook(folderPath);
+            UpdateNotebooks();
+        }
+
+        private void TextArea_MouseClick(object sender, MouseEventArgs e)
+        {
+            Panel_Right.Visible = true;
         }
     }
 }

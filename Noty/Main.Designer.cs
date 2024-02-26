@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             Panel_Main = new Panel();
-            Panel_Right = new Panel();
+            TextArea = new RichTextBox();
             Panel_Bottom = new Panel();
             btn_Delete = new Button();
             btn_Save = new Button();
-            TextArea = new RichTextBox();
             tbx_Title = new TextBox();
             Panel_SeparatorRight = new Panel();
             Panel_SeparatorLeft = new Panel();
@@ -46,9 +45,11 @@
             tbx_NameNotebook = new TextBox();
             Panel_Left = new Panel();
             Panel_Top = new Panel();
+            btn_Home = new Button();
             btn_NoteBook = new Button();
             btn_New = new Button();
             btn_Note = new Button();
+            Panel_Right = new Panel();
             Panel_Welcome = new Panel();
             lbl_By = new Label();
             lbl_SelectRoot = new Label();
@@ -84,15 +85,17 @@
             Panel_Main.TabIndex = 1;
             Panel_Main.Visible = false;
             // 
-            // Panel_Right
+            // TextArea
             // 
-            Panel_Right.BackColor = Color.Black;
-            Panel_Right.Dock = DockStyle.Right;
-            Panel_Right.Location = new Point(938, 0);
-            Panel_Right.Name = "Panel_Right";
-            Panel_Right.Size = new Size(40, 544);
-            Panel_Right.TabIndex = 5;
-            Panel_Right.Visible = false;
+            TextArea.BorderStyle = BorderStyle.None;
+            TextArea.Dock = DockStyle.Fill;
+            TextArea.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TextArea.Location = new Point(432, 109);
+            TextArea.Name = "TextArea";
+            TextArea.Size = new Size(473, 397);
+            TextArea.TabIndex = 8;
+            TextArea.Text = "";
+            TextArea.MouseClick += TextArea_MouseClick;
             // 
             // Panel_Bottom
             // 
@@ -100,51 +103,41 @@
             Panel_Bottom.Controls.Add(btn_Delete);
             Panel_Bottom.Controls.Add(btn_Save);
             Panel_Bottom.Dock = DockStyle.Bottom;
-            Panel_Bottom.Location = new Point(407, 506);
+            Panel_Bottom.Location = new Point(432, 506);
             Panel_Bottom.Name = "Panel_Bottom";
-            Panel_Bottom.Size = new Size(498, 38);
+            Panel_Bottom.Size = new Size(473, 38);
             Panel_Bottom.TabIndex = 3;
             // 
             // btn_Delete
             // 
             btn_Delete.Dock = DockStyle.Right;
-            btn_Delete.Location = new Point(274, 0);
+            btn_Delete.Location = new Point(249, 0);
             btn_Delete.Name = "btn_Delete";
             btn_Delete.Size = new Size(112, 38);
             btn_Delete.TabIndex = 1;
             btn_Delete.Text = "Delete";
             btn_Delete.UseVisualStyleBackColor = true;
+            btn_Delete.Click += btn_Delete_Click;
             // 
             // btn_Save
             // 
             btn_Save.Dock = DockStyle.Right;
-            btn_Save.Location = new Point(386, 0);
+            btn_Save.Location = new Point(361, 0);
             btn_Save.Name = "btn_Save";
             btn_Save.Size = new Size(112, 38);
             btn_Save.TabIndex = 0;
             btn_Save.Text = "Save";
             btn_Save.UseVisualStyleBackColor = true;
-            // 
-            // TextArea
-            // 
-            TextArea.BorderStyle = BorderStyle.None;
-            TextArea.Dock = DockStyle.Fill;
-            TextArea.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TextArea.Location = new Point(407, 109);
-            TextArea.Name = "TextArea";
-            TextArea.Size = new Size(498, 397);
-            TextArea.TabIndex = 8;
-            TextArea.Text = "";
-            TextArea.MouseClick += TextArea_MouseClick;
+            btn_Save.Click += btn_Save_Click;
             // 
             // tbx_Title
             // 
             tbx_Title.BorderStyle = BorderStyle.None;
             tbx_Title.Dock = DockStyle.Top;
             tbx_Title.Font = new Font("Tahoma", 22F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbx_Title.Location = new Point(407, 55);
+            tbx_Title.Location = new Point(432, 55);
             tbx_Title.Name = "tbx_Title";
-            tbx_Title.Size = new Size(498, 54);
+            tbx_Title.Size = new Size(473, 54);
             tbx_Title.TabIndex = 7;
             tbx_Title.TextAlign = HorizontalAlignment.Center;
             // 
@@ -162,7 +155,7 @@
             // 
             Panel_SeparatorLeft.BackColor = Color.Gainsboro;
             Panel_SeparatorLeft.Dock = DockStyle.Left;
-            Panel_SeparatorLeft.Location = new Point(368, 55);
+            Panel_SeparatorLeft.Location = new Point(393, 55);
             Panel_SeparatorLeft.Name = "Panel_SeparatorLeft";
             Panel_SeparatorLeft.Size = new Size(39, 489);
             Panel_SeparatorLeft.TabIndex = 4;
@@ -174,7 +167,7 @@
             Panel_NoteAndNotebooks.Controls.Add(panel1);
             Panel_NoteAndNotebooks.Controls.Add(Panel_NotesTop);
             Panel_NoteAndNotebooks.Dock = DockStyle.Left;
-            Panel_NoteAndNotebooks.Location = new Point(50, 55);
+            Panel_NoteAndNotebooks.Location = new Point(75, 55);
             Panel_NoteAndNotebooks.Name = "Panel_NoteAndNotebooks";
             Panel_NoteAndNotebooks.Size = new Size(318, 489);
             Panel_NoteAndNotebooks.TabIndex = 2;
@@ -186,7 +179,7 @@
             ls_Notes.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ls_Notes.FormattingEnabled = true;
             ls_Notes.ItemHeight = 29;
-            ls_Notes.Location = new Point(0, 229);
+            ls_Notes.Location = new Point(0, 275);
             ls_Notes.Name = "ls_Notes";
             ls_Notes.Size = new Size(318, 261);
             ls_Notes.TabIndex = 3;
@@ -196,9 +189,9 @@
             // 
             panel1.BackColor = Color.WhiteSmoke;
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 187);
+            panel1.Location = new Point(0, 231);
             panel1.Name = "panel1";
-            panel1.Size = new Size(318, 42);
+            panel1.Size = new Size(318, 44);
             panel1.TabIndex = 4;
             // 
             // Panel_NotesTop
@@ -210,7 +203,7 @@
             Panel_NotesTop.Dock = DockStyle.Top;
             Panel_NotesTop.Location = new Point(0, 0);
             Panel_NotesTop.Name = "Panel_NotesTop";
-            Panel_NotesTop.Size = new Size(318, 187);
+            Panel_NotesTop.Size = new Size(318, 231);
             Panel_NotesTop.TabIndex = 2;
             // 
             // pictureBox1
@@ -231,9 +224,9 @@
             ls_NoteBooks.ForeColor = Color.Black;
             ls_NoteBooks.FormattingEnabled = true;
             ls_NoteBooks.ItemHeight = 29;
-            ls_NoteBooks.Location = new Point(0, 71);
+            ls_NoteBooks.Location = new Point(0, 57);
             ls_NoteBooks.Name = "ls_NoteBooks";
-            ls_NoteBooks.Size = new Size(318, 116);
+            ls_NoteBooks.Size = new Size(318, 174);
             ls_NoteBooks.TabIndex = 0;
             ls_NoteBooks.SelectedIndexChanged += ls_NoteBooks_SelectedIndexChanged;
             // 
@@ -255,12 +248,13 @@
             Panel_Left.ForeColor = SystemColors.ControlLightLight;
             Panel_Left.Location = new Point(0, 55);
             Panel_Left.Name = "Panel_Left";
-            Panel_Left.Size = new Size(50, 489);
+            Panel_Left.Size = new Size(75, 489);
             Panel_Left.TabIndex = 1;
             // 
             // Panel_Top
             // 
             Panel_Top.BackColor = Color.Gainsboro;
+            Panel_Top.Controls.Add(btn_Home);
             Panel_Top.Controls.Add(btn_NoteBook);
             Panel_Top.Controls.Add(btn_New);
             Panel_Top.Controls.Add(btn_Note);
@@ -269,6 +263,16 @@
             Panel_Top.Name = "Panel_Top";
             Panel_Top.Size = new Size(938, 55);
             Panel_Top.TabIndex = 0;
+            // 
+            // btn_Home
+            // 
+            btn_Home.Location = new Point(276, 12);
+            btn_Home.Name = "btn_Home";
+            btn_Home.Size = new Size(112, 34);
+            btn_Home.TabIndex = 3;
+            btn_Home.Text = "Home";
+            btn_Home.UseVisualStyleBackColor = true;
+            btn_Home.Click += btn_Home_Click;
             // 
             // btn_NoteBook
             // 
@@ -301,6 +305,16 @@
             btn_Note.UseVisualStyleBackColor = true;
             btn_Note.Visible = false;
             btn_Note.Click += btn_Note_Click;
+            // 
+            // Panel_Right
+            // 
+            Panel_Right.BackColor = Color.Black;
+            Panel_Right.Dock = DockStyle.Right;
+            Panel_Right.Location = new Point(938, 0);
+            Panel_Right.Name = "Panel_Right";
+            Panel_Right.Size = new Size(40, 544);
+            Panel_Right.TabIndex = 5;
+            Panel_Right.Visible = false;
             // 
             // Panel_Welcome
             // 
@@ -424,5 +438,6 @@
         private Button btn_Delete;
         private Button btn_Save;
         private Panel panel1;
+        private Button btn_Home;
     }
 }

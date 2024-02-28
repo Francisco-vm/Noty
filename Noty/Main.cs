@@ -9,6 +9,7 @@ namespace Noty
         private string selectedNotebook;
         private int numberNote = 0;
         private int numberNotebook = 0;
+        private bool ordenAlfabetico = true;
 
         public Main()
         {
@@ -108,8 +109,11 @@ namespace Noty
 
         private void btn_New_Click(object sender, EventArgs e)
         {
-            btn_Note.Visible = true;
-            btn_NoteBook.Visible = true;
+            // Si btn_Note está invisible, hazlo visible; de lo contrario, hazlo invisible
+            btn_Note.Visible = !btn_Note.Visible;
+
+            // Si btn_NoteBook está invisible, hazlo visible; de lo contrario, hazlo invisible
+            btn_NoteBook.Visible = !btn_NoteBook.Visible;
         }
 
         private void ls_NoteBooks_SelectedIndexChanged(object sender, EventArgs e)
@@ -223,7 +227,7 @@ namespace Noty
 
         private void TextArea_MouseClick(object sender, MouseEventArgs e)
         {
-            Panel_Right.Visible = true;
+            //Panel_Right.Visible = true;
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
@@ -237,6 +241,8 @@ namespace Noty
             // Limpiar los campos de título y área de texto
             tbx_Title.Clear();
             TextArea.Clear();
+
+            tbx_NameNotebook.Text = "Root";
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
@@ -370,6 +376,79 @@ namespace Noty
             {
                 MessageBox.Show("Por favor, selecciona una nota antes de intentar eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btn_RenameNoteBook_Click(object sender, EventArgs e)
+        {
+            // Obtén el nuevo nombre del cuaderno desde el TextBox
+            string nuevoNombreCuaderno = tbx_NameNotebook.Text;
+
+            // Verifica si hay un cuaderno seleccionado
+            if (!string.IsNullOrEmpty(selectedNotebook))
+            {
+                try
+                {
+                    // Obtiene la ruta del cuaderno actual
+                    string rutaCuadernoActual = Path.Combine(folderPath, selectedNotebook);
+
+                    // Obtiene la nueva ruta con el nuevo nombre
+                    string nuevaRutaCuaderno = Path.Combine(folderPath, nuevoNombreCuaderno);
+
+                    // Renombra el cuaderno
+                    Directory.Move(rutaCuadernoActual, nuevaRutaCuaderno);
+
+                    // Actualiza la lista de cuadernos
+                    UpdateNotebooks();
+
+                    // Informa al usuario sobre el éxito
+                    MessageBox.Show($"El cuaderno se ha renombrado a '{nuevoNombreCuaderno}'.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    // Informa al usuario sobre cualquier error
+                    MessageBox.Show($"Error al renombrar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                // Informa al usuario que no hay cuaderno seleccionado
+                MessageBox.Show("No hay cuaderno seleccionado para renombrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btn_SortNoteBooks_Click(object sender, EventArgs e)
+        {
+            // Obtén la lista de cuadernos
+            List<string> cuadernos = Directory.GetDirectories(folderPath).ToList();
+
+            // Decide el tipo de orden y aplica la ordenación correspondiente
+            if (ordenAlfabetico)
+            {
+                // Orden alfabético
+                cuadernos.Sort();
+            }
+            else
+            {
+                // Orden por fecha de modificación
+                cuadernos.Sort((c1, c2) =>
+                {
+                    DateTime fechaC1 = Directory.GetLastWriteTime(c1);
+                    DateTime fechaC2 = Directory.GetLastWriteTime(c2);
+                    return fechaC2.CompareTo(fechaC1);
+                });
+            }
+
+            // Cambia el tipo de orden para la próxima vez
+            ordenAlfabetico = !ordenAlfabetico;
+
+            // Limpia y actualiza la ListBox con la nueva ordenación
+            ls_NoteBooks.Items.Clear();
+            ls_NoteBooks.Items.AddRange(cuadernos.Select(cuaderno => Path.GetFileNameWithoutExtension(cuaderno)).ToArray());
+        }
+
+        private void Panel_NoteAndNotebooks_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

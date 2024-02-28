@@ -63,6 +63,46 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_BackYellow_x48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-BackYellow-x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_DeleteV2Yellow_x48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-DeleteV2Yellow-x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_DeleteYellow_x48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-DeleteYellow-x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_EditYellow_x48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-EditYellow-x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_Folder_x48 {
             get {
                 object obj = ResourceManager.GetObject("icon-Folder-x48", resourceCulture);
@@ -73,9 +113,69 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_ForwardYellow_x48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-ForwardYellow-x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_homeYellow_x48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-homeYellow-x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_Notebook_x48 {
             get {
                 object obj = ResourceManager.GetObject("icon-Notebook-x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_NotebookYellow_x48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-NotebookYellow-x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_NoteYellow_x48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-NoteYellow-x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_PlusYellow_x48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-PlusYellow-x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_SaveYellow_x48 {
+            get {
+                object obj = ResourceManager.GetObject("icon-SaveYellow-x48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

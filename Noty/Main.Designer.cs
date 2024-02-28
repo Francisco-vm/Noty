@@ -46,6 +46,7 @@
             ls_NoteBooks = new ListBox();
             tbx_NameNotebook = new TextBox();
             panel2 = new Panel();
+            btn_DeleteNotebook = new Button();
             btn_SortNoteBooks = new Button();
             label1 = new Label();
             Panel_Top = new Panel();
@@ -62,6 +63,7 @@
             btn_OpenRoot = new Button();
             lbl_Noty = new Label();
             pic_Logo = new PictureBox();
+            btn_Format = new Button();
             Panel_Main.SuspendLayout();
             Panel_Bottom.SuspendLayout();
             Panel_NoteAndNotebooks.SuspendLayout();
@@ -109,6 +111,7 @@
             // Panel_Bottom
             // 
             Panel_Bottom.BackColor = Color.WhiteSmoke;
+            Panel_Bottom.Controls.Add(btn_Format);
             Panel_Bottom.Controls.Add(btn_Delete);
             Panel_Bottom.Controls.Add(btn_Save);
             Panel_Bottom.Dock = DockStyle.Bottom;
@@ -282,6 +285,7 @@
             // panel2
             // 
             panel2.BackColor = Color.WhiteSmoke;
+            panel2.Controls.Add(btn_DeleteNotebook);
             panel2.Controls.Add(btn_SortNoteBooks);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Top;
@@ -290,11 +294,21 @@
             panel2.Size = new Size(318, 53);
             panel2.TabIndex = 5;
             // 
+            // btn_DeleteNotebook
+            // 
+            btn_DeleteNotebook.Location = new Point(240, 11);
+            btn_DeleteNotebook.Name = "btn_DeleteNotebook";
+            btn_DeleteNotebook.Size = new Size(33, 34);
+            btn_DeleteNotebook.TabIndex = 2;
+            btn_DeleteNotebook.Text = "Delete";
+            btn_DeleteNotebook.UseVisualStyleBackColor = true;
+            btn_DeleteNotebook.Click += btn_DeleteNotebook_Click;
+            // 
             // btn_SortNoteBooks
             // 
-            btn_SortNoteBooks.Location = new Point(182, 11);
+            btn_SortNoteBooks.Location = new Point(279, 11);
             btn_SortNoteBooks.Name = "btn_SortNoteBooks";
-            btn_SortNoteBooks.Size = new Size(112, 34);
+            btn_SortNoteBooks.Size = new Size(33, 34);
             btn_SortNoteBooks.TabIndex = 1;
             btn_SortNoteBooks.Text = "Ordenar";
             btn_SortNoteBooks.UseVisualStyleBackColor = true;
@@ -322,7 +336,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(24, 12);
+            textBox1.Location = new Point(18, 12);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(270, 31);
             textBox1.TabIndex = 2;
@@ -478,6 +492,15 @@
             pic_Logo.TabIndex = 0;
             pic_Logo.TabStop = false;
             // 
+            // btn_Format
+            // 
+            btn_Format.Location = new Point(6, 7);
+            btn_Format.Name = "btn_Format";
+            btn_Format.Size = new Size(39, 34);
+            btn_Format.TabIndex = 2;
+            btn_Format.Text = "F";
+            btn_Format.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -543,5 +566,7 @@
         private Label label2;
         private Label label1;
         private Button btn_SortNoteBooks;
+        private Button btn_DeleteNotebook;
+        private Button btn_Format;
     }
 }

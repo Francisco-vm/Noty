@@ -450,5 +450,38 @@ namespace Noty
         {
 
         }
+
+        private void btn_DeleteNotebook_Click(object sender, EventArgs e)
+        {
+            // Obtén el cuaderno seleccionado
+            string cuadernoSeleccionado = ls_NoteBooks.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(cuadernoSeleccionado))
+            {
+                MessageBox.Show("Por favor, selecciona un cuaderno antes de intentar eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Construye la ruta completa del cuaderno
+            string rutaCuaderno = Path.Combine(folderPath, cuadernoSeleccionado);
+
+            try
+            {
+                // Elimina la carpeta del cuaderno
+                Directory.Delete(rutaCuaderno, true);
+
+                // Actualiza la lista de cuadernos
+                UpdateNotebooks();
+
+                // Limpia la selección en la ListBox de cuadernos
+                ls_NoteBooks.ClearSelected();
+
+                MessageBox.Show($"Cuaderno '{cuadernoSeleccionado}' eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

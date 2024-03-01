@@ -10,10 +10,13 @@ namespace Noty
         private int numberNote = 0;
         private int numberNotebook = 0;
         private bool ordenAlfabetico = true;
+        private bool panelExpanded = false;
 
         public Main()
         {
             InitializeComponent();
+            ls_NoteBooks.DrawMode = DrawMode.OwnerDrawFixed;
+            this.DoubleBuffered = true;
         }
 
         private void btn_OpenRoot_Click(object sender, EventArgs e)
@@ -111,9 +114,11 @@ namespace Noty
         {
             // Si btn_Note está invisible, hazlo visible; de lo contrario, hazlo invisible
             btn_Note.Visible = !btn_Note.Visible;
+            lbl_Note.Visible = !lbl_Note.Visible;
 
             // Si btn_NoteBook está invisible, hazlo visible; de lo contrario, hazlo invisible
             btn_NoteBook.Visible = !btn_NoteBook.Visible;
+            lbl_NoteBook.Visible = !lbl_NoteBook.Visible;
         }
 
         private void ls_NoteBooks_SelectedIndexChanged(object sender, EventArgs e)
@@ -446,11 +451,6 @@ namespace Noty
             ls_NoteBooks.Items.AddRange(cuadernos.Select(cuaderno => Path.GetFileNameWithoutExtension(cuaderno)).ToArray());
         }
 
-        private void Panel_NoteAndNotebooks_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_DeleteNotebook_Click(object sender, EventArgs e)
         {
             // Obtén el cuaderno seleccionado
@@ -482,6 +482,100 @@ namespace Noty
             {
                 MessageBox.Show($"Error al eliminar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ls_NoteBooks_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            // Verifica si el índice es válido
+            if (e.Index >= 0)
+            {
+                // Obtiene el ListBox
+                ListBox listBox = sender as ListBox;
+
+                // Establece el color de fondo del elemento seleccionado
+                Color selectedColor = Color.DimGray; // Puedes cambiar esto al color deseado
+
+                // Establece el color de fondo del elemento no seleccionado
+                Color defaultColor = listBox.BackColor;
+
+                // Establece el color del texto
+                Color textColor = listBox.ForeColor;
+
+                // Crea un pincel para el fondo
+                Brush backgroundBrush = new SolidBrush((e.State & DrawItemState.Selected) == DrawItemState.Selected ? selectedColor : defaultColor);
+
+                // Crea un pincel para el texto
+                Brush textBrush = new SolidBrush(textColor);
+
+                // Dibuja el fondo
+                e.Graphics.FillRectangle(backgroundBrush, e.Bounds);
+
+                // Dibuja el texto del elemento
+                e.Graphics.DrawString(listBox.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds, StringFormat.GenericDefault);
+
+                // Limpia los pinceles
+                backgroundBrush.Dispose();
+                textBrush.Dispose();
+
+                // Si el elemento está seleccionado, dibuja un borde alrededor del elemento
+                if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                {
+                    using (Pen borderPen = new Pen(Color.Black))
+                    {
+                        e.Graphics.DrawRectangle(borderPen, e.Bounds);
+                    }
+                }
+
+                // Indica que el sistema operativo no debe dibujar el fondo del elemento
+                e.DrawFocusRectangle();
+            }
+        }
+
+        private void slidebarTimer_Tick(object sender, EventArgs e)
+        {
+            if (panelExpanded)
+            {
+                Panel_Left.Width -= 10;
+
+                if (Panel_Left.Width <= Panel_Left.MinimumSize.Width)
+                {
+                    Panel_Left.Width = Panel_Left.MinimumSize.Width;
+                    Panel_LeftTimer.Stop();
+                    panelExpanded = false;
+                    lbl_New.Visible = false;
+                    lbl_Note.Visible = false;
+                    lbl_NoteBook.Visible = false;
+                }
+            }
+            else
+            {
+                Panel_Left.Width += 10;
+
+                if (Panel_Left.Width >= Panel_Left.MaximumSize.Width)
+                {
+                    Panel_Left.Width = Panel_Left.MaximumSize.Width;
+                    Panel_LeftTimer.Stop();
+                    panelExpanded = true;
+                    lbl_New.Visible = true;
+
+                    if (btn_Note.Visible == true)
+                    {
+                        lbl_Note.Visible = true;
+                    }
+
+                    if (btn_NoteBook.Visible == true)
+                    {
+                        lbl_NoteBook.Visible = true;
+                    }
+                }
+            }
+        }
+
+        private void btn_Expand_Click(object sender, EventArgs e)
+        {
+            Panel_LeftTimer.Start();
+            //lbl_Note.Visible = true;
+            //lbl_Notebook.Visible = true;
         }
     }
 }

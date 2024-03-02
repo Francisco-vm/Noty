@@ -83,9 +83,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_FormatGray_x24 {
+        internal static System.Drawing.Bitmap icon_FormatGray_x32 {
             get {
-                object obj = ResourceManager.GetObject("icon-FormatGray-x24", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-FormatGray-x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,26 +96,6 @@ namespace Noty.Properties {
         internal static System.Drawing.Bitmap icon_HomeGray_x24 {
             get {
                 object obj = ResourceManager.GetObject("icon-HomeGray-x24", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icon_homeYellow_x48 {
-            get {
-                object obj = ResourceManager.GetObject("icon-homeYellow-x48", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icon_HomeYellow2_x40 {
-            get {
-                object obj = ResourceManager.GetObject("icon-HomeYellow2-x40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +143,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_SaveGray_x24 {
+        internal static System.Drawing.Bitmap icon_SaveGray_x32 {
             get {
-                object obj = ResourceManager.GetObject("icon-SaveGray-x24", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-SaveGray-x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +163,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_TrashGray_x24 {
+        internal static System.Drawing.Bitmap icon_TrashGray_x24_1 {
             get {
-                object obj = ResourceManager.GetObject("icon-TrashGray-x24", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-TrashGray-x24-1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +173,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_TrashGray_x24_1 {
+        internal static System.Drawing.Bitmap icon_TrashGray_x32 {
             get {
-                object obj = ResourceManager.GetObject("icon-TrashGray-x24-1", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-TrashGray-x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +196,16 @@ namespace Noty.Properties {
         internal static System.Drawing.Bitmap Logo_notbg {
             get {
                 object obj = ResourceManager.GetObject("Logo-notbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Noty_notbg {
+            get {
+                object obj = ResourceManager.GetObject("Noty-notbg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

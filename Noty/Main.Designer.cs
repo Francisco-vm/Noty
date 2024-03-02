@@ -466,7 +466,6 @@
             btn_Note.Name = "btn_Note";
             btn_Note.Size = new Size(48, 48);
             btn_Note.TabIndex = 0;
-            btn_Note.Text = "-";
             btn_Note.UseVisualStyleBackColor = true;
             btn_Note.Visible = false;
             btn_Note.Click += btn_Note_Click;

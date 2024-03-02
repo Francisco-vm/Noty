@@ -124,9 +124,6 @@
   <data name="icon-SortGray-x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-SortGray-x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon-NoteGray-x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-NoteGray-x242.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon-HomeGray-x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-HomeGray-x241.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,9 +136,6 @@
   <data name="icon-NotebookGray-x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-NotebookGray-x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon-TrashGray-x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-TrashGray-x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon-EditGray-x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-EditGray-x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -152,15 +146,21 @@
     <value>..\Resources\icon-TrashGray-x24-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon-NewGray-x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon-NewGray-x241.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Noty-notbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Noty-notbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\icon-NewGray-x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon-Folder-x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-Folder-x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon-FormatGray-x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-FormatGray-x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Noty-notbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Noty-notbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-TrashGray-x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-TrashGray-x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon-NoteGray-x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-NoteGray-x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

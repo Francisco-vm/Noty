@@ -9,16 +9,19 @@ namespace Noty
         private string selectedNotebook;
         private int numberNote = 0;
         private int numberNotebook = 0;
-        private bool ordenAlfabetico = true;
+        private bool ordenAlfabetico = false;
+        private bool ordenAlfabeticoNotas = true;
         private bool panelExpanded = false;
 
         public Main()
         {
             InitializeComponent();
+
             ls_NoteBooks.DrawMode = DrawMode.OwnerDrawFixed;
             this.DoubleBuffered = true;
         }
 
+        //Permite seleccionar la carpeta Raíz en la cual se almacenarán Notas y Cuadernos//
         private void btn_OpenRoot_Click(object sender, EventArgs e)
         {
             using (var dialog = new FolderBrowserDialog())
@@ -38,9 +41,10 @@ namespace Noty
             }
         }
 
-        //Actualiza la lista de Notebooks
+        //Actualiza la lista de Notebooks//
         private void UpdateNotebooks()
         {
+            string seleccionActualNoteBooks = ls_NoteBooks.SelectedItem?.ToString();
             ls_NoteBooks.Items.Clear();
 
             if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
@@ -52,11 +56,15 @@ namespace Noty
                     ls_NoteBooks.Items.Add(Path.GetFileNameWithoutExtension(Notebook));
                 }
             }
+
+            ls_NoteBooks.SelectedItem = seleccionActualNoteBooks;
         }
 
         //Actualiza la lista de notas que se encuentran dentro de Root//
         private void UpdateNotes()
         {
+            string seleccionActualNotes = ls_Notes.SelectedItem?.ToString();
+
             ls_Notes.Items.Clear();
 
             if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
@@ -71,27 +79,15 @@ namespace Noty
 
                 }
             }
+
+            ls_Notes.SelectedItem = seleccionActualNotes;
         }
 
         //Actualiza la lista de notas que se encuentran dentro de algun Notebook//
         private void UpdateNotes(string carpetaSeleccionada)
         {
-            /*
-            ls_Notes.Items.Clear();
-
-            if (!string.IsNullOrEmpty(carpetaSeleccionada) && Directory.Exists(Path.Combine(folderPath, carpetaSeleccionada)))
-            {
-                string[] archivosTxt = Directory.GetFiles(Path.Combine(folderPath, carpetaSeleccionada), "*.txt");
-
-                foreach (var archivo in archivosTxt)
-                {
-                    // Agregar solo el nombre del archivo, no la ruta completa
-                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(archivo));
-                }
-            }*/
-
             // Guarda la selección actual
-            string seleccionActual = ls_Notes.SelectedItem?.ToString();
+            string seleccionActualNotes = ls_Notes.SelectedItem?.ToString();
 
             ls_Notes.Items.Clear();
 
@@ -107,9 +103,10 @@ namespace Noty
             }
 
             // Restaura la selección después de actualizar la lista
-            ls_Notes.SelectedItem = seleccionActual;
+            ls_Notes.SelectedItem = seleccionActualNotes;
         }
 
+        //Hace visibles los botones btn_Note y btn_NoteBook//
         private void btn_New_Click(object sender, EventArgs e)
         {
             // Si btn_Note está invisible, hazlo visible; de lo contrario, hazlo invisible
@@ -121,9 +118,11 @@ namespace Noty
             lbl_NoteBook.Visible = !lbl_NoteBook.Visible;
         }
 
+        //Logica para seleccionar un cuaderno//
         private void ls_NoteBooks_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            tbx_Title.ReadOnly = true;
+            TextArea.ReadOnly = true;
             // Obtener la carpeta seleccionada en la ListBox
             string NoteBookSelected = ls_NoteBooks.SelectedItem?.ToString();
 
@@ -147,6 +146,7 @@ namespace Noty
             }
         }
 
+        //Logica para seleccionar una nota//
         private void ls_Notes_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Manejar el evento de selección cambiada en el ListBox
@@ -177,6 +177,8 @@ namespace Noty
                 {
                     // Leer el contenido del archivo y mostrarlo en el RichTextBox
                     TextArea.Text = File.ReadAllText(rutaCompleta);
+                    TextArea.ReadOnly = false;
+                    tbx_Title.ReadOnly = false;
 
                     // Establecer el título de la nota en el TextBox
                     tbx_Title.Text = Path.GetFileNameWithoutExtension(archivoSeleccionado);
@@ -188,27 +190,27 @@ namespace Noty
             }
         }
 
+        //Logica para crear una nota//
         private void btn_Note_Click(object sender, EventArgs e)
         {
             btn_Note.Visible = false;
             btn_NoteBook.Visible = false;
 
-            // Lógica para crear nota...
             numberNote++;
             string nombreNota = $"NuevaNota{numberNote}";
 
-            // Obtén la carpeta del cuaderno seleccionado (o la carpeta raíz)
+            // Obtén la ruta del cuaderno seleccionado (o la carpeta raíz)
             string carpetaCuaderno = creatingInNotebook ? selectedNotebook : folderPath;
 
-            // Asegúrate de que la carpeta del cuaderno exista
+            // Condición (cuaderno->exista)
             string carpetaCuadernoPath = Path.Combine(folderPath, carpetaCuaderno);
             if (!Directory.Exists(carpetaCuadernoPath))
             {
-                MessageBox.Show($"Error: La carpeta del cuaderno '{carpetaCuaderno}' no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error: El cuaderno '{carpetaCuaderno}' no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Crea la nota en la carpeta del cuaderno
+            // Crea la nota dentro del cuaderno
             Note newNote = new Note(nombreNota);
             newNote.CreateNote(carpetaCuadernoPath);
 
@@ -223,6 +225,7 @@ namespace Noty
             }
         }
 
+        //Logica para crear un Cuaderno//
         private void btn_NoteBook_Click(object sender, EventArgs e)
         {
             Notebook newNotebook = new Notebook();
@@ -230,11 +233,13 @@ namespace Noty
             UpdateNotebooks();
         }
 
+        //Sin funciones//
         private void TextArea_MouseClick(object sender, MouseEventArgs e)
         {
             //Panel_Right.Visible = true;
         }
 
+        //Muestra las notas de la carpeta raíz, limpia al area de texto y el titulo de notas//
         private void btn_Home_Click(object sender, EventArgs e)
         {
             // Limpiar la selección de cuaderno
@@ -246,10 +251,13 @@ namespace Noty
             // Limpiar los campos de título y área de texto
             tbx_Title.Clear();
             TextArea.Clear();
+            tbx_Title.ReadOnly = true;
+            TextArea.ReadOnly = true;
 
             tbx_NameNotebook.Text = "Root";
         }
 
+        //Guarda las notas nuevas y sus modificaciones//
         private void btn_Save_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(folderPath))
@@ -303,6 +311,9 @@ namespace Noty
                         File.Move(rutaCompletaOriginal, rutaCompletaNuevo);
                     }
 
+                    //Se escribe el archivo.
+
+
                     File.WriteAllText(rutaCompletaNuevo, TextArea.Text);
                     MessageBox.Show("Cambios guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -327,6 +338,7 @@ namespace Noty
             }
         }
 
+        //Elimina la nota//
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             // Obtener el archivo seleccionado
@@ -383,6 +395,7 @@ namespace Noty
             }
         }
 
+        //Renombra el cuaderno seleccionado//
         private void btn_RenameNoteBook_Click(object sender, EventArgs e)
         {
             // Obtén el nuevo nombre del cuaderno desde el TextBox
@@ -421,6 +434,7 @@ namespace Noty
             }
         }
 
+        //Ordena los cuadernos (modificado-alfabeticamente)
         private void btn_SortNoteBooks_Click(object sender, EventArgs e)
         {
             // Obtén la lista de cuadernos
@@ -451,6 +465,7 @@ namespace Noty
             ls_NoteBooks.Items.AddRange(cuadernos.Select(cuaderno => Path.GetFileNameWithoutExtension(cuaderno)).ToArray());
         }
 
+        //Elimina el cuaderno seleccionado//
         private void btn_DeleteNotebook_Click(object sender, EventArgs e)
         {
             // Obtén el cuaderno seleccionado
@@ -484,6 +499,7 @@ namespace Noty
             }
         }
 
+        //Dibuja en Gris el cuaderno seleccionado//
         private void ls_NoteBooks_DrawItem(object sender, DrawItemEventArgs e)
         {
             // Verifica si el índice es válido
@@ -493,7 +509,7 @@ namespace Noty
                 ListBox listBox = sender as ListBox;
 
                 // Establece el color de fondo del elemento seleccionado
-                Color selectedColor = Color.DimGray; // Puedes cambiar esto al color deseado
+                Color selectedColor = Color.FromArgb(115, 115, 115);
 
                 // Establece el color de fondo del elemento no seleccionado
                 Color defaultColor = listBox.BackColor;
@@ -520,10 +536,12 @@ namespace Noty
                 // Si el elemento está seleccionado, dibuja un borde alrededor del elemento
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
                 {
+                    /*
                     using (Pen borderPen = new Pen(Color.Black))
                     {
                         e.Graphics.DrawRectangle(borderPen, e.Bounds);
                     }
+                    */
                 }
 
                 // Indica que el sistema operativo no debe dibujar el fondo del elemento
@@ -531,6 +549,7 @@ namespace Noty
             }
         }
 
+        //Controla la animacion del Panel_Left//
         private void slidebarTimer_Tick(object sender, EventArgs e)
         {
             if (panelExpanded)
@@ -577,5 +596,52 @@ namespace Noty
             //lbl_Note.Visible = true;
             //lbl_Notebook.Visible = true;
         }
+
+        //Ordena las notas (modificado-alfabeticamente)
+        private void btn_SortNotes_Click(object sender, EventArgs e)
+        {
+            // Obtener la carpeta del cuaderno seleccionado (o la carpeta raíz)
+            string carpetaCuaderno = creatingInNotebook ? selectedNotebook : folderPath;
+
+            // Obtener la lista de notas en la carpeta del cuaderno
+            List<string> notas = Directory.GetFiles(Path.Combine(folderPath, carpetaCuaderno), "*.txt").ToList();
+
+            // Decidir el tipo de orden y aplicar la ordenación correspondiente
+            if (ordenAlfabeticoNotas)
+            {
+                // Orden alfabético
+                notas.Sort();
+            }
+            else
+            {
+                // Orden por fecha de modificación
+                notas.Sort((n1, n2) =>
+                {
+                    DateTime fechaN1 = File.GetLastWriteTime(n1);
+                    DateTime fechaN2 = File.GetLastWriteTime(n2);
+                    return fechaN2.CompareTo(fechaN1);
+                });
+            }
+
+            // Cambiar el tipo de orden para la próxima vez
+            ordenAlfabeticoNotas = !ordenAlfabeticoNotas;
+
+            // Limpiar y actualizar la ListBox con la nueva ordenación
+            ls_Notes.Items.Clear();
+            ls_Notes.Items.AddRange(notas.Select(nota => Path.GetFileNameWithoutExtension(nota)).ToArray());
+        }
+
+        private void btn_Bold_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        //===============Notes===============//
+        //=============NoteBooks=============//
     }
 }

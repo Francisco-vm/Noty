@@ -8,43 +8,43 @@ namespace Noty
 {
     internal class Notebook
     {
-        private const string nombreBase = "NuevoCuaderno";
+        private const string BaseName = "NewNotebook";
 
-        public void CreateNotebook(string ruta)
+        public void CreateNotebook(string Route)
         {
-            int numeroCuaderno = ObtenerProximoNumeroCuaderno(ruta);
-            string nombreCuaderno = $"{nombreBase}{numeroCuaderno}";
+            int NumberNotebook = GetNextNotebookNumber(Route);
+            string NameNotebook = $"{BaseName}{NumberNotebook}";
 
-            string rutaCompleta = Path.Combine(ruta, nombreCuaderno);
+            string FullRoute = Path.Combine(Route, NameNotebook);
 
-            if (Directory.Exists(rutaCompleta))
+            if (Directory.Exists(FullRoute))
             {
-                MessageBox.Show("El cuaderno ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The notebook already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 try
                 {
-                    Directory.CreateDirectory(rutaCompleta);
-                    MessageBox.Show($"Nuevo cuaderno '{nombreCuaderno}' creado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Directory.CreateDirectory(FullRoute);
+                    MessageBox.Show($"'{NameNotebook}' Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error al crear el nuevo cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error creating the notebook: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private int ObtenerProximoNumeroCuaderno(string ruta)
+        private int GetNextNotebookNumber(string Route)
         {
-            int numero = 1;
+            int Number = 1;
 
-            while (Directory.Exists(Path.Combine(ruta, $"{nombreBase}{numero}")))
+            while (Directory.Exists(Path.Combine(Route, $"{BaseName}{Number}")))
             {
-                numero++;
+                Number++;
             }
 
-            return numero;
+            return Number;
         }
     }
 }

@@ -3,59 +3,59 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Noty
 {
     internal class Note
-    {
+    {   
         public string Name { get; set; }
 
-
-        private string nombreBase = "NuevaNota";
+        private string BaseName = "NewNote";
 
         public Note(string name)
         {
             Name = name;
         }
 
-        public void CreateNote(string ruta, string cuadernoSeleccionado = "")
+        public void CreateNote(string Route, string SelectedNotebook = "")
         {
-            int numeroNota = ObtenerProximoNumeroNota(ruta, cuadernoSeleccionado);
-            string nombreNota = $"{nombreBase}{numeroNota}";
+            int NumberNote = GetNextNoteNumber(Route, SelectedNotebook);
+            string NameNote = $"{BaseName}{NumberNote}";
 
-            string rutaCompleta = cuadernoSeleccionado != ""
-                ? Path.Combine(ruta, cuadernoSeleccionado, $"{nombreNota}.txt")
-                : Path.Combine(ruta, $"{nombreNota}.txt");
+            string FullRoute = SelectedNotebook != ""
+                ? Path.Combine(Route, SelectedNotebook, $"{NameNote}.txt")
+                : Path.Combine(Route, $"{NameNote}.txt");
 
-            if (File.Exists(rutaCompleta))
+            if (File.Exists(FullRoute))
             {
-                MessageBox.Show("El archivo ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The Note already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 try
                 {
-                    using (File.Create(rutaCompleta)) { }
-                    MessageBox.Show($"Nueva nota '{nombreNota}' creada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    using (File.Create(FullRoute)) { }
+                    MessageBox.Show($"'{NameNote}' Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error al crear la nueva nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error creating the new Note: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private int ObtenerProximoNumeroNota(string ruta, string cuadernoSeleccionado = "")
+        private int GetNextNoteNumber(string Route, string SelectedNotebook = "")
         {
-            int numero = 1;
-            string carpetaDestino = cuadernoSeleccionado != "" ? cuadernoSeleccionado : ruta;
+            int Number = 1;
+            string DestinationFolder = SelectedNotebook != "" ? SelectedNotebook : Route;
 
-            while (File.Exists(Path.Combine(ruta, carpetaDestino, $"{nombreBase}{numero}.txt")))
+            while (File.Exists(Path.Combine(Route, DestinationFolder, $"{BaseName}{Number}.txt")))
             {
-                numero++;
+                Number++;
             }
 
-            return numero;
+            return Number;
         }
     }
 }

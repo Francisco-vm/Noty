@@ -1,3 +1,7 @@
+using System;
+using System.Windows.Forms;
+using System.IO;
+
 namespace Noty
 {
     public partial class Main : Form
@@ -10,7 +14,7 @@ namespace Noty
         private int numberNote = 0;
         private int numberNotebook = 0;
         private bool ordenAlfabetico = false;
-        private bool ordenAlfabeticoNotas = true;
+        private bool ordenAlfabeticoNotas = false;
         private bool panelExpanded = false;
 
         public Main()
@@ -18,6 +22,7 @@ namespace Noty
             InitializeComponent();
 
             ls_NoteBooks.DrawMode = DrawMode.OwnerDrawFixed;
+            ls_Notes.DrawMode = DrawMode.OwnerDrawFixed;
             this.DoubleBuffered = true;
         }
 
@@ -75,8 +80,9 @@ namespace Noty
                 {
                     // Agregar solo el nombre del archivo, no la ruta completa
                     //ls_Notes.Items.Add(Path.GetFileName(archivo));
-                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(archivo));
 
+                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(archivo));
+                    //ls_Notes.Items.Add(GetFileNameWithoutExtensionPreserveDecimal(archivo));
                 }
             }
 
@@ -312,7 +318,7 @@ namespace Noty
                     }
 
                     //Se escribe el archivo.
-
+                    tbx_Title.Text = nuevoNombreArchivo;
 
                     File.WriteAllText(rutaCompletaNuevo, TextArea.Text);
                     MessageBox.Show("Cambios guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -336,6 +342,7 @@ namespace Noty
             {
                 MessageBox.Show($"Error al guardar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         //Elimina la nota//
@@ -398,8 +405,50 @@ namespace Noty
         //Renombra el cuaderno seleccionado//
         private void btn_RenameNoteBook_Click(object sender, EventArgs e)
         {
+            /*
+            // Obtener el cuaderno seleccionado
+            string cuadernoSeleccionado = ls_NoteBooks.SelectedItem as string;
+
+            if (cuadernoSeleccionado != null)
+            {
+                using (InputDialog inputDialog = new InputDialog("Ingrese el nuevo nombre del cuaderno:", "Renombrar Cuaderno"))
+                {
+                    if (inputDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string nuevoNombreCuaderno = inputDialog.Result;
+
+                        if (!string.IsNullOrEmpty(nuevoNombreCuaderno))
+                        {
+                            // Renombrar el cuaderno
+                            string carpetaCuaderno = Path.Combine(folderPath, cuadernoSeleccionado);
+                            string nuevaCarpetaCuaderno = Path.Combine(folderPath, nuevoNombreCuaderno);
+
+                            try
+                            {
+                                Directory.Move(carpetaCuaderno, nuevaCarpetaCuaderno);
+                                UpdateNotebooks(); // Actualizar la lista de cuadernos después de renombrar
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Error al renombrar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un cuaderno antes de intentar renombrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            */
+
+            //==========================================================
+
+            
             // Obtén el nuevo nombre del cuaderno desde el TextBox
             string nuevoNombreCuaderno = tbx_NameNotebook.Text;
+           
 
             // Verifica si hay un cuaderno seleccionado
             if (!string.IsNullOrEmpty(selectedNotebook))
@@ -417,6 +466,7 @@ namespace Noty
 
                     // Actualiza la lista de cuadernos
                     UpdateNotebooks();
+                    ls_NoteBooks.SelectedItem = nuevoNombreCuaderno;
 
                     // Informa al usuario sobre el éxito
                     MessageBox.Show($"El cuaderno se ha renombrado a '{nuevoNombreCuaderno}'.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -432,6 +482,7 @@ namespace Noty
                 // Informa al usuario que no hay cuaderno seleccionado
                 MessageBox.Show("No hay cuaderno seleccionado para renombrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
         }
 
         //Ordena los cuadernos (modificado-alfabeticamente)
@@ -638,10 +689,60 @@ namespace Noty
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void ls_Notes_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            // Verifica si el índice es válido
+            if (e.Index >= 0)
+            {
+                // Obtiene el ListBox
+                ListBox listBox = sender as ListBox;
+
+                // Establece el color de fondo del elemento seleccionado
+                Color selectedColor = Color.FromArgb(115, 115, 115);
+
+                // Establece el color de fondo del elemento no seleccionado
+                Color defaultColor = listBox.BackColor;
+
+                // Establece el color del texto
+                Color textColor = listBox.ForeColor;
+
+                // Crea un pincel para el fondo
+                Brush backgroundBrush = new SolidBrush((e.State & DrawItemState.Selected) == DrawItemState.Selected ? selectedColor : defaultColor);
+
+                // Crea un pincel para el texto
+                Brush textBrush = new SolidBrush(textColor);
+
+                // Dibuja el fondo
+                e.Graphics.FillRectangle(backgroundBrush, e.Bounds);
+
+                // Dibuja el texto del elemento
+                e.Graphics.DrawString(listBox.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds, StringFormat.GenericDefault);
+
+                // Limpia los pinceles
+                backgroundBrush.Dispose();
+                textBrush.Dispose();
+
+                // Si el elemento está seleccionado, dibuja un borde alrededor del elemento
+                if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                {
+                    /*
+                    using (Pen borderPen = new Pen(Color.Black))
+                    {
+                        e.Graphics.DrawRectangle(borderPen, e.Bounds);
+                    }
+                    */
+                }
+
+                // Indica que el sistema operativo no debe dibujar el fondo del elemento
+                e.DrawFocusRectangle();
+            }
         }
 
         //===============Notes===============//
         //=============NoteBooks=============//
+
     }
 }

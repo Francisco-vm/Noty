@@ -26,91 +26,7 @@ namespace Noty
             this.DoubleBuffered = true;
         }
 
-        //Permite seleccionar la carpeta Raíz en la cual se almacenarán Notas y Cuadernos//
-        private void btn_OpenRoot_Click(object sender, EventArgs e)
-        {
-            using (var dialog = new FolderBrowserDialog())
-            {
-                DialogResult result = dialog.ShowDialog();
 
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.SelectedPath))
-                {
-                    folderPath = dialog.SelectedPath;
-                    rootPath = folderPath;
-                    WindowState = FormWindowState.Maximized;
-                    Panel_Main.Visible = true;
-                    UpdateNotebooks();
-                    tbx_NameNotebook.Text = "Root";
-                    UpdateNotes();
-                }
-            }
-        }
-
-        //Actualiza la lista de Notebooks//
-        private void UpdateNotebooks()
-        {
-            string seleccionActualNoteBooks = ls_NoteBooks.SelectedItem?.ToString();
-            ls_NoteBooks.Items.Clear();
-
-            if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
-            {
-                string[] NoteBooks = Directory.GetDirectories(folderPath);
-
-                foreach (var Notebook in NoteBooks)
-                {
-                    ls_NoteBooks.Items.Add(Path.GetFileNameWithoutExtension(Notebook));
-                }
-            }
-
-            ls_NoteBooks.SelectedItem = seleccionActualNoteBooks;
-        }
-
-        //Actualiza la lista de notas que se encuentran dentro de Root//
-        private void UpdateNotes()
-        {
-            string seleccionActualNotes = ls_Notes.SelectedItem?.ToString();
-
-            ls_Notes.Items.Clear();
-
-            if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
-            {
-                string[] archivosTxt = Directory.GetFiles(folderPath, "*.txt");
-
-                foreach (var archivo in archivosTxt)
-                {
-                    // Agregar solo el nombre del archivo, no la ruta completa
-                    //ls_Notes.Items.Add(Path.GetFileName(archivo));
-
-                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(archivo));
-                    //ls_Notes.Items.Add(GetFileNameWithoutExtensionPreserveDecimal(archivo));
-                }
-            }
-
-            ls_Notes.SelectedItem = seleccionActualNotes;
-        }
-
-        //Actualiza la lista de notas que se encuentran dentro de algun Notebook//
-        private void UpdateNotes(string carpetaSeleccionada)
-        {
-            // Guarda la selección actual
-            string seleccionActualNotes = ls_Notes.SelectedItem?.ToString();
-
-            ls_Notes.Items.Clear();
-
-            if (!string.IsNullOrEmpty(carpetaSeleccionada) && Directory.Exists(Path.Combine(folderPath, carpetaSeleccionada)))
-            {
-                string[] archivosTxt = Directory.GetFiles(Path.Combine(folderPath, carpetaSeleccionada), "*.txt");
-
-                foreach (var archivo in archivosTxt)
-                {
-                    // Agregar solo el nombre del archivo, no la ruta completa
-                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(archivo));
-                }
-            }
-
-            // Restaura la selección después de actualizar la lista
-            ls_Notes.SelectedItem = seleccionActualNotes;
-        }
 
         //Hace visibles los botones btn_Note y btn_NoteBook//
         private void btn_New_Click(object sender, EventArgs e)
@@ -122,34 +38,6 @@ namespace Noty
             // Si btn_NoteBook está invisible, hazlo visible; de lo contrario, hazlo invisible
             btn_NoteBook.Visible = !btn_NoteBook.Visible;
             lbl_NoteBook.Visible = !lbl_NoteBook.Visible;
-        }
-
-        //Logica para seleccionar un cuaderno//
-        private void ls_NoteBooks_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tbx_Title.ReadOnly = true;
-            TextArea.ReadOnly = true;
-            // Obtener la carpeta seleccionada en la ListBox
-            string NoteBookSelected = ls_NoteBooks.SelectedItem?.ToString();
-
-            // Mostrar el nombre de la carpeta en el TextBox
-            tbx_NameNotebook.Text = NoteBookSelected;
-
-            // Actualizar la lista de archivos .txt según la nueva carpeta seleccionada
-            UpdateNotes(NoteBookSelected);
-
-            // Manejar el evento de selección cambiada en la ListBox de cuadernos
-            selectedNotebook = ls_NoteBooks.SelectedItem as string;
-            creatingInNotebook = !string.IsNullOrEmpty(selectedNotebook);
-
-            if (creatingInNotebook)
-            {
-                UpdateNotes(selectedNotebook);
-            }
-            else
-            {
-                UpdateNotes();
-            }
         }
 
         //Logica para seleccionar una nota//
@@ -201,6 +89,8 @@ namespace Noty
         {
             btn_Note.Visible = false;
             btn_NoteBook.Visible = false;
+            lbl_Note.Visible = false;
+            lbl_NoteBook.Visible = false;
 
             numberNote++;
             string nombreNota = $"NuevaNota{numberNote}";
@@ -229,20 +119,6 @@ namespace Noty
             {
                 UpdateNotes();
             }
-        }
-
-        //Logica para crear un Cuaderno//
-        private void btn_NoteBook_Click(object sender, EventArgs e)
-        {
-            Notebook newNotebook = new Notebook();
-            newNotebook.CreateNotebook(folderPath);
-            UpdateNotebooks();
-        }
-
-        //Sin funciones//
-        private void TextArea_MouseClick(object sender, MouseEventArgs e)
-        {
-            //Panel_Right.Visible = true;
         }
 
         //Muestra las notas de la carpeta raíz, limpia al area de texto y el titulo de notas//
@@ -342,7 +218,7 @@ namespace Noty
             {
                 MessageBox.Show($"Error al guardar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         //Elimina la nota//
@@ -402,6 +278,420 @@ namespace Noty
             }
         }
 
+        private void btn_Expand_Click(object sender, EventArgs e)
+        {
+            Panel_LeftTimer.Start();
+            //lbl_Note.Visible = true;
+            //lbl_Notebook.Visible = true;
+        }
+
+        //Ordena las notas (modificado-alfabeticamente)
+        private void btn_SortNotes_Click(object sender, EventArgs e)
+        {
+            // Obtener la carpeta del cuaderno seleccionado (o la carpeta raíz)
+            string carpetaCuaderno = creatingInNotebook ? selectedNotebook : folderPath;
+
+            // Obtener la lista de notas en la carpeta del cuaderno
+            List<string> notas = Directory.GetFiles(Path.Combine(folderPath, carpetaCuaderno), "*.txt").ToList();
+
+            // Decidir el tipo de orden y aplicar la ordenación correspondiente
+            if (ordenAlfabeticoNotas)
+            {
+                // Orden alfabético
+                notas.Sort();
+            }
+            else
+            {
+                // Orden por fecha de modificación
+                notas.Sort((n1, n2) =>
+                {
+                    DateTime fechaN1 = File.GetLastWriteTime(n1);
+                    DateTime fechaN2 = File.GetLastWriteTime(n2);
+                    return fechaN2.CompareTo(fechaN1);
+                });
+            }
+
+            // Cambiar el tipo de orden para la próxima vez
+            ordenAlfabeticoNotas = !ordenAlfabeticoNotas;
+
+            // Limpiar y actualizar la ListBox con la nueva ordenación
+            ls_Notes.Items.Clear();
+            ls_Notes.Items.AddRange(notas.Select(nota => Path.GetFileNameWithoutExtension(nota)).ToArray());
+        }
+
+        private void btn_Bold_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        
+
+
+
+        //=============Functions==============//
+
+        //Permite seleccionar la carpeta Raíz en la cual se almacenarán Notas y Cuadernos//
+        private void btn_OpenRoot_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new FolderBrowserDialog())
+            {
+                DialogResult result = dialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.SelectedPath))
+                {
+                    folderPath = dialog.SelectedPath;
+                    rootPath = folderPath;
+                    WindowState = FormWindowState.Maximized;
+                    Panel_Main.Visible = true;
+                    UpdateNotebooks();
+                    tbx_NameNotebook.Text = "Root";
+                    UpdateNotes();
+                }
+            }
+        }
+
+        //Funcion de autoguardado//
+        private void AutoSave()
+        {
+            string notaSeleccionada = ls_Notes.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(notaSeleccionada))
+            {
+                // No hay nota seleccionada, no se puede guardar automáticamente
+                return;
+            }
+
+            string carpetaDestino = creatingInNotebook ? selectedNotebook : folderPath;
+            string nombreNotaActual = Path.GetFileNameWithoutExtension(notaSeleccionada);
+            string rutaCompletaOriginal;
+
+            // Verificar si estamos dentro de un cuaderno o en la carpeta raíz
+            if (creatingInNotebook)
+            {
+                // Estamos dentro de un cuaderno, construir la ruta de la nota dentro del cuaderno
+                rutaCompletaOriginal = Path.Combine(folderPath, carpetaDestino, $"{nombreNotaActual}.txt");
+            }
+            else
+            {
+                // Estamos en la carpeta raíz, construir la ruta de la nota en la carpeta raíz
+                rutaCompletaOriginal = Path.Combine(folderPath, $"{nombreNotaActual}.txt");
+            }
+
+            try
+            {
+                // Si el archivo de la nota existe, guardar automáticamente los cambios
+                if (File.Exists(rutaCompletaOriginal))
+                {
+                    File.WriteAllText(rutaCompletaOriginal, TextArea.Text);
+                    // Puedes mostrar un mensaje de éxito o actualizar otras partes de la interfaz aquí
+                }
+                else
+                {
+                    MessageBox.Show($"La nota '{nombreNotaActual}' no existe. Utiliza el botón 'Crear' para crear una nueva nota.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            /*
+            // Obtén la ruta completa de la nota seleccionada
+            string notaSeleccionada = ls_Notes.SelectedItem?.ToString();
+            string carpetaDestino = creatingInNotebook ? selectedNotebook : folderPath;
+            string nombreNotaActual = Path.GetFileNameWithoutExtension(notaSeleccionada);
+            string rutaCompletaOriginal = Path.Combine(carpetaDestino, $"{nombreNotaActual}.txt");
+
+            try
+            {
+                string nuevaNota = ls_Notes.SelectedItem?.ToString();
+
+                // Si la nota existe, guarda automáticamente los cambios
+                if (File.Exists(rutaCompletaOriginal))
+                {
+                    //Bug encontrado. Condición If siempre cumplida. 
+                    File.WriteAllText(rutaCompletaOriginal, TextArea.Text);
+                    // Puedes mostrar un mensaje de éxito o actualizar otras partes de la interfaz aquí
+                }
+                else
+                {
+                    MessageBox.Show($"La nota '{nombreNotaActual}' no existe Mensaje error 1. Utiliza el botón 'Crear' para crear una nueva nota.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            */
+        }
+
+        //Actualiza la lista de notas que se encuentran dentro de Root//
+        private void UpdateNotes()
+        {
+            string seleccionActualNotes = ls_Notes.SelectedItem?.ToString();
+
+            ls_Notes.Items.Clear();
+
+            if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
+            {
+                string[] archivosTxt = Directory.GetFiles(folderPath, "*.txt");
+
+                foreach (var archivo in archivosTxt)
+                {
+                    // Agregar solo el nombre del archivo, no la ruta completa
+                    //ls_Notes.Items.Add(Path.GetFileName(archivo));
+
+                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(archivo));
+                    //ls_Notes.Items.Add(GetFileNameWithoutExtensionPreserveDecimal(archivo));
+                }
+            }
+
+            ls_Notes.SelectedItem = seleccionActualNotes;
+        }
+
+        //Actualiza la lista de notas que se encuentran dentro de algun Notebook//
+        private void UpdateNotes(string carpetaSeleccionada)
+        {
+            // Guarda la selección actual
+            string seleccionActualNotes = ls_Notes.SelectedItem?.ToString();
+
+            ls_Notes.Items.Clear();
+
+            if (!string.IsNullOrEmpty(carpetaSeleccionada) && Directory.Exists(Path.Combine(folderPath, carpetaSeleccionada)))
+            {
+                string[] archivosTxt = Directory.GetFiles(Path.Combine(folderPath, carpetaSeleccionada), "*.txt");
+
+                foreach (var archivo in archivosTxt)
+                {
+                    // Agregar solo el nombre del archivo, no la ruta completa
+                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(archivo));
+                }
+            }
+
+            // Restaura la selección después de actualizar la lista
+            ls_Notes.SelectedItem = seleccionActualNotes;
+        }
+
+        //Actualiza la lista de Notebooks//
+        private void UpdateNotebooks()
+        {
+            string seleccionActualNoteBooks = ls_NoteBooks.SelectedItem?.ToString();
+            ls_NoteBooks.Items.Clear();
+
+            if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
+            {
+                string[] NoteBooks = Directory.GetDirectories(folderPath);
+
+                foreach (var Notebook in NoteBooks)
+                {
+                    ls_NoteBooks.Items.Add(Path.GetFileNameWithoutExtension(Notebook));
+                }
+            }
+
+            ls_NoteBooks.SelectedItem = seleccionActualNoteBooks;
+        }
+
+        //Realiza el auto guardado del cuerpo de la nota
+        private void TextArea_TextChanged(object sender, EventArgs e)
+        {
+            AutoSave();
+        }
+
+
+
+        //=============Interface=============//
+
+        //Controla la animacion del Panel_Left//
+        private void slidebarTimer_Tick(object sender, EventArgs e)
+        {
+            if (panelExpanded)
+            {
+                Panel_Left.Width -= 10;
+
+                if (Panel_Left.Width <= Panel_Left.MinimumSize.Width)
+                {
+                    Panel_Left.Width = Panel_Left.MinimumSize.Width;
+                    Panel_LeftTimer.Stop();
+                    panelExpanded = false;
+                    lbl_New.Visible = false;
+                    lbl_Note.Visible = false;
+                    lbl_NoteBook.Visible = false;
+                }
+            }
+            else
+            {
+                Panel_Left.Width += 10;
+
+                if (Panel_Left.Width >= Panel_Left.MaximumSize.Width)
+                {
+                    Panel_Left.Width = Panel_Left.MaximumSize.Width;
+                    Panel_LeftTimer.Stop();
+                    panelExpanded = true;
+                    lbl_New.Visible = true;
+
+                    if (btn_Note.Visible == true)
+                    {
+                        lbl_Note.Visible = true;
+                    }
+
+                    if (btn_NoteBook.Visible == true)
+                    {
+                        lbl_NoteBook.Visible = true;
+                    }
+                }
+            }
+        }
+
+        //Dibuja en Gris el cuaderno seleccionado//
+        private void ls_NoteBooks_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            // Verifica si el índice es válido
+            if (e.Index >= 0)
+            {
+                // Obtiene el ListBox
+                ListBox listBox = sender as ListBox;
+
+                // Establece el color de fondo del elemento seleccionado
+                Color selectedColor = Color.FromArgb(115, 115, 115);
+
+                // Establece el color de fondo del elemento no seleccionado
+                Color defaultColor = listBox.BackColor;
+
+                // Establece el color del texto
+                Color textColor = listBox.ForeColor;
+
+                // Crea un pincel para el fondo
+                Brush backgroundBrush = new SolidBrush((e.State & DrawItemState.Selected) == DrawItemState.Selected ? selectedColor : defaultColor);
+
+                // Crea un pincel para el texto
+                Brush textBrush = new SolidBrush(textColor);
+
+                // Dibuja el fondo
+                e.Graphics.FillRectangle(backgroundBrush, e.Bounds);
+
+                // Dibuja el texto del elemento
+                e.Graphics.DrawString(listBox.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds, StringFormat.GenericDefault);
+
+                // Limpia los pinceles
+                backgroundBrush.Dispose();
+                textBrush.Dispose();
+
+                // Si el elemento está seleccionado, dibuja un borde alrededor del elemento
+                if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                {
+                    /*
+                    using (Pen borderPen = new Pen(Color.Black))
+                    {
+                        e.Graphics.DrawRectangle(borderPen, e.Bounds);
+                    }
+                    */
+                }
+
+                // Indica que el sistema operativo no debe dibujar el fondo del elemento
+                e.DrawFocusRectangle();
+            }
+        }
+
+        //Dibuja en Gris la nota seleccionada
+        private void ls_Notes_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            // Verifica si el índice es válido
+            if (e.Index >= 0)
+            {
+                // Obtiene el ListBox
+                ListBox listBox = sender as ListBox;
+
+                // Establece el color de fondo del elemento seleccionado
+                Color selectedColor = Color.FromArgb(115, 115, 115);
+
+                // Establece el color de fondo del elemento no seleccionado
+                Color defaultColor = listBox.BackColor;
+
+                // Establece el color del texto
+                Color textColor = listBox.ForeColor;
+
+                // Crea un pincel para el fondo
+                Brush backgroundBrush = new SolidBrush((e.State & DrawItemState.Selected) == DrawItemState.Selected ? selectedColor : defaultColor);
+
+                // Crea un pincel para el texto
+                Brush textBrush = new SolidBrush(textColor);
+
+                // Dibuja el fondo
+                e.Graphics.FillRectangle(backgroundBrush, e.Bounds);
+
+                // Dibuja el texto del elemento
+                e.Graphics.DrawString(listBox.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds, StringFormat.GenericDefault);
+
+                // Limpia los pinceles
+                backgroundBrush.Dispose();
+                textBrush.Dispose();
+
+                // Si el elemento está seleccionado, dibuja un borde alrededor del elemento
+                if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                {
+                    /*
+                    using (Pen borderPen = new Pen(Color.Black))
+                    {
+                        e.Graphics.DrawRectangle(borderPen, e.Bounds);
+                    }
+                    */
+                }
+
+                // Indica que el sistema operativo no debe dibujar el fondo del elemento
+                e.DrawFocusRectangle();
+            }
+        }
+
+
+        //===============Notes===============//
+
+
+
+        //=============NoteBooks=============//
+
+
+        //Logica para seleccionar un cuaderno//
+        private void ls_NoteBooks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbx_Title.ReadOnly = true;
+            TextArea.ReadOnly = true;
+            // Obtener la carpeta seleccionada en la ListBox
+            string NoteBookSelected = ls_NoteBooks.SelectedItem?.ToString();
+
+            // Mostrar el nombre de la carpeta en el TextBox
+            tbx_NameNotebook.Text = NoteBookSelected;
+
+            // Actualizar la lista de archivos .txt según la nueva carpeta seleccionada
+            UpdateNotes(NoteBookSelected);
+
+            // Manejar el evento de selección cambiada en la ListBox de cuadernos
+            selectedNotebook = ls_NoteBooks.SelectedItem as string;
+            creatingInNotebook = !string.IsNullOrEmpty(selectedNotebook);
+
+            if (creatingInNotebook)
+            {
+                UpdateNotes(selectedNotebook);
+            }
+            else
+            {
+                UpdateNotes();
+            }
+        }
+
+        //Logica para crear un Cuaderno//
+        private void btn_NoteBook_Click(object sender, EventArgs e)
+        {
+            btn_Note.Visible = false;
+            btn_NoteBook.Visible = false;
+            lbl_Note.Visible = false;
+            lbl_NoteBook.Visible = false;
+
+            Notebook newNotebook = new Notebook();
+            newNotebook.CreateNotebook(folderPath);
+            UpdateNotebooks();
+        }
+
         //Renombra el cuaderno seleccionado//
         private void btn_RenameNoteBook_Click(object sender, EventArgs e)
         {
@@ -445,10 +735,10 @@ namespace Noty
 
             //==========================================================
 
-            
+
             // Obtén el nuevo nombre del cuaderno desde el TextBox
             string nuevoNombreCuaderno = tbx_NameNotebook.Text;
-           
+
 
             // Verifica si hay un cuaderno seleccionado
             if (!string.IsNullOrEmpty(selectedNotebook))
@@ -482,7 +772,7 @@ namespace Noty
                 // Informa al usuario que no hay cuaderno seleccionado
                 MessageBox.Show("No hay cuaderno seleccionado para renombrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
         }
 
         //Ordena los cuadernos (modificado-alfabeticamente)
@@ -550,199 +840,87 @@ namespace Noty
             }
         }
 
-        //Dibuja en Gris el cuaderno seleccionado//
-        private void ls_NoteBooks_DrawItem(object sender, DrawItemEventArgs e)
+
+        //============= In work =============//
+        private void tbx_Title_TextChanged(object sender, EventArgs e)
         {
-            // Verifica si el índice es válido
-            if (e.Index >= 0)
-            {
-                // Obtiene el ListBox
-                ListBox listBox = sender as ListBox;
-
-                // Establece el color de fondo del elemento seleccionado
-                Color selectedColor = Color.FromArgb(115, 115, 115);
-
-                // Establece el color de fondo del elemento no seleccionado
-                Color defaultColor = listBox.BackColor;
-
-                // Establece el color del texto
-                Color textColor = listBox.ForeColor;
-
-                // Crea un pincel para el fondo
-                Brush backgroundBrush = new SolidBrush((e.State & DrawItemState.Selected) == DrawItemState.Selected ? selectedColor : defaultColor);
-
-                // Crea un pincel para el texto
-                Brush textBrush = new SolidBrush(textColor);
-
-                // Dibuja el fondo
-                e.Graphics.FillRectangle(backgroundBrush, e.Bounds);
-
-                // Dibuja el texto del elemento
-                e.Graphics.DrawString(listBox.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds, StringFormat.GenericDefault);
-
-                // Limpia los pinceles
-                backgroundBrush.Dispose();
-                textBrush.Dispose();
-
-                // Si el elemento está seleccionado, dibuja un borde alrededor del elemento
-                if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                {
-                    /*
-                    using (Pen borderPen = new Pen(Color.Black))
-                    {
-                        e.Graphics.DrawRectangle(borderPen, e.Bounds);
-                    }
-                    */
-                }
-
-                // Indica que el sistema operativo no debe dibujar el fondo del elemento
-                e.DrawFocusRectangle();
-            }
+            AutoSaveTitle();
         }
 
-        //Controla la animacion del Panel_Left//
-        private void slidebarTimer_Tick(object sender, EventArgs e)
+        private void AutoSaveTitle()
         {
-            if (panelExpanded)
-            {
-                Panel_Left.Width -= 10;
+            // Obtener la nota seleccionada
+            string notaSeleccionada = ls_Notes.SelectedItem?.ToString();
 
-                if (Panel_Left.Width <= Panel_Left.MinimumSize.Width)
+            if (!string.IsNullOrEmpty(notaSeleccionada))
+            {
+                // Obtener la carpeta seleccionada en el ListBox de cuadernos
+                string cuadernoSeleccionado = ls_NoteBooks.SelectedItem?.ToString();
+                string carpetaDestino = creatingInNotebook ? selectedNotebook : folderPath;
+
+                // Construir la ruta completa de la nota
+                string nombreNotaActual = Path.GetFileNameWithoutExtension(notaSeleccionada);
+                string rutaCompletaOriginal;
+
+                if (creatingInNotebook && !string.IsNullOrEmpty(cuadernoSeleccionado))
                 {
-                    Panel_Left.Width = Panel_Left.MinimumSize.Width;
-                    Panel_LeftTimer.Stop();
-                    panelExpanded = false;
-                    lbl_New.Visible = false;
-                    lbl_Note.Visible = false;
-                    lbl_NoteBook.Visible = false;
+                    // Carpeta del cuaderno
+                    rutaCompletaOriginal = Path.Combine(folderPath, cuadernoSeleccionado, $"{nombreNotaActual}.txt");
                 }
-            }
-            else
-            {
-                Panel_Left.Width += 10;
-
-                if (Panel_Left.Width >= Panel_Left.MaximumSize.Width)
+                else
                 {
-                    Panel_Left.Width = Panel_Left.MaximumSize.Width;
-                    Panel_LeftTimer.Stop();
-                    panelExpanded = true;
-                    lbl_New.Visible = true;
+                    // Carpeta raíz
+                    rutaCompletaOriginal = Path.Combine(carpetaDestino, $"{nombreNotaActual}.txt");
+                }
 
-                    if (btn_Note.Visible == true)
+                try
+                {
+                    // Verificar si el título no está vacío
+                    if (!string.IsNullOrEmpty(tbx_Title.Text))
                     {
-                        lbl_Note.Visible = true;
-                    }
+                        string nuevoTitulo = tbx_Title.Text.Trim(); // Eliminar espacios en blanco al inicio y al final
 
-                    if (btn_NoteBook.Visible == true)
-                    {
-                        lbl_NoteBook.Visible = true;
+                        // Construir la nueva ruta con el nuevo título
+                        string rutaCompletaNuevo;
+
+                        if (creatingInNotebook && !string.IsNullOrEmpty(cuadernoSeleccionado))
+                        {
+                            // Carpeta del cuaderno
+                            rutaCompletaNuevo = Path.Combine(folderPath, cuadernoSeleccionado, $"{nuevoTitulo}.txt");
+                        }
+                        else
+                        {
+                            // Carpeta raíz
+                            rutaCompletaNuevo = Path.Combine(carpetaDestino, $"{nuevoTitulo}.txt");
+                        }
+
+                        // Verificar si el nuevo título es diferente al actual
+                        if (nombreNotaActual != nuevoTitulo)
+                        {
+                            // Verificar si el nuevo título ya existe
+                            if (!File.Exists(rutaCompletaNuevo) || rutaCompletaOriginal == rutaCompletaNuevo)
+                            {
+                                // Renombrar el archivo con el nuevo título
+                                File.Move(rutaCompletaOriginal, rutaCompletaNuevo);
+
+                                // Actualizar la lista de notas
+                                UpdateNotes(carpetaDestino);
+
+                                // Actualizar el título de la nota seleccionada
+                                ls_Notes.SelectedItem = nuevoTitulo;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Ya existe una nota con el nombre '{nuevoTitulo}'. Por favor, elige un nombre diferente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al guardar el título de la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
-
-        private void btn_Expand_Click(object sender, EventArgs e)
-        {
-            Panel_LeftTimer.Start();
-            //lbl_Note.Visible = true;
-            //lbl_Notebook.Visible = true;
-        }
-
-        //Ordena las notas (modificado-alfabeticamente)
-        private void btn_SortNotes_Click(object sender, EventArgs e)
-        {
-            // Obtener la carpeta del cuaderno seleccionado (o la carpeta raíz)
-            string carpetaCuaderno = creatingInNotebook ? selectedNotebook : folderPath;
-
-            // Obtener la lista de notas en la carpeta del cuaderno
-            List<string> notas = Directory.GetFiles(Path.Combine(folderPath, carpetaCuaderno), "*.txt").ToList();
-
-            // Decidir el tipo de orden y aplicar la ordenación correspondiente
-            if (ordenAlfabeticoNotas)
-            {
-                // Orden alfabético
-                notas.Sort();
-            }
-            else
-            {
-                // Orden por fecha de modificación
-                notas.Sort((n1, n2) =>
-                {
-                    DateTime fechaN1 = File.GetLastWriteTime(n1);
-                    DateTime fechaN2 = File.GetLastWriteTime(n2);
-                    return fechaN2.CompareTo(fechaN1);
-                });
-            }
-
-            // Cambiar el tipo de orden para la próxima vez
-            ordenAlfabeticoNotas = !ordenAlfabeticoNotas;
-
-            // Limpiar y actualizar la ListBox con la nueva ordenación
-            ls_Notes.Items.Clear();
-            ls_Notes.Items.AddRange(notas.Select(nota => Path.GetFileNameWithoutExtension(nota)).ToArray());
-        }
-
-        private void btn_Bold_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ls_Notes_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            // Verifica si el índice es válido
-            if (e.Index >= 0)
-            {
-                // Obtiene el ListBox
-                ListBox listBox = sender as ListBox;
-
-                // Establece el color de fondo del elemento seleccionado
-                Color selectedColor = Color.FromArgb(115, 115, 115);
-
-                // Establece el color de fondo del elemento no seleccionado
-                Color defaultColor = listBox.BackColor;
-
-                // Establece el color del texto
-                Color textColor = listBox.ForeColor;
-
-                // Crea un pincel para el fondo
-                Brush backgroundBrush = new SolidBrush((e.State & DrawItemState.Selected) == DrawItemState.Selected ? selectedColor : defaultColor);
-
-                // Crea un pincel para el texto
-                Brush textBrush = new SolidBrush(textColor);
-
-                // Dibuja el fondo
-                e.Graphics.FillRectangle(backgroundBrush, e.Bounds);
-
-                // Dibuja el texto del elemento
-                e.Graphics.DrawString(listBox.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds, StringFormat.GenericDefault);
-
-                // Limpia los pinceles
-                backgroundBrush.Dispose();
-                textBrush.Dispose();
-
-                // Si el elemento está seleccionado, dibuja un borde alrededor del elemento
-                if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                {
-                    /*
-                    using (Pen borderPen = new Pen(Color.Black))
-                    {
-                        e.Graphics.DrawRectangle(borderPen, e.Bounds);
-                    }
-                    */
-                }
-
-                // Indica que el sistema operativo no debe dibujar el fondo del elemento
-                e.DrawFocusRectangle();
-            }
-        }
-
-        //===============Notes===============//
-        //=============NoteBooks=============//
-
     }
 }

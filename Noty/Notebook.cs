@@ -8,16 +8,16 @@ namespace Noty
 {
     internal class Notebook
     {
-        private const string BaseName = "NewNotebook";
+        private const string baseName = "NewNotebook";
 
         public void CreateNotebook(string Route)
         {
-            int NumberNotebook = GetNextNotebookNumber(Route);
-            string NameNotebook = $"{BaseName}{NumberNotebook}";
+            int numberNotebook = GetNextNotebookNumber(Route);
+            string nameNotebook = $"{baseName}{numberNotebook}";
 
-            string FullRoute = Path.Combine(Route, NameNotebook);
+            string fullRoute = Path.Combine(Route, nameNotebook);
 
-            if (Directory.Exists(FullRoute))
+            if (Directory.Exists(fullRoute))
             {
                 MessageBox.Show("The notebook already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -25,8 +25,8 @@ namespace Noty
             {
                 try
                 {
-                    Directory.CreateDirectory(FullRoute);
-                    MessageBox.Show($"'{NameNotebook}' Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Directory.CreateDirectory(fullRoute);
+                    MessageBox.Show($"'{nameNotebook}' Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -37,14 +37,14 @@ namespace Noty
 
         private int GetNextNotebookNumber(string Route)
         {
-            int Number = 1;
+            int number = 1;
 
-            while (Directory.Exists(Path.Combine(Route, $"{BaseName}{Number}")))
+            while (Directory.Exists(Path.Combine(Route, $"{baseName}{number}")))
             {
-                Number++;
+                number++;
             }
 
-            return Number;
+            return number;
         }
     }
 }

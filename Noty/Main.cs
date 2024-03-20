@@ -13,8 +13,8 @@ namespace Noty
         private string selectedNotebook;
         private int numberNote = 0;
         private int numberNotebook = 0;
-        private bool ordenAlfabetico = false;
-        private bool ordenAlfabeticoNotas = false;
+        private bool alphabeticalOrderNotebooks = false;
+        private bool alphabeticalOrderNotes = false;
         private bool panelExpanded = false;
 
         public Main()
@@ -27,310 +27,8 @@ namespace Noty
         }
 
 
-
-        //Hace visibles los botones btn_Note y btn_NoteBook//
-        private void btn_New_Click(object sender, EventArgs e)
-        {
-            // Si btn_Note está invisible, hazlo visible; de lo contrario, hazlo invisible
-            btn_Note.Visible = !btn_Note.Visible;
-            lbl_Note.Visible = !lbl_Note.Visible;
-
-            // Si btn_NoteBook está invisible, hazlo visible; de lo contrario, hazlo invisible
-            btn_NoteBook.Visible = !btn_NoteBook.Visible;
-            lbl_NoteBook.Visible = !lbl_NoteBook.Visible;
-        }
-
-        //Logica para seleccionar una nota//
-        private void ls_Notes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Manejar el evento de selección cambiada en el ListBox
-
-            // Obtener el archivo seleccionado
-            string archivoSeleccionado = ls_Notes.SelectedItem?.ToString();
-
-            if (!string.IsNullOrEmpty(archivoSeleccionado))
-            {
-                // Obtener la carpeta seleccionada en la ListBox de cuadernos
-                string cuadernoSeleccionado = ls_NoteBooks.SelectedItem?.ToString();
-
-                // Obtener la ruta completa del archivo
-                string rutaCompleta;
-
-                if (string.IsNullOrEmpty(cuadernoSeleccionado))
-                {
-                    // Carpeta raíz
-                    rutaCompleta = Path.Combine(folderPath, $"{archivoSeleccionado}.txt");
-                }
-                else
-                {
-                    // Cuaderno seleccionado
-                    rutaCompleta = Path.Combine(folderPath, cuadernoSeleccionado, $"{archivoSeleccionado}.txt");
-                }
-
-                try
-                {
-                    // Leer el contenido del archivo y mostrarlo en el RichTextBox
-                    TextArea.Text = File.ReadAllText(rutaCompleta);
-                    TextArea.ReadOnly = false;
-                    tbx_Title.ReadOnly = false;
-
-                    // Establecer el título de la nota en el TextBox
-                    tbx_Title.Text = Path.GetFileNameWithoutExtension(archivoSeleccionado);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al cargar el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        //Logica para crear una nota//
-        private void btn_Note_Click(object sender, EventArgs e)
-        {
-            btn_Note.Visible = false;
-            btn_NoteBook.Visible = false;
-            lbl_Note.Visible = false;
-            lbl_NoteBook.Visible = false;
-
-            numberNote++;
-            string nombreNota = $"NuevaNota{numberNote}";
-
-            // Obtén la ruta del cuaderno seleccionado (o la carpeta raíz)
-            string carpetaCuaderno = creatingInNotebook ? selectedNotebook : folderPath;
-
-            // Condición (cuaderno->exista)
-            string carpetaCuadernoPath = Path.Combine(folderPath, carpetaCuaderno);
-            if (!Directory.Exists(carpetaCuadernoPath))
-            {
-                MessageBox.Show($"Error: El cuaderno '{carpetaCuaderno}' no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Crea la nota dentro del cuaderno
-            Note newNote = new Note(nombreNota);
-            newNote.CreateNote(carpetaCuadernoPath);
-
-            // Después de crear la nota, actualizar la lista según el contexto
-            if (creatingInNotebook)
-            {
-                UpdateNotes(selectedNotebook);
-            }
-            else
-            {
-                UpdateNotes();
-            }
-        }
-
-        //Muestra las notas de la carpeta raíz, limpia al area de texto y el titulo de notas//
-        private void btn_Home_Click(object sender, EventArgs e)
-        {
-            // Limpiar la selección de cuaderno
-            ls_NoteBooks.ClearSelected();
-
-            // Actualizar la vista para mostrar las notas en la carpeta raíz
-            UpdateNotes();
-
-            // Limpiar los campos de título y área de texto
-            tbx_Title.Clear();
-            TextArea.Clear();
-            tbx_Title.ReadOnly = true;
-            TextArea.ReadOnly = true;
-
-            tbx_NameNotebook.Text = "Root";
-        }
-
-        //Guarda las notas nuevas y sus modificaciones//
-        private void btn_Save_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(folderPath))
-            {
-                MessageBox.Show("Por favor, seleccione la carpeta origen antes de guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (string.IsNullOrEmpty(tbx_Title.Text))
-            {
-                MessageBox.Show("Por favor, ingrese un nombre para la nota antes de guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            string nuevoNombreArchivo = tbx_Title.Text;
-            string notaSeleccionada = ls_Notes.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(notaSeleccionada))
-            {
-                MessageBox.Show("Por favor, selecciona una nota antes de intentar guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Si hay un cuaderno seleccionado, la carpeta de destino es la del cuaderno; de lo contrario, es la carpeta raíz
-            string carpetaDestino = creatingInNotebook ? selectedNotebook : folderPath;
-
-            string nombreNotaActual = Path.GetFileNameWithoutExtension(notaSeleccionada);
-
-            try
-            {
-                // Si hay un cuaderno seleccionado, ajusta la carpeta de destino para reflejar la estructura de carpetas
-                if (creatingInNotebook)
-                {
-                    carpetaDestino = Path.Combine(folderPath, selectedNotebook);
-                }
-
-                string rutaCompletaOriginal = Path.Combine(carpetaDestino, $"{nombreNotaActual}.txt");
-
-                if (File.Exists(rutaCompletaOriginal))
-                {
-                    string rutaCompletaNuevo = Path.Combine(carpetaDestino, $"{nuevoNombreArchivo}.txt");
-
-                    if (nombreNotaActual != nuevoNombreArchivo && File.Exists(rutaCompletaNuevo))
-                    {
-                        MessageBox.Show($"Ya existe una nota con el nombre '{nuevoNombreArchivo}'. Por favor, elige un nombre diferente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    if (rutaCompletaOriginal != rutaCompletaNuevo)
-                    {
-                        File.Move(rutaCompletaOriginal, rutaCompletaNuevo);
-                    }
-
-                    //Se escribe el archivo.
-                    tbx_Title.Text = nuevoNombreArchivo;
-
-                    File.WriteAllText(rutaCompletaNuevo, TextArea.Text);
-                    MessageBox.Show("Cambios guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Actualizar la lista de notas y seleccionar la nota recién guardada
-                    UpdateNotes(carpetaDestino);
-                    ls_Notes.SelectedItem = nuevoNombreArchivo;
-
-                    // Si es necesario, actualizar la lista de cuadernos
-                    if (!creatingInNotebook)
-                    {
-                        UpdateNotebooks();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"La nota '{nombreNotaActual}' no existe. Utiliza el botón 'Crear' para crear una nueva nota.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al guardar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        //Elimina la nota//
-        private void btn_Delete_Click(object sender, EventArgs e)
-        {
-            // Obtener el archivo seleccionado
-            string archivoSeleccionado = ls_Notes.SelectedItem?.ToString();
-
-            if (!string.IsNullOrEmpty(archivoSeleccionado))
-            {
-                // Obtener la carpeta seleccionada en la ListBox de cuadernos
-                string cuadernoSeleccionado = ls_NoteBooks.SelectedItem?.ToString();
-
-                // Si hay un cuaderno seleccionado, la carpeta de destino es la del cuaderno; de lo contrario, es la carpeta raíz
-                string carpetaDestino = cuadernoSeleccionado != null ? Path.Combine(folderPath, cuadernoSeleccionado) : folderPath;
-
-                // Obtener la ruta completa del archivo
-                string rutaCompleta = Path.Combine(carpetaDestino, $"{archivoSeleccionado}.txt");
-
-                try
-                {
-                    // Verificar si el archivo existe antes de intentar eliminarlo
-                    if (File.Exists(rutaCompleta))
-                    {
-                        // Eliminar el archivo
-                        File.Delete(rutaCompleta);
-                        tbx_Title.Clear();
-                        TextArea.Clear();
-
-                        MessageBox.Show($"La nota '{archivoSeleccionado}' ha sido eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Actualizar la lista de notas después de eliminar
-                        if (cuadernoSeleccionado != null)
-                        {
-                            // Si hay un cuaderno seleccionado, actualizar la lista de notas dentro del cuaderno
-                            UpdateNotes(carpetaDestino);
-                        }
-                        else
-                        {
-                            // Si no hay cuaderno seleccionado, actualizar la lista de notas en la carpeta raíz
-                            UpdateNotes();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show($"La nota '{archivoSeleccionado}' no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al eliminar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, selecciona una nota antes de intentar eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void btn_Expand_Click(object sender, EventArgs e)
-        {
-            Panel_LeftTimer.Start();
-            //lbl_Note.Visible = true;
-            //lbl_Notebook.Visible = true;
-        }
-
-        //Ordena las notas (modificado-alfabeticamente)
-        private void btn_SortNotes_Click(object sender, EventArgs e)
-        {
-            // Obtener la carpeta del cuaderno seleccionado (o la carpeta raíz)
-            string carpetaCuaderno = creatingInNotebook ? selectedNotebook : folderPath;
-
-            // Obtener la lista de notas en la carpeta del cuaderno
-            List<string> notas = Directory.GetFiles(Path.Combine(folderPath, carpetaCuaderno), "*.txt").ToList();
-
-            // Decidir el tipo de orden y aplicar la ordenación correspondiente
-            if (ordenAlfabeticoNotas)
-            {
-                // Orden alfabético
-                notas.Sort();
-            }
-            else
-            {
-                // Orden por fecha de modificación
-                notas.Sort((n1, n2) =>
-                {
-                    DateTime fechaN1 = File.GetLastWriteTime(n1);
-                    DateTime fechaN2 = File.GetLastWriteTime(n2);
-                    return fechaN2.CompareTo(fechaN1);
-                });
-            }
-
-            // Cambiar el tipo de orden para la próxima vez
-            ordenAlfabeticoNotas = !ordenAlfabeticoNotas;
-
-            // Limpiar y actualizar la ListBox con la nueva ordenación
-            ls_Notes.Items.Clear();
-            ls_Notes.Items.AddRange(notas.Select(nota => Path.GetFileNameWithoutExtension(nota)).ToArray());
-        }
-
-        private void btn_Bold_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        
-
-
-
         //=============Functions==============//
+
 
         //Permite seleccionar la carpeta Raíz en la cual se almacenarán Notas y Cuadernos//
         private void btn_OpenRoot_Click(object sender, EventArgs e)
@@ -352,155 +50,103 @@ namespace Noty
             }
         }
 
-        //Funcion de autoguardado//
-        private void AutoSave()
-        {
-            string notaSeleccionada = ls_Notes.SelectedItem?.ToString();
-            if (string.IsNullOrEmpty(notaSeleccionada))
-            {
-                // No hay nota seleccionada, no se puede guardar automáticamente
-                return;
-            }
-
-            string carpetaDestino = creatingInNotebook ? selectedNotebook : folderPath;
-            string nombreNotaActual = Path.GetFileNameWithoutExtension(notaSeleccionada);
-            string rutaCompletaOriginal;
-
-            // Verificar si estamos dentro de un cuaderno o en la carpeta raíz
-            if (creatingInNotebook)
-            {
-                // Estamos dentro de un cuaderno, construir la ruta de la nota dentro del cuaderno
-                rutaCompletaOriginal = Path.Combine(folderPath, carpetaDestino, $"{nombreNotaActual}.txt");
-            }
-            else
-            {
-                // Estamos en la carpeta raíz, construir la ruta de la nota en la carpeta raíz
-                rutaCompletaOriginal = Path.Combine(folderPath, $"{nombreNotaActual}.txt");
-            }
-
-            try
-            {
-                // Si el archivo de la nota existe, guardar automáticamente los cambios
-                if (File.Exists(rutaCompletaOriginal))
-                {
-                    File.WriteAllText(rutaCompletaOriginal, TextArea.Text);
-                    // Puedes mostrar un mensaje de éxito o actualizar otras partes de la interfaz aquí
-                }
-                else
-                {
-                    MessageBox.Show($"La nota '{nombreNotaActual}' no existe. Utiliza el botón 'Crear' para crear una nueva nota.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al guardar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            /*
-            // Obtén la ruta completa de la nota seleccionada
-            string notaSeleccionada = ls_Notes.SelectedItem?.ToString();
-            string carpetaDestino = creatingInNotebook ? selectedNotebook : folderPath;
-            string nombreNotaActual = Path.GetFileNameWithoutExtension(notaSeleccionada);
-            string rutaCompletaOriginal = Path.Combine(carpetaDestino, $"{nombreNotaActual}.txt");
-
-            try
-            {
-                string nuevaNota = ls_Notes.SelectedItem?.ToString();
-
-                // Si la nota existe, guarda automáticamente los cambios
-                if (File.Exists(rutaCompletaOriginal))
-                {
-                    //Bug encontrado. Condición If siempre cumplida. 
-                    File.WriteAllText(rutaCompletaOriginal, TextArea.Text);
-                    // Puedes mostrar un mensaje de éxito o actualizar otras partes de la interfaz aquí
-                }
-                else
-                {
-                    MessageBox.Show($"La nota '{nombreNotaActual}' no existe Mensaje error 1. Utiliza el botón 'Crear' para crear una nueva nota.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al guardar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            */
-        }
-
+        
         //Actualiza la lista de notas que se encuentran dentro de Root//
         private void UpdateNotes()
         {
-            string seleccionActualNotes = ls_Notes.SelectedItem?.ToString();
+            string selectedNote = ls_Notes.SelectedItem?.ToString();
 
             ls_Notes.Items.Clear();
 
             if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
             {
-                string[] archivosTxt = Directory.GetFiles(folderPath, "*.txt");
+                string[] notes = Directory.GetFiles(folderPath, "*.txt");
 
-                foreach (var archivo in archivosTxt)
+                foreach (var note in notes)
                 {
-                    // Agregar solo el nombre del archivo, no la ruta completa
-                    //ls_Notes.Items.Add(Path.GetFileName(archivo));
-
-                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(archivo));
-                    //ls_Notes.Items.Add(GetFileNameWithoutExtensionPreserveDecimal(archivo));
+                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(note));
                 }
             }
 
-            ls_Notes.SelectedItem = seleccionActualNotes;
+            ls_Notes.SelectedItem = selectedNote;
         }
 
         //Actualiza la lista de notas que se encuentran dentro de algun Notebook//
-        private void UpdateNotes(string carpetaSeleccionada)
+        private void UpdateNotes(string selectedNotebook)
         {
             // Guarda la selección actual
-            string seleccionActualNotes = ls_Notes.SelectedItem?.ToString();
+            string selectedNote = ls_Notes.SelectedItem?.ToString();
 
             ls_Notes.Items.Clear();
 
-            if (!string.IsNullOrEmpty(carpetaSeleccionada) && Directory.Exists(Path.Combine(folderPath, carpetaSeleccionada)))
+            if (!string.IsNullOrEmpty(selectedNotebook) && Directory.Exists(Path.Combine(folderPath, selectedNotebook)))
             {
-                string[] archivosTxt = Directory.GetFiles(Path.Combine(folderPath, carpetaSeleccionada), "*.txt");
+                string[] notes = Directory.GetFiles(Path.Combine(folderPath, selectedNotebook), "*.txt");
 
-                foreach (var archivo in archivosTxt)
+                foreach (var note in notes)
                 {
                     // Agregar solo el nombre del archivo, no la ruta completa
-                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(archivo));
+                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(note));
                 }
             }
 
             // Restaura la selección después de actualizar la lista
-            ls_Notes.SelectedItem = seleccionActualNotes;
+            ls_Notes.SelectedItem = selectedNote;
         }
 
         //Actualiza la lista de Notebooks//
         private void UpdateNotebooks()
         {
-            string seleccionActualNoteBooks = ls_NoteBooks.SelectedItem?.ToString();
+            string selectedNotebook = ls_NoteBooks.SelectedItem?.ToString();
+
             ls_NoteBooks.Items.Clear();
 
             if (!string.IsNullOrEmpty(folderPath) && Directory.Exists(folderPath))
             {
-                string[] NoteBooks = Directory.GetDirectories(folderPath);
+                string[] Notebooks = Directory.GetDirectories(folderPath);
 
-                foreach (var Notebook in NoteBooks)
+                foreach (var Notebook in Notebooks)
                 {
                     ls_NoteBooks.Items.Add(Path.GetFileNameWithoutExtension(Notebook));
                 }
             }
 
-            ls_NoteBooks.SelectedItem = seleccionActualNoteBooks;
+            ls_NoteBooks.SelectedItem = selectedNotebook;
         }
 
-        //Realiza el auto guardado del cuerpo de la nota
-        private void TextArea_TextChanged(object sender, EventArgs e)
+        //Hace visibles los botones btn_Note y btn_NoteBook//
+        private void btn_New_Click(object sender, EventArgs e)
         {
-            AutoSave();
+            // Si btn_Note está invisible, hazlo visible; de lo contrario, hazlo invisible
+            btn_Note.Visible = !btn_Note.Visible;
+            lbl_Note.Visible = !lbl_Note.Visible;
+
+            // Si btn_NoteBook está invisible, hazlo visible; de lo contrario, hazlo invisible
+            btn_NoteBook.Visible = !btn_NoteBook.Visible;
+            lbl_NoteBook.Visible = !lbl_NoteBook.Visible;
         }
 
+        //Muestra las notas de la carpeta raíz, limpia al area de texto y el titulo de notas//
+        private void btn_Home_Click(object sender, EventArgs e)
+        {
+            // Limpiar la selección de cuaderno
+            ls_NoteBooks.ClearSelected();
+
+            // Actualizar la vista para mostrar las notas en la carpeta raíz
+            UpdateNotes();
+
+            // Limpiar los campos de título y área de texto
+            tbx_Title.Clear();
+            TextArea.Clear();
+            tbx_Title.ReadOnly = true;
+            TextArea.ReadOnly = true;
+
+            tbx_NameNotebook.Text = "Root";
+        }
 
 
         //=============Interface=============//
+
 
         //Controla la animacion del Panel_Left//
         private void slidebarTimer_Tick(object sender, EventArgs e)
@@ -643,32 +289,46 @@ namespace Noty
             }
         }
 
-
-        //===============Notes===============//
-
-
-
-        //=============NoteBooks=============//
-
-
-        //Logica para seleccionar un cuaderno//
-        private void ls_NoteBooks_SelectedIndexChanged(object sender, EventArgs e)
+        //Inicia el timer (Animación del Panel_Left)//
+        private void btn_Expand_Click(object sender, EventArgs e)
         {
-            tbx_Title.ReadOnly = true;
-            TextArea.ReadOnly = true;
-            // Obtener la carpeta seleccionada en la ListBox
-            string NoteBookSelected = ls_NoteBooks.SelectedItem?.ToString();
+            Panel_LeftTimer.Start();
+        }
 
-            // Mostrar el nombre de la carpeta en el TextBox
-            tbx_NameNotebook.Text = NoteBookSelected;
 
-            // Actualizar la lista de archivos .txt según la nueva carpeta seleccionada
-            UpdateNotes(NoteBookSelected);
+        //===============Notes===============// 
 
-            // Manejar el evento de selección cambiada en la ListBox de cuadernos
-            selectedNotebook = ls_NoteBooks.SelectedItem as string;
-            creatingInNotebook = !string.IsNullOrEmpty(selectedNotebook);
 
+        //Logica para crear una nota//
+        private void btn_Note_Click(object sender, EventArgs e)
+        {
+            btn_Note.Visible = false;
+            btn_NoteBook.Visible = false;
+            lbl_Note.Visible = false;
+            lbl_NoteBook.Visible = false;
+
+            //numberNote++;
+            //string nombreNota = $"NuevaNota{numberNote}";
+
+            // Obtén la ruta del cuaderno seleccionado (o la carpeta raíz)
+            string routeNotebook = creatingInNotebook ? selectedNotebook : folderPath;
+
+            //Crea la ruta completa
+            string fullRouteNotebook = Path.Combine(folderPath, routeNotebook);
+
+            // Condición (cuaderno->exista)
+            if (!Directory.Exists(fullRouteNotebook))
+            {
+                MessageBox.Show($"Error: El cuaderno '{routeNotebook}' no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Crea la nota dentro del cuaderno
+            //Note newNote = new Note(nombreNota) --> before
+            Note newNote = new Note(); //--> New 
+            newNote.CreateNote(fullRouteNotebook);
+
+            // Después de crear la nota, actualizar la lista según el contexto
             if (creatingInNotebook)
             {
                 UpdateNotes(selectedNotebook);
@@ -679,8 +339,231 @@ namespace Noty
             }
         }
 
+        //Guarda las notas nuevas y sus modificaciones//
+        private void btn_Save_Click(object sender, EventArgs e) 
+        {
+            //Condicion carpeta root seleccionada
+            if (string.IsNullOrEmpty(folderPath))
+            {
+                MessageBox.Show("Por favor, seleccione la carpeta origen antes de guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //Condicion campo titulo lleno
+            if (string.IsNullOrEmpty(tbx_Title.Text))
+            {
+                MessageBox.Show("Por favor, ingrese un nombre para la nota antes de guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //Se obtiene la nota seleccionada y su titulo
+            string newNameNote = tbx_Title.Text;
+            string selectedNote = ls_Notes.SelectedItem?.ToString();
+
+            //Condicion nota seleccionada
+            if (string.IsNullOrEmpty(selectedNote))
+            {
+                MessageBox.Show("Por favor, selecciona una nota antes de intentar guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Si hay un cuaderno seleccionado, la carpeta de destino es la del cuaderno; de lo contrario, es la carpeta raíz
+            string destinationNotebook = creatingInNotebook ? selectedNotebook : folderPath;
+
+            string nameNote = Path.GetFileNameWithoutExtension(selectedNote);
+
+            try
+            {
+                // Si hay un cuaderno seleccionado, ajusta la carpeta de destino para reflejar la estructura de carpetas
+                if (creatingInNotebook)
+                {
+                    destinationNotebook = Path.Combine(folderPath, selectedNotebook);
+                }
+
+                string fullRoute = Path.Combine(destinationNotebook, $"{nameNote}.txt");
+
+                if (File.Exists(fullRoute))
+                {
+                    string newFullRoute = Path.Combine(destinationNotebook, $"{newNameNote}.txt");
+
+                    if (nameNote != newNameNote && File.Exists(newFullRoute))
+                    {
+                        MessageBox.Show($"Ya existe una nota con el nombre '{newNameNote}'. Por favor, elige un nombre diferente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (fullRoute != newFullRoute)
+                    {
+                        File.Move(fullRoute, newFullRoute);
+                    }
+
+                    //Se escribe el archivo.
+                    tbx_Title.Text = newNameNote;
+
+                    File.WriteAllText(newFullRoute, TextArea.Text);
+                    MessageBox.Show("Cambios guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Actualizar la lista de notas y seleccionar la nota recién guardada
+                    UpdateNotes(destinationNotebook);
+                    ls_Notes.SelectedItem = newNameNote;
+
+                    // Si es necesario, actualizar la lista de cuadernos
+                    if (!creatingInNotebook)
+                    {
+                        UpdateNotebooks();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"La nota '{nameNote}' no existe. Utiliza el botón 'Crear' para crear una nueva nota.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        //Elimina la nota//
+        private void btn_Delete_Click(object sender, EventArgs e) 
+        {
+            // Obtener el archivo seleccionado
+            string selectedNote = ls_Notes.SelectedItem?.ToString();
+
+            if (!string.IsNullOrEmpty(selectedNote))
+            {
+                // Obtener la carpeta seleccionada en la ListBox de cuadernos
+                string selectedNotebook = ls_NoteBooks.SelectedItem?.ToString();
+
+                // Si hay un cuaderno seleccionado, la carpeta de destino es la del cuaderno; de lo contrario, es la carpeta raíz
+                string destinationNotebook = selectedNotebook != null ? Path.Combine(folderPath, selectedNotebook) : folderPath;
+
+                // Obtener la ruta completa del archivo
+                string fullRoute = Path.Combine(destinationNotebook, $"{selectedNote}.txt");
+
+                try
+                {
+                    // Verificar si el archivo existe antes de intentar eliminarlo
+                    if (File.Exists(fullRoute))
+                    {
+                        // Eliminar el archivo
+                        File.Delete(fullRoute);
+                        tbx_Title.Clear();
+                        TextArea.Clear();
+
+                        MessageBox.Show($"La nota '{selectedNote}' ha sido eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Actualizar la lista de notas después de eliminar
+                        if (selectedNotebook != null)
+                        {
+                            // Si hay un cuaderno seleccionado, actualizar la lista de notas dentro del cuaderno
+                            UpdateNotes(destinationNotebook);
+                        }
+                        else
+                        {
+                            // Si no hay cuaderno seleccionado, actualizar la lista de notas en la carpeta raíz
+                            UpdateNotes();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"La nota '{selectedNote}' no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una nota antes de intentar eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        //Logica para seleccionar una nota//
+        private void ls_Notes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener el archivo seleccionado
+            string selectedNote = ls_Notes.SelectedItem?.ToString();
+
+            if (!string.IsNullOrEmpty(selectedNote))
+            {
+                // Obtener la carpeta seleccionada en la ListBox de cuadernos
+                string selectedNotebook = ls_NoteBooks.SelectedItem?.ToString();
+
+                // Obtener la ruta completa del archivo
+                string fullRoute;
+
+                if (string.IsNullOrEmpty(selectedNotebook))
+                {
+                    // Carpeta raíz
+                    fullRoute = Path.Combine(folderPath, $"{selectedNote}.txt");
+                }
+                else
+                {
+                    // Cuaderno seleccionado
+                    fullRoute = Path.Combine(folderPath, selectedNotebook, $"{selectedNote}.txt");
+                }
+
+                try
+                {
+                    // Leer el contenido del archivo y mostrarlo en el RichTextBox
+                    TextArea.Text = File.ReadAllText(fullRoute);
+                    TextArea.ReadOnly = false;
+                    tbx_Title.ReadOnly = false;
+
+                    // Establecer el título de la nota en el TextBox
+                    tbx_Title.Text = Path.GetFileNameWithoutExtension(selectedNote);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        //Ordena las notas (modificado-alfabeticamente)
+        private void btn_SortNotes_Click(object sender, EventArgs e) 
+        {
+            // Obtener la carpeta del cuaderno seleccionado (o la carpeta raíz)
+            string routeNotebook = creatingInNotebook ? selectedNotebook : folderPath;
+
+            // Obtener la lista de notas en la carpeta del cuaderno
+            List<string> notes = Directory.GetFiles(Path.Combine(folderPath, routeNotebook), "*.txt").ToList();
+
+            // Decidir el tipo de orden y aplicar la ordenación correspondiente
+            if (alphabeticalOrderNotes)
+            {
+                // Orden alfabético
+                notes.Sort();
+            }
+            else
+            {
+                // Orden por fecha de modificación
+                notes.Sort((n1, n2) =>
+                {
+                    DateTime dateN1 = File.GetLastWriteTime(n1);
+                    DateTime dateN2 = File.GetLastWriteTime(n2);
+                    return dateN2.CompareTo(dateN1);
+                });
+            }
+
+            // Cambiar el tipo de orden para la próxima vez
+            alphabeticalOrderNotes = !alphabeticalOrderNotes;
+
+            // Limpiar y actualizar la ListBox con la nueva ordenación
+            ls_Notes.Items.Clear();
+            ls_Notes.Items.AddRange(notes.Select(note => Path.GetFileNameWithoutExtension(note)).ToArray());
+        }
+
+
+        //=============NoteBooks=============//
+
+
         //Logica para crear un Cuaderno//
-        private void btn_NoteBook_Click(object sender, EventArgs e)
+        private void btn_NoteBook_Click(object sender, EventArgs e) 
         {
             btn_Note.Visible = false;
             btn_NoteBook.Visible = false;
@@ -692,53 +575,45 @@ namespace Noty
             UpdateNotebooks();
         }
 
-        //Renombra el cuaderno seleccionado//
-        private void btn_RenameNoteBook_Click(object sender, EventArgs e)
+        //Elimina el cuaderno seleccionado//
+        private void btn_DeleteNotebook_Click(object sender, EventArgs e) 
         {
-            /*
-            // Obtener el cuaderno seleccionado
-            string cuadernoSeleccionado = ls_NoteBooks.SelectedItem as string;
+            // Obtén el cuaderno seleccionado
+            string selectedNotebook = ls_NoteBooks.SelectedItem?.ToString();
 
-            if (cuadernoSeleccionado != null)
+            if (string.IsNullOrEmpty(selectedNotebook))
             {
-                using (InputDialog inputDialog = new InputDialog("Ingrese el nuevo nombre del cuaderno:", "Renombrar Cuaderno"))
-                {
-                    if (inputDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        string nuevoNombreCuaderno = inputDialog.Result;
-
-                        if (!string.IsNullOrEmpty(nuevoNombreCuaderno))
-                        {
-                            // Renombrar el cuaderno
-                            string carpetaCuaderno = Path.Combine(folderPath, cuadernoSeleccionado);
-                            string nuevaCarpetaCuaderno = Path.Combine(folderPath, nuevoNombreCuaderno);
-
-                            try
-                            {
-                                Directory.Move(carpetaCuaderno, nuevaCarpetaCuaderno);
-                                UpdateNotebooks(); // Actualizar la lista de cuadernos después de renombrar
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show($"Error al renombrar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, selecciona un cuaderno antes de intentar renombrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, selecciona un cuaderno antes de intentar eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            */
+            // Construye la ruta completa del cuaderno
+            string fullRoute = Path.Combine(folderPath, selectedNotebook);
 
-            //==========================================================
+            try
+            {
+                // Elimina la carpeta del cuaderno
+                Directory.Delete(fullRoute, true);
 
+                // Actualiza la lista de cuadernos
+                UpdateNotebooks();
 
+                // Limpia la selección en la ListBox de cuadernos
+                ls_NoteBooks.ClearSelected();
+
+                MessageBox.Show($"Cuaderno '{selectedNotebook}' eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Renombra el cuaderno seleccionado//
+        private void btn_RenameNoteBook_Click(object sender, EventArgs e) 
+        {
             // Obtén el nuevo nombre del cuaderno desde el TextBox
-            string nuevoNombreCuaderno = tbx_NameNotebook.Text;
-
+            string newNameNotebook = tbx_NameNotebook.Text;
 
             // Verifica si hay un cuaderno seleccionado
             if (!string.IsNullOrEmpty(selectedNotebook))
@@ -746,20 +621,20 @@ namespace Noty
                 try
                 {
                     // Obtiene la ruta del cuaderno actual
-                    string rutaCuadernoActual = Path.Combine(folderPath, selectedNotebook);
+                    string fullRoute = Path.Combine(folderPath, selectedNotebook);
 
                     // Obtiene la nueva ruta con el nuevo nombre
-                    string nuevaRutaCuaderno = Path.Combine(folderPath, nuevoNombreCuaderno);
+                    string newFullRoute = Path.Combine(folderPath, newNameNotebook);
 
                     // Renombra el cuaderno
-                    Directory.Move(rutaCuadernoActual, nuevaRutaCuaderno);
+                    Directory.Move(fullRoute, newFullRoute);
 
                     // Actualiza la lista de cuadernos
                     UpdateNotebooks();
-                    ls_NoteBooks.SelectedItem = nuevoNombreCuaderno;
+                    ls_NoteBooks.SelectedItem = newNameNotebook;
 
                     // Informa al usuario sobre el éxito
-                    MessageBox.Show($"El cuaderno se ha renombrado a '{nuevoNombreCuaderno}'.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"El cuaderno se ha renombrado a '{newNameNotebook}'.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -775,73 +650,76 @@ namespace Noty
 
         }
 
+        //Logica para seleccionar un cuaderno//
+        private void ls_NoteBooks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbx_Title.ReadOnly = true;
+            TextArea.ReadOnly = true;
+
+            // Obtener la carpeta seleccionada en la ListBox
+            string notebookSelected = ls_NoteBooks.SelectedItem?.ToString();
+
+            // Mostrar el nombre de la carpeta en el TextBox
+            tbx_NameNotebook.Text = notebookSelected;
+
+            // Actualizar la lista de archivos .txt según la nueva carpeta seleccionada
+            UpdateNotes(notebookSelected);
+
+            // Manejar el evento de selección cambiada en la ListBox de cuadernos
+            selectedNotebook = ls_NoteBooks.SelectedItem as string;
+            creatingInNotebook = !string.IsNullOrEmpty(selectedNotebook);
+
+            if (creatingInNotebook)
+            {
+                UpdateNotes(selectedNotebook);
+            }
+            else
+            {
+                UpdateNotes();
+            }
+        }
+
         //Ordena los cuadernos (modificado-alfabeticamente)
         private void btn_SortNoteBooks_Click(object sender, EventArgs e)
         {
             // Obtén la lista de cuadernos
-            List<string> cuadernos = Directory.GetDirectories(folderPath).ToList();
+            List<string> notebooks = Directory.GetDirectories(folderPath).ToList();
 
             // Decide el tipo de orden y aplica la ordenación correspondiente
-            if (ordenAlfabetico)
+            if (alphabeticalOrderNotebooks)
             {
                 // Orden alfabético
-                cuadernos.Sort();
+                notebooks.Sort();
             }
             else
             {
                 // Orden por fecha de modificación
-                cuadernos.Sort((c1, c2) =>
+                notebooks.Sort((c1, c2) =>
                 {
-                    DateTime fechaC1 = Directory.GetLastWriteTime(c1);
-                    DateTime fechaC2 = Directory.GetLastWriteTime(c2);
-                    return fechaC2.CompareTo(fechaC1);
+                    DateTime dateC1 = Directory.GetLastWriteTime(c1);
+                    DateTime dateC2 = Directory.GetLastWriteTime(c2);
+                    return dateC2.CompareTo(dateC1);
                 });
             }
 
             // Cambia el tipo de orden para la próxima vez
-            ordenAlfabetico = !ordenAlfabetico;
+            alphabeticalOrderNotebooks = !alphabeticalOrderNotebooks;
 
             // Limpia y actualiza la ListBox con la nueva ordenación
             ls_NoteBooks.Items.Clear();
-            ls_NoteBooks.Items.AddRange(cuadernos.Select(cuaderno => Path.GetFileNameWithoutExtension(cuaderno)).ToArray());
-        }
-
-        //Elimina el cuaderno seleccionado//
-        private void btn_DeleteNotebook_Click(object sender, EventArgs e)
-        {
-            // Obtén el cuaderno seleccionado
-            string cuadernoSeleccionado = ls_NoteBooks.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(cuadernoSeleccionado))
-            {
-                MessageBox.Show("Por favor, selecciona un cuaderno antes de intentar eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Construye la ruta completa del cuaderno
-            string rutaCuaderno = Path.Combine(folderPath, cuadernoSeleccionado);
-
-            try
-            {
-                // Elimina la carpeta del cuaderno
-                Directory.Delete(rutaCuaderno, true);
-
-                // Actualiza la lista de cuadernos
-                UpdateNotebooks();
-
-                // Limpia la selección en la ListBox de cuadernos
-                ls_NoteBooks.ClearSelected();
-
-                MessageBox.Show($"Cuaderno '{cuadernoSeleccionado}' eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al eliminar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            ls_NoteBooks.Items.AddRange(notebooks.Select(cuaderno => Path.GetFileNameWithoutExtension(cuaderno)).ToArray());
         }
 
 
         //============= In work =============//
+
+
+        //Realiza el auto guardado del cuerpo de la nota
+        private void TextArea_TextChanged(object sender, EventArgs e)
+        {
+            AutoSave();
+        }
+
         private void tbx_Title_TextChanged(object sender, EventArgs e)
         {
             AutoSaveTitle();
@@ -850,27 +728,27 @@ namespace Noty
         private void AutoSaveTitle()
         {
             // Obtener la nota seleccionada
-            string notaSeleccionada = ls_Notes.SelectedItem?.ToString();
+            string selectedNote = ls_Notes.SelectedItem?.ToString();
 
-            if (!string.IsNullOrEmpty(notaSeleccionada))
+            if (!string.IsNullOrEmpty(selectedNote))
             {
                 // Obtener la carpeta seleccionada en el ListBox de cuadernos
                 string cuadernoSeleccionado = ls_NoteBooks.SelectedItem?.ToString();
-                string carpetaDestino = creatingInNotebook ? selectedNotebook : folderPath;
+                string destinationNotebook = creatingInNotebook ? selectedNotebook : folderPath;
 
                 // Construir la ruta completa de la nota
-                string nombreNotaActual = Path.GetFileNameWithoutExtension(notaSeleccionada);
-                string rutaCompletaOriginal;
+                string nameNote = Path.GetFileNameWithoutExtension(selectedNote);
+                string fullRoute;
 
                 if (creatingInNotebook && !string.IsNullOrEmpty(cuadernoSeleccionado))
                 {
                     // Carpeta del cuaderno
-                    rutaCompletaOriginal = Path.Combine(folderPath, cuadernoSeleccionado, $"{nombreNotaActual}.txt");
+                    fullRoute = Path.Combine(folderPath, cuadernoSeleccionado, $"{nameNote}.txt");
                 }
                 else
                 {
                     // Carpeta raíz
-                    rutaCompletaOriginal = Path.Combine(carpetaDestino, $"{nombreNotaActual}.txt");
+                    fullRoute = Path.Combine(destinationNotebook, $"{nameNote}.txt");
                 }
 
                 try
@@ -878,40 +756,40 @@ namespace Noty
                     // Verificar si el título no está vacío
                     if (!string.IsNullOrEmpty(tbx_Title.Text))
                     {
-                        string nuevoTitulo = tbx_Title.Text.Trim(); // Eliminar espacios en blanco al inicio y al final
+                        string newNameNote = tbx_Title.Text.Trim(); // Eliminar espacios en blanco al inicio y al final
 
                         // Construir la nueva ruta con el nuevo título
-                        string rutaCompletaNuevo;
+                        string newFullRoute;
 
                         if (creatingInNotebook && !string.IsNullOrEmpty(cuadernoSeleccionado))
                         {
                             // Carpeta del cuaderno
-                            rutaCompletaNuevo = Path.Combine(folderPath, cuadernoSeleccionado, $"{nuevoTitulo}.txt");
+                            newFullRoute = Path.Combine(folderPath, cuadernoSeleccionado, $"{newNameNote}.txt");
                         }
                         else
                         {
                             // Carpeta raíz
-                            rutaCompletaNuevo = Path.Combine(carpetaDestino, $"{nuevoTitulo}.txt");
+                            newFullRoute = Path.Combine(destinationNotebook, $"{newNameNote}.txt");
                         }
 
                         // Verificar si el nuevo título es diferente al actual
-                        if (nombreNotaActual != nuevoTitulo)
+                        if (nameNote != newNameNote)
                         {
                             // Verificar si el nuevo título ya existe
-                            if (!File.Exists(rutaCompletaNuevo) || rutaCompletaOriginal == rutaCompletaNuevo)
+                            if (!File.Exists(newFullRoute) || fullRoute == newFullRoute)
                             {
                                 // Renombrar el archivo con el nuevo título
-                                File.Move(rutaCompletaOriginal, rutaCompletaNuevo);
+                                File.Move(fullRoute, newFullRoute);
 
                                 // Actualizar la lista de notas
-                                UpdateNotes(carpetaDestino);
+                                UpdateNotes(destinationNotebook);
 
                                 // Actualizar el título de la nota seleccionada
-                                ls_Notes.SelectedItem = nuevoTitulo;
+                                ls_Notes.SelectedItem = newNameNote;
                             }
                             else
                             {
-                                MessageBox.Show($"Ya existe una nota con el nombre '{nuevoTitulo}'. Por favor, elige un nombre diferente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show($"Ya existe una nota con el nombre '{newNameNote}'. Por favor, elige un nombre diferente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                     }
@@ -920,6 +798,52 @@ namespace Noty
                 {
                     MessageBox.Show($"Error al guardar el título de la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        //Funcion de autoguardado//
+        private void AutoSave()
+        {
+            string selectedNote = ls_Notes.SelectedItem?.ToString();
+
+            if (string.IsNullOrEmpty(selectedNote))
+            {
+                // No hay nota seleccionada, no se puede guardar automáticamente
+                return;
+            }
+
+            string destinationNotebook = creatingInNotebook ? selectedNotebook : folderPath;
+            string nameNote = Path.GetFileNameWithoutExtension(selectedNote);
+            string fullRoute;
+
+            // Verificar si estamos dentro de un cuaderno o en la carpeta raíz
+            if (creatingInNotebook)
+            {
+                // Estamos dentro de un cuaderno, construir la ruta de la nota dentro del cuaderno
+                fullRoute = Path.Combine(folderPath, destinationNotebook, $"{nameNote}.txt");
+            }
+            else
+            {
+                // Estamos en la carpeta raíz, construir la ruta de la nota en la carpeta raíz
+                fullRoute = Path.Combine(folderPath, $"{nameNote}.txt");
+            }
+
+            try
+            {
+                // Si el archivo de la nota existe, guardar automáticamente los cambios
+                if (File.Exists(fullRoute))
+                {
+                    File.WriteAllText(fullRoute, TextArea.Text);
+                    // Puedes mostrar un mensaje de éxito o actualizar otras partes de la interfaz aquí
+                }
+                else
+                {
+                    MessageBox.Show($"La nota '{nameNote}' no existe. Utiliza el botón 'Crear' para crear una nueva nota.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

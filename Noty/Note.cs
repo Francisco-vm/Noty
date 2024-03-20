@@ -9,25 +9,18 @@ namespace Noty
 {
     internal class Note
     {   
-        public string Name { get; set; }
-
-        private string BaseName = "NewNote";
-
-        public Note(string name)
-        {
-            Name = name;
-        }
+        private string baseName = "NewNote";
 
         public void CreateNote(string Route, string SelectedNotebook = "")
         {
-            int NumberNote = GetNextNoteNumber(Route, SelectedNotebook);
-            string NameNote = $"{BaseName}{NumberNote}";
+            int numberNote = GetNextNoteNumber(Route, SelectedNotebook);
+            string nameNote = $"{baseName}{numberNote}";
 
-            string FullRoute = SelectedNotebook != ""
-                ? Path.Combine(Route, SelectedNotebook, $"{NameNote}.txt")
-                : Path.Combine(Route, $"{NameNote}.txt");
+            string fullRoute = SelectedNotebook != ""
+                ? Path.Combine(Route, SelectedNotebook, $"{nameNote}.txt")
+                : Path.Combine(Route, $"{nameNote}.txt");
 
-            if (File.Exists(FullRoute))
+            if (File.Exists(fullRoute))
             {
                 MessageBox.Show("The Note already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -35,8 +28,8 @@ namespace Noty
             {
                 try
                 {
-                    using (File.Create(FullRoute)) { }
-                    MessageBox.Show($"'{NameNote}' Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    using (File.Create(fullRoute)) { }
+                    MessageBox.Show($"'{nameNote}' Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -47,15 +40,15 @@ namespace Noty
 
         private int GetNextNoteNumber(string Route, string SelectedNotebook = "")
         {
-            int Number = 1;
-            string DestinationFolder = SelectedNotebook != "" ? SelectedNotebook : Route;
+            int number = 1;
+            string destinationNotebook = SelectedNotebook != "" ? SelectedNotebook : Route;
 
-            while (File.Exists(Path.Combine(Route, DestinationFolder, $"{BaseName}{Number}.txt")))
+            while (File.Exists(Path.Combine(Route, destinationNotebook, $"{baseName}{number}.txt")))
             {
-                Number++;
+                number++;
             }
 
-            return Number;
+            return number;
         }
     }
 }

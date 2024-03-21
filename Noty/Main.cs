@@ -44,13 +44,15 @@ namespace Noty
                     WindowState = FormWindowState.Maximized;
                     Panel_Main.Visible = true;
                     UpdateNotebooks();
-                    tbx_NameNotebook.Text = "Root";
+                    //tbx_NameNotebook.Text = "Root";
+                    tbx_NameNotebook.ReadOnly = true;
+                    tbx_NameNotebook.Text = Path.GetFileName(folderPath);
                     UpdateNotes();
                 }
             }
         }
 
-        
+
         //Actualiza la lista de notas que se encuentran dentro de Root//
         private void UpdateNotes()
         {
@@ -140,8 +142,9 @@ namespace Noty
             TextArea.Clear();
             tbx_Title.ReadOnly = true;
             TextArea.ReadOnly = true;
-
-            tbx_NameNotebook.Text = "Root";
+            tbx_NameNotebook.ReadOnly = true;
+            tbx_NameNotebook.Text = Path.GetFileName(folderPath);
+            //tbx_NameNotebook.Text = "Root";
         }
 
 
@@ -340,7 +343,7 @@ namespace Noty
         }
 
         //Guarda las notas nuevas y sus modificaciones//
-        private void btn_Save_Click(object sender, EventArgs e) 
+        private void btn_Save_Click(object sender, EventArgs e)
         {
             //Condicion carpeta root seleccionada
             if (string.IsNullOrEmpty(folderPath))
@@ -426,7 +429,7 @@ namespace Noty
         }
 
         //Elimina la nota//
-        private void btn_Delete_Click(object sender, EventArgs e) 
+        private void btn_Delete_Click(object sender, EventArgs e)
         {
             // Obtener el archivo seleccionado
             string selectedNote = ls_Notes.SelectedItem?.ToString();
@@ -525,7 +528,7 @@ namespace Noty
         }
 
         //Ordena las notas (modificado-alfabeticamente)
-        private void btn_SortNotes_Click(object sender, EventArgs e) 
+        private void btn_SortNotes_Click(object sender, EventArgs e)
         {
             // Obtener la carpeta del cuaderno seleccionado (o la carpeta raíz)
             string routeNotebook = creatingInNotebook ? selectedNotebook : folderPath;
@@ -566,7 +569,7 @@ namespace Noty
 
 
         //Logica para crear un Cuaderno//
-        private void btn_NoteBook_Click(object sender, EventArgs e) 
+        private void btn_NoteBook_Click(object sender, EventArgs e)
         {
             btn_Note.Visible = false;
             btn_NoteBook.Visible = false;
@@ -579,7 +582,7 @@ namespace Noty
         }
 
         //Elimina el cuaderno seleccionado//
-        private void btn_DeleteNotebook_Click(object sender, EventArgs e) 
+        private void btn_DeleteNotebook_Click(object sender, EventArgs e)
         {
             // Obtén el cuaderno seleccionado
             string selectedNotebook = ls_NoteBooks.SelectedItem?.ToString();
@@ -613,8 +616,52 @@ namespace Noty
         }
 
         //Renombra el cuaderno seleccionado//
-        private void btn_RenameNoteBook_Click(object sender, EventArgs e) 
+        private void btn_RenameNoteBook_Click(object sender, EventArgs e)
         {
+            /*
+            // Verificar si se ha seleccionado un cuaderno
+            if (ls_NoteBooks.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor, selecciona un cuaderno antes de intentar renombrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Obtener el nombre actual del cuaderno seleccionado
+            string selectedNotebook = ls_NoteBooks.SelectedItem.ToString();
+
+            // Mostrar el cuadro de diálogo de entrada para que el usuario ingrese el nuevo nombre
+            using (InputDialog inputDialog = new InputDialog())
+            {
+                if (inputDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Obtener el nuevo nombre ingresado por el usuario
+                    string newNotebookName = inputDialog.UserInput;
+
+                    // Renombrar el cuaderno
+                    try
+                    {
+                        string currentFolderPath = creatingInNotebook ? Path.Combine(folderPath, selectedNotebook) : folderPath;
+                        string newFolderPath = Path.Combine(Path.GetDirectoryName(currentFolderPath), newNotebookName);
+
+                        // Renombrar la carpeta (cuaderno)
+                        Directory.Move(currentFolderPath, newFolderPath);
+
+                        // Actualizar la lista de cuadernos
+                        UpdateNotebooks();
+                        MessageBox.Show("Cambios guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Volver a seleccionar el cuaderno renombrado en la lista
+                        ls_NoteBooks.SelectedItem = newNotebookName;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al intentar renombrar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            */
+
+            
             // Obtén el nuevo nombre del cuaderno desde el TextBox
             string newNameNotebook = tbx_NameNotebook.Text;
 
@@ -650,12 +697,13 @@ namespace Noty
                 // Informa al usuario que no hay cuaderno seleccionado
                 MessageBox.Show("No hay cuaderno seleccionado para renombrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
+            
         }
 
         //Logica para seleccionar un cuaderno//
         private void ls_NoteBooks_SelectedIndexChanged(object sender, EventArgs e)
         {
+            tbx_NameNotebook.ReadOnly= false;
             tbx_Title.ReadOnly = true;
             TextArea.ReadOnly = true;
 
@@ -731,6 +779,7 @@ namespace Noty
             AutoSaveTitle();
         }
 
+        //Funcion de autoguardado para el titulo
         private void AutoSaveTitle()
         {
             // Obtener la nota seleccionada
@@ -850,6 +899,34 @@ namespace Noty
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al guardar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tbx_Title_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Guardar la posición del cursor antes de realizar cambios
+            int cursorPosition = tbx_Title.SelectionStart;
+
+            // Realizar la operación de modificación (borrar un carácter)
+            if (e.KeyChar == (char)Keys.Back && cursorPosition > 0)
+            {
+                tbx_Title.Text = tbx_Title.Text.Remove(cursorPosition - 1, 1);
+
+                // Verificar si se ha eliminado toda la palabra
+                if (cursorPosition > 0 && cursorPosition <= tbx_Title.Text.Length && char.IsWhiteSpace(tbx_Title.Text[cursorPosition - 1]))
+                {
+                    // Restaurar la posición del cursor al inicio de la palabra
+                    while (cursorPosition > 0 && char.IsWhiteSpace(tbx_Title.Text[cursorPosition - 1]))
+                    {
+                        cursorPosition--;
+                    }
+                }
+
+                // Restaurar la posición del cursor
+                tbx_Title.SelectionStart = cursorPosition;
+
+                // Indicar que se ha manejado el evento
+                e.Handled = true;
             }
         }
     }

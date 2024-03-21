@@ -530,6 +530,8 @@ namespace Noty
             // Obtener la carpeta del cuaderno seleccionado (o la carpeta raíz)
             string routeNotebook = creatingInNotebook ? selectedNotebook : folderPath;
 
+            string selectedNote = ls_Notes.SelectedItem?.ToString();
+
             // Obtener la lista de notas en la carpeta del cuaderno
             List<string> notes = Directory.GetFiles(Path.Combine(folderPath, routeNotebook), "*.txt").ToList();
 
@@ -556,6 +558,7 @@ namespace Noty
             // Limpiar y actualizar la ListBox con la nueva ordenación
             ls_Notes.Items.Clear();
             ls_Notes.Items.AddRange(notes.Select(note => Path.GetFileNameWithoutExtension(note)).ToArray());
+            ls_Notes.SelectedItem = selectedNote;
         }
 
 
@@ -682,6 +685,8 @@ namespace Noty
         //Ordena los cuadernos (modificado-alfabeticamente)
         private void btn_SortNoteBooks_Click(object sender, EventArgs e)
         {
+            string selectedNotebook = ls_NoteBooks.SelectedItem?.ToString();
+
             // Obtén la lista de cuadernos
             List<string> notebooks = Directory.GetDirectories(folderPath).ToList();
 
@@ -708,6 +713,7 @@ namespace Noty
             // Limpia y actualiza la ListBox con la nueva ordenación
             ls_NoteBooks.Items.Clear();
             ls_NoteBooks.Items.AddRange(notebooks.Select(cuaderno => Path.GetFileNameWithoutExtension(cuaderno)).ToArray());
+            ls_NoteBooks.SelectedItem = selectedNotebook;
         }
 
 

@@ -452,6 +452,7 @@ namespace Noty
                     {
                         // Eliminar el archivo
                         File.Delete(fullRoute);
+                        ls_Notes.ClearSelected();
                         tbx_Title.Clear();
                         TextArea.Clear();
 
@@ -630,7 +631,6 @@ namespace Noty
         //Renombra el cuaderno seleccionado//
         private void btn_RenameNoteBook_Click(object sender, EventArgs e)
         {
-            /*
             // Verificar si se ha seleccionado un cuaderno
             if (ls_NoteBooks.SelectedItem == null)
             {
@@ -640,6 +640,7 @@ namespace Noty
 
             // Obtener el nombre actual del cuaderno seleccionado
             string selectedNotebook = ls_NoteBooks.SelectedItem.ToString();
+            string selectedNote = ls_Notes.SelectedItem.ToString();
 
             // Mostrar el cuadro de diálogo de entrada para que el usuario ingrese el nuevo nombre
             using (InputDialog inputDialog = new InputDialog())
@@ -660,18 +661,23 @@ namespace Noty
 
                         // Actualizar la lista de cuadernos
                         UpdateNotebooks();
+                        ls_Notes.ClearSelected();
+                        UpdateNotes(newFolderPath);
                         MessageBox.Show("Cambios guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
 
                         // Volver a seleccionar el cuaderno renombrado en la lista
                         ls_NoteBooks.SelectedItem = newNotebookName;
+                        ls_Notes.SelectedItem = selectedNote;
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Error al intentar renombrar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }*/
+            }
 
+            /*
             // Obtén el nuevo nombre del cuaderno desde el TextBox
             string newNameNotebook = tbx_NameNotebook.Text;
 
@@ -707,7 +713,7 @@ namespace Noty
                 // Informa al usuario que no hay cuaderno seleccionado
                 MessageBox.Show("No hay cuaderno seleccionado para renombrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+            */
         }
 
         //Logica para seleccionar un cuaderno//

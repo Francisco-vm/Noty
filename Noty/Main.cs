@@ -631,16 +631,7 @@ namespace Noty
         //Renombra el cuaderno seleccionado//
         private void btn_RenameNoteBook_Click(object sender, EventArgs e)
         {
-            // Verificar si se ha seleccionado un cuaderno
-            if (ls_NoteBooks.SelectedItem == null)
-            {
-                MessageBox.Show("Por favor, selecciona un cuaderno antes de intentar renombrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Obtener el nombre actual del cuaderno seleccionado
-            string selectedNotebook = ls_NoteBooks.SelectedItem.ToString();
-            string selectedNote = ls_Notes.SelectedItem.ToString();
+            string selectedNote = ls_Notes.SelectedItem?.ToString();
 
             // Mostrar el cuadro de diálogo de entrada para que el usuario ingrese el nuevo nombre
             using (InputDialog inputDialog = new InputDialog())
@@ -648,72 +639,58 @@ namespace Noty
                 if (inputDialog.ShowDialog() == DialogResult.OK)
                 {
                     // Obtener el nuevo nombre ingresado por el usuario
-                    string newNotebookName = inputDialog.UserInput;
+                    string newName = inputDialog.UserInput;
 
-                    // Renombrar el cuaderno
                     try
                     {
-                        string currentFolderPath = creatingInNotebook ? Path.Combine(folderPath, selectedNotebook) : folderPath;
-                        string newFolderPath = Path.Combine(Path.GetDirectoryName(currentFolderPath), newNotebookName);
+                        if (ls_NoteBooks.SelectedItem != null)
+                        {
+                            // Se está intentando renombrar un cuaderno
+                            string selectedNotebook = ls_NoteBooks.SelectedItem.ToString();
+                            string currentFolderPath = creatingInNotebook ? Path.Combine(folderPath, selectedNotebook) : folderPath;
+                            string newFolderPath = Path.Combine(Path.GetDirectoryName(currentFolderPath), newName);
 
-                        // Renombrar la carpeta (cuaderno)
-                        Directory.Move(currentFolderPath, newFolderPath);
+                            // Renombrar la carpeta (cuaderno)
+                            Directory.Move(currentFolderPath, newFolderPath);
 
-                        // Actualizar la lista de cuadernos
-                        UpdateNotebooks();
-                        ls_Notes.ClearSelected();
-                        UpdateNotes(newFolderPath);
-                        MessageBox.Show("Cambios guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+                            // Actualizar la lista de cuadernos y notas
+                            UpdateNotebooks();
+                            ls_Notes.ClearSelected();
+                            UpdateNotes(newFolderPath);
 
-                        // Volver a seleccionar el cuaderno renombrado en la lista
-                        ls_NoteBooks.SelectedItem = newNotebookName;
-                        ls_Notes.SelectedItem = selectedNote;
+                            MessageBox.Show("Cambios guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Volver a seleccionar el cuaderno renombrado en la lista
+                            ls_NoteBooks.SelectedItem = newName;
+
+                            // Mantener la nota seleccionada si la había antes de renombrar el cuaderno
+                            if (!string.IsNullOrEmpty(selectedNote))
+                            {
+                                ls_Notes.SelectedItem = selectedNote;
+                            }
+                        }
+                        else
+                        {
+                            // Se está intentando renombrar la carpeta raíz
+                            string newRootFolderPath = Path.Combine(Path.GetDirectoryName(folderPath), newName);
+                            Directory.Move(folderPath, newRootFolderPath);
+
+                            // Actualizar la ruta de la carpeta raíz y las listas de cuadernos y notas
+                            folderPath = newRootFolderPath;
+                            rootPath = folderPath;
+                            UpdateNotebooks();
+                            UpdateNotes();
+                            tbx_NameNotebook.Text = Path.GetFileName(folderPath);
+
+                            MessageBox.Show("Carpeta raíz renombrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Error al intentar renombrar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Error al intentar renombrar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
-
-            /*
-            // Obtén el nuevo nombre del cuaderno desde el TextBox
-            string newNameNotebook = tbx_NameNotebook.Text;
-
-            // Verifica si hay un cuaderno seleccionado
-            if (!string.IsNullOrEmpty(selectedNotebook))
-            {
-                try
-                {
-                    // Obtiene la ruta del cuaderno actual
-                    string fullRoute = Path.Combine(folderPath, selectedNotebook);
-
-                    // Obtiene la nueva ruta con el nuevo nombre
-                    string newFullRoute = Path.Combine(folderPath, newNameNotebook);
-
-                    // Renombra el cuaderno
-                    Directory.Move(fullRoute, newFullRoute);
-
-                    // Actualiza la lista de cuadernos
-                    UpdateNotebooks();
-                    ls_NoteBooks.SelectedItem = newNameNotebook;
-
-                    // Informa al usuario sobre el éxito
-                    MessageBox.Show($"El cuaderno se ha renombrado a '{newNameNotebook}'.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    // Informa al usuario sobre cualquier error
-                    MessageBox.Show($"Error al renombrar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                // Informa al usuario que no hay cuaderno seleccionado
-                MessageBox.Show("No hay cuaderno seleccionado para renombrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            */
         }
 
         //Logica para seleccionar un cuaderno//

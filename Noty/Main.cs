@@ -604,8 +604,20 @@ namespace Noty
                 // Actualiza la lista de cuadernos
                 UpdateNotebooks();
 
-                // Limpia la selección en la ListBox de cuadernos
+                // Limpiar la selección de cuaderno
                 ls_NoteBooks.ClearSelected();
+
+                // Actualizar la vista para mostrar las notas en la carpeta raíz
+                UpdateNotes();
+
+                // Limpiar los campos de título y área de texto
+                tbx_Title.Clear();
+                TextArea.Clear();
+                tbx_Title.ReadOnly = true;
+                TextArea.ReadOnly = true;
+                tbx_NameNotebook.ReadOnly = true;
+                tbx_NameNotebook.Text = Path.GetFileName(folderPath);
+
 
                 MessageBox.Show($"Cuaderno '{selectedNotebook}' eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -658,10 +670,8 @@ namespace Noty
                         MessageBox.Show($"Error al intentar renombrar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
-            */
+            }*/
 
-            
             // Obtén el nuevo nombre del cuaderno desde el TextBox
             string newNameNotebook = tbx_NameNotebook.Text;
 

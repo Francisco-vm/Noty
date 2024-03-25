@@ -33,7 +33,8 @@
             Panel_Main = new Panel();
             TextArea = new RichTextBox();
             Panel_Bottom = new Panel();
-            btn_Save = new Button();
+            btn_Undo = new Button();
+            btn_Redo = new Button();
             tbx_Title = new TextBox();
             Panel_SeparatorRight = new Panel();
             Panel_SeparatorLeft = new Panel();
@@ -41,21 +42,24 @@
             Panel_Notes = new Panel();
             ls_Notes = new ListBox();
             PanelGoldNotes = new Panel();
-            btn_Delete = new Button();
             btn_SortNotes = new Button();
             lbl_GoldNotes = new Label();
+            btn_Delete = new Button();
             Panel_NoteBooks = new Panel();
             ls_NoteBooks = new ListBox();
             Panel_GoldNoteBooks = new Panel();
             btn_RenameNoteBook = new Button();
-            btn_DeleteNotebook = new Button();
             tbx_NameNotebook = new TextBox();
             btn_SortNoteBooks = new Button();
             lbl_GoldNoteBooks = new Label();
+            btn_DeleteNoteBook = new Button();
             Panel_Top = new Panel();
             tbx_Screach = new TextBox();
             Panel_Right = new Panel();
             Panel_Left = new Panel();
+            lbl_Change = new Label();
+            lbl_Home = new Label();
+            btn_ReOpenRoot = new Button();
             lbl_Menu = new Label();
             btn_NoteBook = new Button();
             btn_Note = new Button();
@@ -123,25 +127,37 @@
             // Panel_Bottom
             // 
             Panel_Bottom.BackColor = Color.WhiteSmoke;
-            Panel_Bottom.Controls.Add(btn_Save);
+            Panel_Bottom.Controls.Add(btn_Undo);
+            Panel_Bottom.Controls.Add(btn_Redo);
             Panel_Bottom.Dock = DockStyle.Bottom;
             Panel_Bottom.Location = new Point(527, 495);
             Panel_Bottom.Name = "Panel_Bottom";
             Panel_Bottom.Size = new Size(379, 48);
             Panel_Bottom.TabIndex = 3;
             // 
-            // btn_Save
+            // btn_Undo
             // 
-            btn_Save.Dock = DockStyle.Right;
-            btn_Save.FlatAppearance.BorderSize = 0;
-            btn_Save.FlatStyle = FlatStyle.Flat;
-            btn_Save.Image = Properties.Resources.icon_SaveGray_x32;
-            btn_Save.Location = new Point(330, 0);
-            btn_Save.Name = "btn_Save";
-            btn_Save.Size = new Size(49, 48);
-            btn_Save.TabIndex = 0;
-            btn_Save.UseVisualStyleBackColor = true;
-            btn_Save.Click += btn_Save_Click;
+            btn_Undo.Dock = DockStyle.Right;
+            btn_Undo.FlatAppearance.BorderSize = 0;
+            btn_Undo.FlatStyle = FlatStyle.Flat;
+            btn_Undo.Image = Properties.Resources.icon_Undo_x24;
+            btn_Undo.Location = new Point(299, 0);
+            btn_Undo.Name = "btn_Undo";
+            btn_Undo.Size = new Size(40, 48);
+            btn_Undo.TabIndex = 4;
+            btn_Undo.UseVisualStyleBackColor = true;
+            // 
+            // btn_Redo
+            // 
+            btn_Redo.Dock = DockStyle.Right;
+            btn_Redo.FlatAppearance.BorderSize = 0;
+            btn_Redo.FlatStyle = FlatStyle.Flat;
+            btn_Redo.Image = Properties.Resources.icon_Redo_x24;
+            btn_Redo.Location = new Point(339, 0);
+            btn_Redo.Name = "btn_Redo";
+            btn_Redo.Size = new Size(40, 48);
+            btn_Redo.TabIndex = 5;
+            btn_Redo.UseVisualStyleBackColor = true;
             // 
             // tbx_Title
             // 
@@ -171,7 +187,7 @@
             // 
             // Panel_SeparatorLeft
             // 
-            Panel_SeparatorLeft.BackColor = Color.Gainsboro;
+            Panel_SeparatorLeft.BackColor = Color.WhiteSmoke;
             Panel_SeparatorLeft.Dock = DockStyle.Left;
             Panel_SeparatorLeft.Location = new Point(488, 55);
             Panel_SeparatorLeft.Name = "Panel_SeparatorLeft";
@@ -217,35 +233,24 @@
             // PanelGoldNotes
             // 
             PanelGoldNotes.BackColor = Color.Gold;
-            PanelGoldNotes.Controls.Add(btn_Delete);
             PanelGoldNotes.Controls.Add(btn_SortNotes);
             PanelGoldNotes.Controls.Add(lbl_GoldNotes);
+            PanelGoldNotes.Controls.Add(btn_Delete);
             PanelGoldNotes.Dock = DockStyle.Top;
             PanelGoldNotes.Location = new Point(0, 288);
             PanelGoldNotes.Name = "PanelGoldNotes";
             PanelGoldNotes.Size = new Size(434, 55);
             PanelGoldNotes.TabIndex = 4;
             // 
-            // btn_Delete
-            // 
-            btn_Delete.FlatAppearance.BorderSize = 0;
-            btn_Delete.FlatStyle = FlatStyle.Flat;
-            btn_Delete.Image = Properties.Resources.icon_TrashGray_x24_1;
-            btn_Delete.Location = new Point(391, 18);
-            btn_Delete.Name = "btn_Delete";
-            btn_Delete.Size = new Size(24, 23);
-            btn_Delete.TabIndex = 1;
-            btn_Delete.UseVisualStyleBackColor = true;
-            btn_Delete.Click += btn_Delete_Click;
-            // 
             // btn_SortNotes
             // 
+            btn_SortNotes.Dock = DockStyle.Right;
             btn_SortNotes.FlatAppearance.BorderSize = 0;
             btn_SortNotes.FlatStyle = FlatStyle.Flat;
-            btn_SortNotes.Image = Properties.Resources.icon_SortGray_x24;
-            btn_SortNotes.Location = new Point(361, 18);
+            btn_SortNotes.Image = Properties.Resources.icon_Sort_x24;
+            btn_SortNotes.Location = new Point(354, 0);
             btn_SortNotes.Name = "btn_SortNotes";
-            btn_SortNotes.Size = new Size(24, 23);
+            btn_SortNotes.Size = new Size(40, 55);
             btn_SortNotes.TabIndex = 3;
             btn_SortNotes.UseVisualStyleBackColor = true;
             btn_SortNotes.Click += btn_SortNotes_Click;
@@ -254,11 +259,24 @@
             // 
             lbl_GoldNotes.AutoSize = true;
             lbl_GoldNotes.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl_GoldNotes.Location = new Point(19, 13);
+            lbl_GoldNotes.Location = new Point(6, 15);
             lbl_GoldNotes.Name = "lbl_GoldNotes";
             lbl_GoldNotes.Size = new Size(83, 29);
             lbl_GoldNotes.TabIndex = 1;
             lbl_GoldNotes.Text = "Notes";
+            // 
+            // btn_Delete
+            // 
+            btn_Delete.Dock = DockStyle.Right;
+            btn_Delete.FlatAppearance.BorderSize = 0;
+            btn_Delete.FlatStyle = FlatStyle.Flat;
+            btn_Delete.Image = Properties.Resources.icon_Delete_x24;
+            btn_Delete.Location = new Point(394, 0);
+            btn_Delete.Name = "btn_Delete";
+            btn_Delete.Size = new Size(40, 55);
+            btn_Delete.TabIndex = 1;
+            btn_Delete.UseVisualStyleBackColor = true;
+            btn_Delete.Click += btn_Delete_Click;
             // 
             // Panel_NoteBooks
             // 
@@ -290,10 +308,10 @@
             // 
             Panel_GoldNoteBooks.BackColor = Color.Gold;
             Panel_GoldNoteBooks.Controls.Add(btn_RenameNoteBook);
-            Panel_GoldNoteBooks.Controls.Add(btn_DeleteNotebook);
             Panel_GoldNoteBooks.Controls.Add(tbx_NameNotebook);
             Panel_GoldNoteBooks.Controls.Add(btn_SortNoteBooks);
             Panel_GoldNoteBooks.Controls.Add(lbl_GoldNoteBooks);
+            Panel_GoldNoteBooks.Controls.Add(btn_DeleteNoteBook);
             Panel_GoldNoteBooks.Dock = DockStyle.Top;
             Panel_GoldNoteBooks.Location = new Point(0, 0);
             Panel_GoldNoteBooks.Name = "Panel_GoldNoteBooks";
@@ -303,27 +321,16 @@
             // btn_RenameNoteBook
             // 
             btn_RenameNoteBook.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_RenameNoteBook.Dock = DockStyle.Right;
             btn_RenameNoteBook.FlatAppearance.BorderSize = 0;
             btn_RenameNoteBook.FlatStyle = FlatStyle.Flat;
-            btn_RenameNoteBook.Image = Properties.Resources.icon_EditGray_x24;
-            btn_RenameNoteBook.Location = new Point(331, 17);
+            btn_RenameNoteBook.Image = Properties.Resources.icon_Edit_x24;
+            btn_RenameNoteBook.Location = new Point(314, 0);
             btn_RenameNoteBook.Name = "btn_RenameNoteBook";
-            btn_RenameNoteBook.Size = new Size(24, 23);
+            btn_RenameNoteBook.Size = new Size(40, 55);
             btn_RenameNoteBook.TabIndex = 2;
             btn_RenameNoteBook.UseVisualStyleBackColor = true;
             btn_RenameNoteBook.Click += btn_RenameNoteBook_Click;
-            // 
-            // btn_DeleteNotebook
-            // 
-            btn_DeleteNotebook.FlatAppearance.BorderSize = 0;
-            btn_DeleteNotebook.FlatStyle = FlatStyle.Flat;
-            btn_DeleteNotebook.Image = Properties.Resources.icon_TrashGray_x24_1;
-            btn_DeleteNotebook.Location = new Point(391, 17);
-            btn_DeleteNotebook.Name = "btn_DeleteNotebook";
-            btn_DeleteNotebook.Size = new Size(24, 23);
-            btn_DeleteNotebook.TabIndex = 2;
-            btn_DeleteNotebook.UseVisualStyleBackColor = true;
-            btn_DeleteNotebook.Click += btn_DeleteNotebook_Click;
             // 
             // tbx_NameNotebook
             // 
@@ -333,18 +340,19 @@
             tbx_NameNotebook.Location = new Point(155, 13);
             tbx_NameNotebook.Name = "tbx_NameNotebook";
             tbx_NameNotebook.ReadOnly = true;
-            tbx_NameNotebook.Size = new Size(170, 29);
+            tbx_NameNotebook.Size = new Size(153, 29);
             tbx_NameNotebook.TabIndex = 1;
             tbx_NameNotebook.TextAlign = HorizontalAlignment.Center;
             // 
             // btn_SortNoteBooks
             // 
+            btn_SortNoteBooks.Dock = DockStyle.Right;
             btn_SortNoteBooks.FlatAppearance.BorderSize = 0;
             btn_SortNoteBooks.FlatStyle = FlatStyle.Flat;
-            btn_SortNoteBooks.Image = Properties.Resources.icon_SortGray_x24;
-            btn_SortNoteBooks.Location = new Point(361, 17);
+            btn_SortNoteBooks.Image = Properties.Resources.icon_Sort_x24;
+            btn_SortNoteBooks.Location = new Point(354, 0);
             btn_SortNoteBooks.Name = "btn_SortNoteBooks";
-            btn_SortNoteBooks.Size = new Size(24, 23);
+            btn_SortNoteBooks.Size = new Size(40, 55);
             btn_SortNoteBooks.TabIndex = 1;
             btn_SortNoteBooks.UseVisualStyleBackColor = true;
             btn_SortNoteBooks.Click += btn_SortNoteBooks_Click;
@@ -356,9 +364,22 @@
             lbl_GoldNoteBooks.ForeColor = Color.Black;
             lbl_GoldNoteBooks.Location = new Point(6, 13);
             lbl_GoldNoteBooks.Name = "lbl_GoldNoteBooks";
-            lbl_GoldNoteBooks.Size = new Size(143, 29);
+            lbl_GoldNoteBooks.Size = new Size(142, 29);
             lbl_GoldNoteBooks.TabIndex = 0;
-            lbl_GoldNoteBooks.Text = "NoteBooks";
+            lbl_GoldNoteBooks.Text = "Notebooks";
+            // 
+            // btn_DeleteNoteBook
+            // 
+            btn_DeleteNoteBook.Dock = DockStyle.Right;
+            btn_DeleteNoteBook.FlatAppearance.BorderSize = 0;
+            btn_DeleteNoteBook.FlatStyle = FlatStyle.Flat;
+            btn_DeleteNoteBook.Image = Properties.Resources.icon_Delete_x24;
+            btn_DeleteNoteBook.Location = new Point(394, 0);
+            btn_DeleteNoteBook.Name = "btn_DeleteNoteBook";
+            btn_DeleteNoteBook.Size = new Size(40, 55);
+            btn_DeleteNoteBook.TabIndex = 2;
+            btn_DeleteNoteBook.UseVisualStyleBackColor = true;
+            btn_DeleteNoteBook.Click += btn_DeleteNotebook_Click;
             // 
             // Panel_Top
             // 
@@ -392,6 +413,9 @@
             // Panel_Left
             // 
             Panel_Left.BackColor = Color.FromArgb(35, 40, 45);
+            Panel_Left.Controls.Add(lbl_Change);
+            Panel_Left.Controls.Add(lbl_Home);
+            Panel_Left.Controls.Add(btn_ReOpenRoot);
             Panel_Left.Controls.Add(lbl_Menu);
             Panel_Left.Controls.Add(btn_NoteBook);
             Panel_Left.Controls.Add(btn_Note);
@@ -410,12 +434,46 @@
             Panel_Left.Size = new Size(54, 543);
             Panel_Left.TabIndex = 1;
             // 
+            // lbl_Change
+            // 
+            lbl_Change.AutoSize = true;
+            lbl_Change.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_Change.ForeColor = SystemColors.ButtonShadow;
+            lbl_Change.Location = new Point(66, 120);
+            lbl_Change.Name = "lbl_Change";
+            lbl_Change.Size = new Size(92, 29);
+            lbl_Change.TabIndex = 11;
+            lbl_Change.Text = "Change";
+            // 
+            // lbl_Home
+            // 
+            lbl_Home.AutoSize = true;
+            lbl_Home.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_Home.ForeColor = SystemColors.ButtonShadow;
+            lbl_Home.Location = new Point(66, 67);
+            lbl_Home.Name = "lbl_Home";
+            lbl_Home.Size = new Size(75, 29);
+            lbl_Home.TabIndex = 10;
+            lbl_Home.Text = "Home";
+            // 
+            // btn_ReOpenRoot
+            // 
+            btn_ReOpenRoot.FlatAppearance.BorderSize = 0;
+            btn_ReOpenRoot.FlatStyle = FlatStyle.Flat;
+            btn_ReOpenRoot.ForeColor = SystemColors.Desktop;
+            btn_ReOpenRoot.Image = Properties.Resources.icon_Folder_x24;
+            btn_ReOpenRoot.Location = new Point(3, 111);
+            btn_ReOpenRoot.Name = "btn_ReOpenRoot";
+            btn_ReOpenRoot.Size = new Size(48, 48);
+            btn_ReOpenRoot.TabIndex = 9;
+            btn_ReOpenRoot.UseVisualStyleBackColor = true;
+            // 
             // lbl_Menu
             // 
             lbl_Menu.AutoSize = true;
             lbl_Menu.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_Menu.ForeColor = SystemColors.ButtonShadow;
-            lbl_Menu.Location = new Point(66, 12);
+            lbl_Menu.Location = new Point(66, 14);
             lbl_Menu.Name = "lbl_Menu";
             lbl_Menu.Size = new Size(71, 29);
             lbl_Menu.TabIndex = 8;
@@ -426,10 +484,10 @@
             btn_NoteBook.FlatAppearance.BorderSize = 0;
             btn_NoteBook.FlatStyle = FlatStyle.Flat;
             btn_NoteBook.ForeColor = SystemColors.Desktop;
-            btn_NoteBook.Image = Properties.Resources.icon_NotebookGray_x24;
-            btn_NoteBook.Location = new Point(4, 165);
+            btn_NoteBook.Image = Properties.Resources.icon_Notebook_x24;
+            btn_NoteBook.Location = new Point(3, 273);
             btn_NoteBook.Name = "btn_NoteBook";
-            btn_NoteBook.Size = new Size(49, 48);
+            btn_NoteBook.Size = new Size(48, 48);
             btn_NoteBook.TabIndex = 2;
             btn_NoteBook.UseVisualStyleBackColor = true;
             btn_NoteBook.Visible = false;
@@ -440,10 +498,10 @@
             btn_Note.FlatAppearance.BorderSize = 0;
             btn_Note.FlatStyle = FlatStyle.Flat;
             btn_Note.ForeColor = SystemColors.Desktop;
-            btn_Note.Image = Properties.Resources.icon_NoteGray_x24;
-            btn_Note.Location = new Point(4, 112);
+            btn_Note.Image = Properties.Resources.icon_Note_x24;
+            btn_Note.Location = new Point(3, 219);
             btn_Note.Name = "btn_Note";
-            btn_Note.Size = new Size(49, 48);
+            btn_Note.Size = new Size(48, 48);
             btn_Note.TabIndex = 0;
             btn_Note.UseVisualStyleBackColor = true;
             btn_Note.Visible = false;
@@ -454,7 +512,7 @@
             lbl_Note.AutoSize = true;
             lbl_Note.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_Note.ForeColor = SystemColors.ButtonShadow;
-            lbl_Note.Location = new Point(66, 118);
+            lbl_Note.Location = new Point(66, 228);
             lbl_Note.Name = "lbl_Note";
             lbl_Note.Size = new Size(63, 29);
             lbl_Note.TabIndex = 7;
@@ -466,11 +524,11 @@
             lbl_NoteBook.AutoSize = true;
             lbl_NoteBook.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_NoteBook.ForeColor = SystemColors.ButtonShadow;
-            lbl_NoteBook.Location = new Point(66, 173);
+            lbl_NoteBook.Location = new Point(66, 282);
             lbl_NoteBook.Name = "lbl_NoteBook";
-            lbl_NoteBook.Size = new Size(115, 29);
+            lbl_NoteBook.Size = new Size(114, 29);
             lbl_NoteBook.TabIndex = 6;
-            lbl_NoteBook.Text = "NoteBook";
+            lbl_NoteBook.Text = "Notebook";
             lbl_NoteBook.Visible = false;
             // 
             // lbl_New
@@ -478,7 +536,7 @@
             lbl_New.AutoSize = true;
             lbl_New.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_New.ForeColor = SystemColors.ButtonShadow;
-            lbl_New.Location = new Point(66, 67);
+            lbl_New.Location = new Point(66, 175);
             lbl_New.Name = "lbl_New";
             lbl_New.Size = new Size(60, 29);
             lbl_New.TabIndex = 5;
@@ -488,24 +546,23 @@
             // 
             btn_Expand.FlatAppearance.BorderSize = 0;
             btn_Expand.FlatStyle = FlatStyle.Flat;
-            btn_Expand.Image = Properties.Resources.icon_MenuGray_x24;
-            btn_Expand.Location = new Point(4, 3);
+            btn_Expand.Image = Properties.Resources.icon_Menu_x24;
+            btn_Expand.Location = new Point(3, 3);
             btn_Expand.Name = "btn_Expand";
-            btn_Expand.Size = new Size(49, 48);
+            btn_Expand.Size = new Size(48, 48);
             btn_Expand.TabIndex = 4;
             btn_Expand.UseVisualStyleBackColor = true;
             btn_Expand.Click += btn_Expand_Click;
             // 
             // btn_Home
             // 
-            btn_Home.Dock = DockStyle.Bottom;
             btn_Home.FlatAppearance.BorderSize = 0;
             btn_Home.FlatStyle = FlatStyle.Flat;
             btn_Home.ForeColor = SystemColors.Desktop;
-            btn_Home.Image = Properties.Resources.icon_HomeGray_x24;
-            btn_Home.Location = new Point(0, 495);
+            btn_Home.Image = Properties.Resources.icon_Home_x24;
+            btn_Home.Location = new Point(3, 57);
             btn_Home.Name = "btn_Home";
-            btn_Home.Size = new Size(54, 48);
+            btn_Home.Size = new Size(48, 48);
             btn_Home.TabIndex = 3;
             btn_Home.UseVisualStyleBackColor = true;
             btn_Home.Click += btn_Home_Click;
@@ -516,10 +573,10 @@
             btn_New.FlatStyle = FlatStyle.Flat;
             btn_New.Font = new Font("Tahoma", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btn_New.ForeColor = Color.Black;
-            btn_New.Image = Properties.Resources.icon_NewGray_x24;
-            btn_New.Location = new Point(4, 57);
+            btn_New.Image = Properties.Resources.icon_New_x24;
+            btn_New.Location = new Point(3, 165);
             btn_New.Name = "btn_New";
-            btn_New.Size = new Size(49, 48);
+            btn_New.Size = new Size(48, 48);
             btn_New.TabIndex = 1;
             btn_New.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn_New.UseVisualStyleBackColor = true;
@@ -554,7 +611,7 @@
             // 
             lbl_SelectRoot.AutoSize = true;
             lbl_SelectRoot.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_SelectRoot.Location = new Point(686, 200);
+            lbl_SelectRoot.Location = new Point(686, 180);
             lbl_SelectRoot.Name = "lbl_SelectRoot";
             lbl_SelectRoot.Size = new Size(208, 24);
             lbl_SelectRoot.TabIndex = 3;
@@ -565,8 +622,8 @@
             btn_OpenRoot.BackColor = Color.White;
             btn_OpenRoot.FlatAppearance.BorderSize = 0;
             btn_OpenRoot.FlatStyle = FlatStyle.Flat;
-            btn_OpenRoot.Image = Properties.Resources.icon_Folder_x48;
-            btn_OpenRoot.Location = new Point(731, 227);
+            btn_OpenRoot.Image = Properties.Resources.icon_FolderRoot_x64;
+            btn_OpenRoot.Location = new Point(731, 210);
             btn_OpenRoot.Name = "btn_OpenRoot";
             btn_OpenRoot.Size = new Size(111, 98);
             btn_OpenRoot.TabIndex = 2;
@@ -611,6 +668,7 @@
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Noty";
+            Load += Main_Load;
             Panel_Main.ResumeLayout(false);
             Panel_Main.PerformLayout();
             Panel_Bottom.ResumeLayout(false);
@@ -657,7 +715,6 @@
         private ListBox ls_Notes;
         private Panel Panel_NoteBooks;
         private Button btn_Delete;
-        private Button btn_Save;
         private Panel PanelGoldNotes;
         private Button btn_Home;
         private TextBox tbx_Screach;
@@ -667,7 +724,7 @@
         private Label lbl_GoldNotes;
         private Label lbl_GoldNoteBooks;
         private Button btn_SortNoteBooks;
-        private Button btn_DeleteNotebook;
+        private Button btn_DeleteNoteBook;
         private System.Windows.Forms.Timer Panel_LeftTimer;
         private Button btn_Expand;
         private Label lbl_New;
@@ -675,5 +732,10 @@
         private Label lbl_NoteBook;
         private Label lbl_Menu;
         private Button btn_SortNotes;
+        private Button btn_ReOpenRoot;
+        private Label lbl_Change;
+        private Label lbl_Home;
+        private Button btn_Redo;
+        private Button btn_Undo;
     }
 }

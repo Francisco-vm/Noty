@@ -63,9 +63,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_EditGray_x24 {
+        internal static System.Drawing.Bitmap icon_Delete_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-EditGray-x24", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-Delete-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_Folder_x48 {
+        internal static System.Drawing.Bitmap icon_Edit_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-Folder-x48", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-Edit-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_FormatGray_x32 {
+        internal static System.Drawing.Bitmap icon_Folder_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-FormatGray-x32", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-Folder-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_HomeGray_x24 {
+        internal static System.Drawing.Bitmap icon_FolderRoot_x64 {
             get {
-                object obj = ResourceManager.GetObject("icon-HomeGray-x24", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-FolderRoot-x64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_MenuGray_x24 {
+        internal static System.Drawing.Bitmap icon_Home_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-MenuGray-x24", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-Home-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_NewGray_x24 {
+        internal static System.Drawing.Bitmap icon_Menu_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-NewGray-x24", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-Menu-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_NotebookGray_x24 {
+        internal static System.Drawing.Bitmap icon_New_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-NotebookGray-x24", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-New-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_NoteGray_x24 {
+        internal static System.Drawing.Bitmap icon_Note_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-NoteGray-x24", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-Note-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_SaveGray_x32 {
+        internal static System.Drawing.Bitmap icon_Notebook_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-SaveGray-x32", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-Notebook-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_SortGray_x24 {
+        internal static System.Drawing.Bitmap icon_Redo_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-SortGray-x24", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-Redo-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_TrashGray_x24_1 {
+        internal static System.Drawing.Bitmap icon_Sort_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-TrashGray-x24-1", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-Sort-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,29 +173,9 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_TrashGray_x32 {
+        internal static System.Drawing.Bitmap icon_Undo_x24 {
             get {
-                object obj = ResourceManager.GetObject("icon-TrashGray-x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Logo {
-            get {
-                object obj = ResourceManager.GetObject("Logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Logo_notbg {
-            get {
-                object obj = ResourceManager.GetObject("Logo-notbg", resourceCulture);
+                object obj = ResourceManager.GetObject("icon-Undo-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -467,6 +467,7 @@
             btn_ReOpenRoot.Size = new Size(48, 48);
             btn_ReOpenRoot.TabIndex = 9;
             btn_ReOpenRoot.UseVisualStyleBackColor = true;
+            btn_ReOpenRoot.Click += btn_ReOpenRoot_Click;
             // 
             // lbl_Menu
             // 

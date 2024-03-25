@@ -56,7 +56,7 @@ namespace Noty
                     tbx_NameNotebook.ReadOnly = true;
                     tbx_NameNotebook.Text = Path.GetFileName(folderPath);
                     UpdateNotes();
-                    
+
                 }
             }
         }
@@ -853,5 +853,24 @@ namespace Noty
         //============= In work =============//
 
 
+        private void btn_ReOpenRoot_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new FolderBrowserDialog())
+            {
+                DialogResult result = dialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.SelectedPath))
+                {
+                    folderPath = dialog.SelectedPath;
+                    rootPath = folderPath;
+                    UpdateNotebooks();
+                    tbx_NameNotebook.Text = Path.GetFileName(folderPath);
+                    UpdateNotes();
+                    tbx_Title.Clear();
+                    TextArea.Clear();
+                }
+            }
+
+        }   
     }
 }

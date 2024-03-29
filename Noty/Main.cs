@@ -56,7 +56,6 @@ namespace Noty
                     tbx_NameNotebook.ReadOnly = true;
                     tbx_NameNotebook.Text = Path.GetFileName(folderPath);
                     UpdateNotes();
-
                 }
             }
         }
@@ -141,6 +140,7 @@ namespace Noty
         {
             // Limpiar la selección de cuaderno
             ls_NoteBooks.ClearSelected();
+            ls_Notes.ClearSelected();
 
             // Actualizar la vista para mostrar las notas en la carpeta raíz
             UpdateNotes();
@@ -268,7 +268,7 @@ namespace Noty
             else
             {
                 // Estamos en la carpeta raíz, construir la ruta de la nota en la carpeta raíz
-                fullRoute = Path.Combine(folderPath, $"{nameNote}.txt");
+                fullRoute = Path.Combine(destinationNotebook, $"{nameNote}.txt");
             }
 
             try
@@ -861,16 +861,27 @@ namespace Noty
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.SelectedPath))
                 {
-                    folderPath = dialog.SelectedPath;
-                    rootPath = folderPath;
+                    string newRootPath = dialog.SelectedPath;
+
+                    folderPath = "";
+                    rootPath = "";
+
+                    folderPath = newRootPath;
+                    rootPath = newRootPath;
+
+                    ls_NoteBooks.ClearSelected();
+                    ls_Notes.ClearSelected();
+
                     UpdateNotebooks();
-                    tbx_NameNotebook.Text = Path.GetFileName(folderPath);
                     UpdateNotes();
+                    UpdateNotes(folderPath);
+
+                    tbx_NameNotebook.Text = Path.GetFileName(folderPath);
+
                     tbx_Title.Clear();
                     TextArea.Clear();
                 }
             }
-
         }   
     }
 }

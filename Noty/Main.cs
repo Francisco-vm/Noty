@@ -60,6 +60,38 @@ namespace Noty
             }
         }
 
+        //Permite cambiar la carpeta raiz//
+        private void btn_ReOpenRoot_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new FolderBrowserDialog())
+            {
+                DialogResult result = dialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.SelectedPath))
+                {
+                    string newRootPath = dialog.SelectedPath;
+
+                    folderPath = "";
+                    rootPath = "";
+
+                    folderPath = newRootPath;
+                    rootPath = newRootPath;
+
+                    ls_NoteBooks.ClearSelected();
+                    ls_Notes.ClearSelected();
+
+                    UpdateNotebooks();
+                    UpdateNotes();
+                    UpdateNotes(folderPath);
+
+                    tbx_NameNotebook.Text = Path.GetFileName(folderPath);
+
+                    tbx_Title.Clear();
+                    TextArea.Clear();
+                }
+            }
+        }
+
         //Actualiza la lista de notas que se encuentran dentro de Root//
         private void UpdateNotes()
         {
@@ -537,39 +569,48 @@ namespace Noty
                 // Obtener la ruta completa del archivo
                 string fullRoute = Path.Combine(destinationNotebook, $"{selectedNote}.txt");
 
-                try
+
+                // Preguntar al usuario si está seguro de eliminar el cuaderno
+                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar esta nota?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    // Verificar si el archivo existe antes de intentar eliminarlo
-                    if (File.Exists(fullRoute))
+                    try
                     {
-                        // Eliminar el archivo
-                        File.Delete(fullRoute);
-                        ls_Notes.ClearSelected();
-                        tbx_Title.Clear();
-                        TextArea.Clear();
-
-                        MessageBox.Show($"La nota '{selectedNote}' ha sido eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Actualizar la lista de notas después de eliminar
-                        if (selectedNotebook != null)
+                        // Verificar si el archivo existe antes de intentar eliminarlo
+                        if (File.Exists(fullRoute))
                         {
-                            // Si hay un cuaderno seleccionado, actualizar la lista de notas dentro del cuaderno
-                            UpdateNotes(destinationNotebook);
+                            // Eliminar el archivo
+                            File.Delete(fullRoute);
+                            ls_Notes.ClearSelected();
+                            tbx_Title.Clear();
+                            TextArea.Clear();
+                            tbx_Title.ReadOnly = true;
+                            TextArea.ReadOnly = true;
+
+                            MessageBox.Show($"La nota '{selectedNote}' ha sido eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Actualizar la lista de notas después de eliminar
+                            if (selectedNotebook != null)
+                            {
+                                // Si hay un cuaderno seleccionado, actualizar la lista de notas dentro del cuaderno
+                                UpdateNotes(destinationNotebook);
+                            }
+                            else
+                            {
+                                // Si no hay cuaderno seleccionado, actualizar la lista de notas en la carpeta raíz
+                                UpdateNotes();
+                            }
                         }
                         else
                         {
-                            // Si no hay cuaderno seleccionado, actualizar la lista de notas en la carpeta raíz
-                            UpdateNotes();
+                            MessageBox.Show($"La nota '{selectedNote}' no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show($"La nota '{selectedNote}' no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Error al eliminar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al eliminar la nota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -689,34 +730,40 @@ namespace Noty
             // Construye la ruta completa del cuaderno
             string fullRoute = Path.Combine(folderPath, selectedNotebook);
 
-            try
+            // Preguntar al usuario si está seguro de eliminar el cuaderno
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este cuaderno? Esto también eliminará todas las notas contenidas en él.", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                // Elimina la carpeta del cuaderno
-                Directory.Delete(fullRoute, true);
+                try
+                {
+                    // Elimina la carpeta del cuaderno
+                    Directory.Delete(fullRoute, true);
 
-                // Actualiza la lista de cuadernos
-                UpdateNotebooks();
+                    // Actualiza la lista de cuadernos
+                    UpdateNotebooks();
 
-                // Limpiar la selección de cuaderno
-                ls_NoteBooks.ClearSelected();
+                    // Limpiar la selección de cuaderno
+                    ls_NoteBooks.ClearSelected();
 
-                // Actualizar la vista para mostrar las notas en la carpeta raíz
-                UpdateNotes();
+                    // Actualizar la vista para mostrar las notas en la carpeta raíz
+                    UpdateNotes();
 
-                // Limpiar los campos de título y área de texto
-                tbx_Title.Clear();
-                TextArea.Clear();
-                tbx_Title.ReadOnly = true;
-                TextArea.ReadOnly = true;
-                tbx_NameNotebook.ReadOnly = true;
-                tbx_NameNotebook.Text = Path.GetFileName(folderPath);
+                    // Limpiar los campos de título y área de texto
+                    tbx_Title.Clear();
+                    TextArea.Clear();
+                    tbx_Title.ReadOnly = true;
+                    TextArea.ReadOnly = true;
+                    tbx_NameNotebook.ReadOnly = true;
+                    tbx_NameNotebook.Text = Path.GetFileName(folderPath);
 
 
-                MessageBox.Show($"Cuaderno '{selectedNotebook}' eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al eliminar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Cuaderno '{selectedNotebook}' eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar el cuaderno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -853,35 +900,6 @@ namespace Noty
         //============= In work =============//
 
 
-        private void btn_ReOpenRoot_Click(object sender, EventArgs e)
-        {
-            using (var dialog = new FolderBrowserDialog())
-            {
-                DialogResult result = dialog.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.SelectedPath))
-                {
-                    string newRootPath = dialog.SelectedPath;
-
-                    folderPath = "";
-                    rootPath = "";
-
-                    folderPath = newRootPath;
-                    rootPath = newRootPath;
-
-                    ls_NoteBooks.ClearSelected();
-                    ls_Notes.ClearSelected();
-
-                    UpdateNotebooks();
-                    UpdateNotes();
-                    UpdateNotes(folderPath);
-
-                    tbx_NameNotebook.Text = Path.GetFileName(folderPath);
-
-                    tbx_Title.Clear();
-                    TextArea.Clear();
-                }
-            }
-        }   
+        
     }
 }

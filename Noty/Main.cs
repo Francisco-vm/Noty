@@ -838,6 +838,9 @@ namespace Noty
             tbx_NameNotebook.ReadOnly = false;
             tbx_Title.ReadOnly = true;
             TextArea.ReadOnly = true;
+            ls_Notes.ClearSelected();
+            tbx_Title.Clear();
+            TextArea.Clear();
 
             // Obtener la carpeta seleccionada en la ListBox
             string notebookSelected = ls_NoteBooks.SelectedItem?.ToString();
@@ -899,7 +902,11 @@ namespace Noty
 
         //============= In work =============//
 
+        //Bug encontrado. Notas con nombres identicos. ***
 
-        
+        // Diccionario para almacenar el contenido de las notas utilizando la ruta completa como clave
+        private Dictionary<string, string> noteContents = new Dictionary<string, string>();
+
+
     }
 }

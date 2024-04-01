@@ -117,353 +117,1301 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;btn_Undo.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Panel_Bottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>527, 495</value>
-  </data>
-  <data name="&gt;&gt;Panel_SeparatorLeft.Name" xml:space="preserve">
-    <value>Panel_SeparatorLeft</value>
-  </data>
-  <data name="btn_Home.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 57</value>
-  </data>
-  <data name="&gt;&gt;Panel_NoteAndNotebooks.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>10, 25</value>
-  </data>
-  <data name="&gt;&gt;Panel_Bottom.Name" xml:space="preserve">
-    <value>Panel_Bottom</value>
-  </data>
-  <data name="lbl_GoldNotes.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;Panel_NoteAndNotebooks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_Expand.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btn_NoteBook.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lbl_NoteBook.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lbl_Note.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 29</value>
-  </data>
-  <data name="lbl_Noty.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btn_Note.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 219</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Panel_NoteAndNotebooks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="btn_Delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 55</value>
-  </data>
-  <data name="&gt;&gt;btn_ReOpenRoot.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="&gt;&gt;Panel_SeparatorRight.Parent" xml:space="preserve">
-    <value>Panel_Main</value>
-  </data>
-  <data name="&gt;&gt;Panel_LeftTimer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_New.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="btn_New.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbl_Note.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Panel_NoteBooks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;lbl_Menu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Main</value>
-  </data>
-  <data name="&gt;&gt;Panel_GoldNoteBooks.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btn_Undo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Panel_GoldNoteBooks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="btn_Delete.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="Panel_Bottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>379, 48</value>
-  </data>
-  <data name="Panel_SeparatorRight.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btn_Note.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btn_Expand.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="&gt;&gt;btn_DeleteNoteBook.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbx_Title.Name" xml:space="preserve">
-    <value>tbx_Title</value>
-  </data>
-  <data name="Panel_Main.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;ls_NoteBooks.Name" xml:space="preserve">
-    <value>ls_NoteBooks</value>
-  </data>
-  <data name="&gt;&gt;btn_Redo.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="Panel_Welcome.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="TextArea.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;lbl_Noty.Name" xml:space="preserve">
-    <value>lbl_Noty</value>
-  </data>
-  <data name="&gt;&gt;lbl_GoldNoteBooks.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Panel_Main.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbl_GoldNotes.Text" xml:space="preserve">
-    <value>Notes</value>
-  </data>
-  <data name="lbl_Note.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;btn_OpenRoot.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Panel_Right.Name" xml:space="preserve">
-    <value>Panel_Right</value>
-  </data>
-  <data name="tbx_NameNotebook.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 29</value>
-  </data>
-  <data name="&gt;&gt;Panel_Welcome.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btn_SortNoteBooks.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btn_ReOpenRoot.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Panel_Welcome.Size" type="System.Drawing.Size, System.Drawing">
-    <value>979, 543</value>
-  </data>
-  <data name="ls_NoteBooks.ItemHeight" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="btn_ReOpenRoot.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="Panel_Main.Size" type="System.Drawing.Size, System.Drawing">
-    <value>979, 543</value>
-  </data>
-  <data name="&gt;&gt;btn_DeleteNoteBook.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lbl_NoteBook.Font" type="System.Drawing.Font, System.Drawing">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="TextArea.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 12pt</value>
   </data>
-  <data name="&gt;&gt;tbx_Title.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="TextArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>527, 109</value>
   </data>
-  <data name="lbl_Noty.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 358</value>
+  <data name="TextArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>379, 386</value>
   </data>
-  <data name="btn_RenameNoteBook.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="Panel_NoteBooks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 55</value>
-  </data>
-  <data name="&gt;&gt;lbl_NoteBook.Name" xml:space="preserve">
-    <value>lbl_NoteBook</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="TextArea.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="TextArea.Text" xml:space="preserve">
     <value />
   </data>
-  <data name="btn_New.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="&gt;&gt;TextArea.Name" xml:space="preserve">
+    <value>TextArea</value>
+  </data>
+  <data name="&gt;&gt;TextArea.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextArea.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;TextArea.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btn_Undo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btn_Undo.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="&gt;&gt;lbl_NoteBook.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btn_Undo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>299, 0</value>
   </data>
-  <data name="Panel_GoldNoteBooks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="btn_Undo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 48</value>
   </data>
-  <data name="btn_SortNoteBooks.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="btn_Undo.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="tbx_Title.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;btn_Undo.Name" xml:space="preserve">
+    <value>btn_Undo</value>
+  </data>
+  <data name="&gt;&gt;btn_Undo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Undo.Parent" xml:space="preserve">
+    <value>Panel_Bottom</value>
+  </data>
+  <data name="&gt;&gt;btn_Undo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btn_Redo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="btn_Redo.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="lbl_SelectRoot.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 10pt</value>
+  <data name="btn_Redo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>339, 0</value>
   </data>
-  <data name="lbl_Noty.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_Redo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 48</value>
+  </data>
+  <data name="btn_Redo.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btn_Redo.Name" xml:space="preserve">
+    <value>btn_Redo</value>
+  </data>
+  <data name="&gt;&gt;btn_Redo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Redo.Parent" xml:space="preserve">
+    <value>Panel_Bottom</value>
+  </data>
+  <data name="&gt;&gt;btn_Redo.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="lbl_Noty.Text" xml:space="preserve">
-    <value>Noty</value>
-  </data>
-  <data name="btn_OpenRoot.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
   </data>
   <data name="Panel_Bottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="lbl_Change.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="Panel_Bottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>527, 495</value>
   </data>
-  <data name="&gt;&gt;lbl_Note.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
+  <data name="Panel_Bottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>379, 48</value>
   </data>
-  <data name="Panel_Notes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tbx_Screach.Size" type="System.Drawing.Size, System.Drawing">
-    <value>338, 31</value>
-  </data>
-  <data name="lbl_GoldNoteBooks.Text" xml:space="preserve">
-    <value>Notebooks</value>
-  </data>
-  <data name="&gt;&gt;Panel_Notes.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btn_DeleteNoteBook.Parent" xml:space="preserve">
-    <value>Panel_GoldNoteBooks</value>
-  </data>
-  <data name="lbl_Change.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 120</value>
-  </data>
-  <data name="&gt;&gt;lbl_SelectRoot.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lbl_Home.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
-  </data>
-  <data name="btn_SortNoteBooks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="PanelGoldNotes.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="Panel_NoteAndNotebooks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 55</value>
-  </data>
-  <data name="&gt;&gt;Panel_Left.Parent" xml:space="preserve">
-    <value>Panel_Main</value>
-  </data>
-  <data name="btn_RenameNoteBook.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btn_ReOpenRoot.Name" xml:space="preserve">
-    <value>btn_ReOpenRoot</value>
-  </data>
-  <data name="&gt;&gt;lbl_SelectRoot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Panel_Main.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Panel_Left.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="&gt;&gt;lbl_NoteBook.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="Panel_Right.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lbl_Menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 29</value>
-  </data>
-  <data name="btn_Expand.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete.Name" xml:space="preserve">
-    <value>btn_Delete</value>
-  </data>
-  <data name="lbl_Noty.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 30pt</value>
-  </data>
-  <data name="btn_Home.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="lbl_NoteBook.Text" xml:space="preserve">
-    <value>Notebook</value>
-  </data>
-  <data name="lbl_SelectRoot.TabIndex" type="System.Int32, mscorlib">
+  <data name="Panel_Bottom.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;Panel_NoteAndNotebooks.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Panel_Bottom.Name" xml:space="preserve">
+    <value>Panel_Bottom</value>
+  </data>
+  <data name="&gt;&gt;Panel_Bottom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_Bottom.Parent" xml:space="preserve">
     <value>Panel_Main</value>
   </data>
-  <data name="&gt;&gt;lbl_SelectRoot.Name" xml:space="preserve">
-    <value>lbl_SelectRoot</value>
-  </data>
-  <data name="lbl_GoldNotes.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;Panel_Bottom.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="tbx_Screach.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="tbx_Title.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="tbx_Title.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 22pt</value>
   </data>
-  <data name="&gt;&gt;PanelGoldNotes.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="tbx_Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>527, 55</value>
   </data>
-  <data name="lbl_Home.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="tbx_Title.Size" type="System.Drawing.Size, System.Drawing">
+    <value>379, 54</value>
   </data>
-  <data name="PanelGoldNotes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 288</value>
+  <data name="tbx_Title.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="tbx_Title.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;tbx_Title.Name" xml:space="preserve">
+    <value>tbx_Title</value>
+  </data>
+  <data name="&gt;&gt;tbx_Title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbx_Title.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;tbx_Title.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Panel_SeparatorRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="Panel_SeparatorRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>906, 55</value>
   </data>
   <data name="Panel_SeparatorRight.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 488</value>
   </data>
-  <data name="&gt;&gt;lbl_GoldNoteBooks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Panel_SeparatorRight.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="Panel_SeparatorRight.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Panel_SeparatorRight.Name" xml:space="preserve">
+    <value>Panel_SeparatorRight</value>
+  </data>
+  <data name="&gt;&gt;Panel_SeparatorRight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_SeparatorRight.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Panel_SeparatorRight.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Panel_SeparatorLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="Panel_SeparatorLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>488, 55</value>
+  </data>
+  <data name="Panel_SeparatorLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 488</value>
+  </data>
+  <data name="Panel_SeparatorLeft.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Panel_SeparatorLeft.Name" xml:space="preserve">
+    <value>Panel_SeparatorLeft</value>
+  </data>
+  <data name="&gt;&gt;Panel_SeparatorLeft.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_SeparatorLeft.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Panel_SeparatorLeft.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Panel_Notes.Name" xml:space="preserve">
+    <value>Panel_Notes</value>
+  </data>
+  <data name="&gt;&gt;Panel_Notes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_Notes.Parent" xml:space="preserve">
+    <value>Panel_NoteAndNotebooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_Notes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PanelGoldNotes.Name" xml:space="preserve">
+    <value>PanelGoldNotes</value>
+  </data>
+  <data name="&gt;&gt;PanelGoldNotes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelGoldNotes.Parent" xml:space="preserve">
+    <value>Panel_NoteAndNotebooks</value>
+  </data>
+  <data name="&gt;&gt;PanelGoldNotes.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteBooks.Name" xml:space="preserve">
+    <value>Panel_NoteBooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteBooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteBooks.Parent" xml:space="preserve">
+    <value>Panel_NoteAndNotebooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteBooks.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Panel_GoldNoteBooks.Name" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_GoldNoteBooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_GoldNoteBooks.Parent" xml:space="preserve">
+    <value>Panel_NoteAndNotebooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_GoldNoteBooks.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Panel_NoteAndNotebooks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="Panel_NoteAndNotebooks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>54, 55</value>
+  </data>
+  <data name="Panel_NoteAndNotebooks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>434, 488</value>
+  </data>
+  <data name="Panel_NoteAndNotebooks.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteAndNotebooks.Name" xml:space="preserve">
+    <value>Panel_NoteAndNotebooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteAndNotebooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteAndNotebooks.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteAndNotebooks.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;tbx_Screach.Name" xml:space="preserve">
+    <value>tbx_Screach</value>
   </data>
   <data name="&gt;&gt;tbx_Screach.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;tbx_Screach.Parent" xml:space="preserve">
+    <value>Panel_Top</value>
+  </data>
+  <data name="&gt;&gt;tbx_Screach.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Panel_Top.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="Panel_Top.Location" type="System.Drawing.Point, System.Drawing">
+    <value>54, 0</value>
+  </data>
+  <data name="Panel_Top.Size" type="System.Drawing.Size, System.Drawing">
+    <value>885, 55</value>
+  </data>
+  <data name="Panel_Top.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Panel_Top.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Panel_Top.Name" xml:space="preserve">
+    <value>Panel_Top</value>
+  </data>
+  <data name="&gt;&gt;Panel_Top.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_Top.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Panel_Top.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Panel_Right.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="Panel_Right.Location" type="System.Drawing.Point, System.Drawing">
+    <value>939, 0</value>
+  </data>
+  <data name="Panel_Right.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 543</value>
+  </data>
+  <data name="Panel_Right.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="Panel_Right.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Panel_Right.Name" xml:space="preserve">
+    <value>Panel_Right</value>
+  </data>
+  <data name="&gt;&gt;Panel_Right.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_Right.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Panel_Right.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lbl_Change.Name" xml:space="preserve">
+    <value>lbl_Change</value>
+  </data>
+  <data name="&gt;&gt;lbl_Change.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_Change.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_Change.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lbl_Home.Name" xml:space="preserve">
+    <value>lbl_Home</value>
+  </data>
+  <data name="&gt;&gt;lbl_Home.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_Home.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_Home.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btn_ReOpenRoot.Name" xml:space="preserve">
+    <value>btn_ReOpenRoot</value>
+  </data>
+  <data name="&gt;&gt;btn_ReOpenRoot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_ReOpenRoot.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_ReOpenRoot.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lbl_Menu.Name" xml:space="preserve">
+    <value>lbl_Menu</value>
+  </data>
+  <data name="&gt;&gt;lbl_Menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_Menu.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_Menu.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btn_NoteBook.Name" xml:space="preserve">
+    <value>btn_NoteBook</value>
+  </data>
+  <data name="&gt;&gt;btn_NoteBook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_NoteBook.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_NoteBook.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btn_Note.Name" xml:space="preserve">
+    <value>btn_Note</value>
+  </data>
+  <data name="&gt;&gt;btn_Note.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Note.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_Note.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lbl_Note.Name" xml:space="preserve">
+    <value>lbl_Note</value>
+  </data>
+  <data name="&gt;&gt;lbl_Note.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_Note.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_Note.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lbl_NoteBook.Name" xml:space="preserve">
+    <value>lbl_NoteBook</value>
+  </data>
+  <data name="&gt;&gt;lbl_NoteBook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_NoteBook.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_NoteBook.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lbl_New.Name" xml:space="preserve">
+    <value>lbl_New</value>
+  </data>
+  <data name="&gt;&gt;lbl_New.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_New.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_New.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btn_Expand.Name" xml:space="preserve">
+    <value>btn_Expand</value>
+  </data>
+  <data name="&gt;&gt;btn_Expand.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Expand.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_Expand.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;btn_Home.Name" xml:space="preserve">
+    <value>btn_Home</value>
+  </data>
+  <data name="&gt;&gt;btn_Home.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Home.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_Home.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;btn_New.Name" xml:space="preserve">
+    <value>btn_New</value>
+  </data>
+  <data name="&gt;&gt;btn_New.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_New.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_New.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="Panel_Left.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="Panel_Left.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="Panel_Left.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>184, 0</value>
+  </data>
+  <data name="Panel_Left.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>54, 0</value>
+  </data>
+  <data name="Panel_Left.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 543</value>
+  </data>
+  <data name="Panel_Left.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Panel_Left.Name" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;Panel_Left.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_Left.Parent" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Panel_Left.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="Panel_Main.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="Panel_Main.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="Panel_Main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>979, 543</value>
+  </data>
+  <data name="Panel_Main.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Panel_Main.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Panel_Main.Name" xml:space="preserve">
+    <value>Panel_Main</value>
+  </data>
+  <data name="&gt;&gt;Panel_Main.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_Main.Parent" xml:space="preserve">
+    <value>Panel_Welcome</value>
+  </data>
+  <data name="&gt;&gt;Panel_Main.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ls_Notes.Name" xml:space="preserve">
+    <value>ls_Notes</value>
+  </data>
+  <data name="&gt;&gt;ls_Notes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ls_Notes.Parent" xml:space="preserve">
+    <value>Panel_Notes</value>
+  </data>
+  <data name="&gt;&gt;ls_Notes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Panel_Notes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="Panel_Notes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 343</value>
+  </data>
+  <data name="Panel_Notes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>434, 145</value>
+  </data>
+  <data name="Panel_Notes.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Panel_Notes.Name" xml:space="preserve">
+    <value>Panel_Notes</value>
+  </data>
+  <data name="&gt;&gt;Panel_Notes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_Notes.Parent" xml:space="preserve">
+    <value>Panel_NoteAndNotebooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_Notes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ls_Notes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ls_Notes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
+  </data>
+  <data name="ls_Notes.ItemHeight" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="ls_Notes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ls_Notes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>434, 145</value>
+  </data>
+  <data name="ls_Notes.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;ls_Notes.Name" xml:space="preserve">
+    <value>ls_Notes</value>
+  </data>
+  <data name="&gt;&gt;ls_Notes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ls_Notes.Parent" xml:space="preserve">
+    <value>Panel_Notes</value>
+  </data>
+  <data name="&gt;&gt;ls_Notes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNotes.Name" xml:space="preserve">
+    <value>btn_SortNotes</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNotes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNotes.Parent" xml:space="preserve">
+    <value>PanelGoldNotes</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNotes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNotes.Name" xml:space="preserve">
+    <value>lbl_GoldNotes</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNotes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNotes.Parent" xml:space="preserve">
+    <value>PanelGoldNotes</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNotes.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btn_Delete.Name" xml:space="preserve">
+    <value>btn_Delete</value>
+  </data>
+  <data name="&gt;&gt;btn_Delete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Delete.Parent" xml:space="preserve">
+    <value>PanelGoldNotes</value>
+  </data>
+  <data name="&gt;&gt;btn_Delete.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="PanelGoldNotes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="PanelGoldNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 288</value>
+  </data>
+  <data name="PanelGoldNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>434, 55</value>
+  </data>
+  <data name="PanelGoldNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;PanelGoldNotes.Name" xml:space="preserve">
+    <value>PanelGoldNotes</value>
+  </data>
+  <data name="&gt;&gt;PanelGoldNotes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelGoldNotes.Parent" xml:space="preserve">
+    <value>Panel_NoteAndNotebooks</value>
+  </data>
+  <data name="&gt;&gt;PanelGoldNotes.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_SortNotes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btn_SortNotes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_SortNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 0</value>
+  </data>
+  <data name="btn_SortNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 55</value>
+  </data>
+  <data name="btn_SortNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNotes.Name" xml:space="preserve">
+    <value>btn_SortNotes</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNotes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNotes.Parent" xml:space="preserve">
+    <value>PanelGoldNotes</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNotes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbl_GoldNotes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_GoldNotes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt, style=Bold</value>
+  </data>
+  <data name="lbl_GoldNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 15</value>
+  </data>
+  <data name="lbl_GoldNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 29</value>
+  </data>
+  <data name="lbl_GoldNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lbl_GoldNotes.Text" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNotes.Name" xml:space="preserve">
+    <value>lbl_GoldNotes</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNotes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNotes.Parent" xml:space="preserve">
+    <value>PanelGoldNotes</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNotes.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_Delete.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btn_Delete.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_Delete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 0</value>
+  </data>
+  <data name="btn_Delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 55</value>
+  </data>
+  <data name="btn_Delete.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btn_Delete.Name" xml:space="preserve">
+    <value>btn_Delete</value>
+  </data>
+  <data name="&gt;&gt;btn_Delete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Delete.Parent" xml:space="preserve">
+    <value>PanelGoldNotes</value>
+  </data>
+  <data name="&gt;&gt;btn_Delete.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ls_NoteBooks.Name" xml:space="preserve">
+    <value>ls_NoteBooks</value>
+  </data>
+  <data name="&gt;&gt;ls_NoteBooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ls_NoteBooks.Parent" xml:space="preserve">
+    <value>Panel_NoteBooks</value>
+  </data>
+  <data name="&gt;&gt;ls_NoteBooks.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Panel_NoteBooks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="Panel_NoteBooks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 55</value>
+  </data>
+  <data name="Panel_NoteBooks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>434, 233</value>
+  </data>
+  <data name="Panel_NoteBooks.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteBooks.Name" xml:space="preserve">
+    <value>Panel_NoteBooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteBooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteBooks.Parent" xml:space="preserve">
+    <value>Panel_NoteAndNotebooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_NoteBooks.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ls_NoteBooks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ls_NoteBooks.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
+  </data>
+  <data name="ls_NoteBooks.ItemHeight" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="ls_NoteBooks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ls_NoteBooks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>434, 233</value>
+  </data>
+  <data name="ls_NoteBooks.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ls_NoteBooks.Name" xml:space="preserve">
+    <value>ls_NoteBooks</value>
+  </data>
+  <data name="&gt;&gt;ls_NoteBooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ls_NoteBooks.Parent" xml:space="preserve">
+    <value>Panel_NoteBooks</value>
+  </data>
+  <data name="&gt;&gt;ls_NoteBooks.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btn_RenameNoteBook.Name" xml:space="preserve">
+    <value>btn_RenameNoteBook</value>
+  </data>
+  <data name="&gt;&gt;btn_RenameNoteBook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_RenameNoteBook.Parent" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;btn_RenameNoteBook.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tbx_NameNotebook.Name" xml:space="preserve">
+    <value>tbx_NameNotebook</value>
+  </data>
+  <data name="&gt;&gt;tbx_NameNotebook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbx_NameNotebook.Parent" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;tbx_NameNotebook.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNoteBooks.Name" xml:space="preserve">
+    <value>btn_SortNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNoteBooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNoteBooks.Parent" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNoteBooks.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNoteBooks.Name" xml:space="preserve">
+    <value>lbl_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNoteBooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNoteBooks.Parent" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNoteBooks.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btn_DeleteNoteBook.Name" xml:space="preserve">
+    <value>btn_DeleteNoteBook</value>
+  </data>
+  <data name="&gt;&gt;btn_DeleteNoteBook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_DeleteNoteBook.Parent" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;btn_DeleteNoteBook.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Panel_GoldNoteBooks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="Panel_GoldNoteBooks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="Panel_GoldNoteBooks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>434, 55</value>
+  </data>
+  <data name="Panel_GoldNoteBooks.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Panel_GoldNoteBooks.Name" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_GoldNoteBooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_GoldNoteBooks.Parent" xml:space="preserve">
+    <value>Panel_NoteAndNotebooks</value>
+  </data>
+  <data name="&gt;&gt;Panel_GoldNoteBooks.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btn_RenameNoteBook.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="btn_RenameNoteBook.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btn_RenameNoteBook.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_RenameNoteBook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 0</value>
+  </data>
   <data name="btn_RenameNoteBook.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 55</value>
+  </data>
+  <data name="btn_RenameNoteBook.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btn_RenameNoteBook.Name" xml:space="preserve">
+    <value>btn_RenameNoteBook</value>
+  </data>
+  <data name="&gt;&gt;btn_RenameNoteBook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_RenameNoteBook.Parent" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;btn_RenameNoteBook.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tbx_NameNotebook.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
+  </data>
+  <data name="tbx_NameNotebook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 13</value>
+  </data>
+  <data name="tbx_NameNotebook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 29</value>
+  </data>
+  <data name="tbx_NameNotebook.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tbx_NameNotebook.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;tbx_NameNotebook.Name" xml:space="preserve">
+    <value>tbx_NameNotebook</value>
+  </data>
+  <data name="&gt;&gt;tbx_NameNotebook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbx_NameNotebook.Parent" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;tbx_NameNotebook.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_SortNoteBooks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btn_SortNoteBooks.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_SortNoteBooks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>354, 0</value>
+  </data>
+  <data name="btn_SortNoteBooks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 55</value>
+  </data>
+  <data name="btn_SortNoteBooks.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNoteBooks.Name" xml:space="preserve">
+    <value>btn_SortNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNoteBooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNoteBooks.Parent" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;btn_SortNoteBooks.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbl_GoldNoteBooks.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_GoldNoteBooks.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt, style=Bold</value>
+  </data>
+  <data name="lbl_GoldNoteBooks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="lbl_GoldNoteBooks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 29</value>
+  </data>
+  <data name="lbl_GoldNoteBooks.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lbl_GoldNoteBooks.Text" xml:space="preserve">
+    <value>Notebooks</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNoteBooks.Name" xml:space="preserve">
+    <value>lbl_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNoteBooks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNoteBooks.Parent" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;lbl_GoldNoteBooks.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btn_DeleteNoteBook.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btn_DeleteNoteBook.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_DeleteNoteBook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>394, 0</value>
+  </data>
+  <data name="btn_DeleteNoteBook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 55</value>
+  </data>
+  <data name="btn_DeleteNoteBook.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btn_DeleteNoteBook.Name" xml:space="preserve">
+    <value>btn_DeleteNoteBook</value>
+  </data>
+  <data name="&gt;&gt;btn_DeleteNoteBook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_DeleteNoteBook.Parent" xml:space="preserve">
+    <value>Panel_GoldNoteBooks</value>
+  </data>
+  <data name="&gt;&gt;btn_DeleteNoteBook.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tbx_Screach.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 12</value>
+  </data>
+  <data name="tbx_Screach.Size" type="System.Drawing.Size, System.Drawing">
+    <value>338, 31</value>
+  </data>
+  <data name="tbx_Screach.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tbx_Screach.Name" xml:space="preserve">
+    <value>tbx_Screach</value>
+  </data>
+  <data name="&gt;&gt;tbx_Screach.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbx_Screach.Parent" xml:space="preserve">
+    <value>Panel_Top</value>
+  </data>
+  <data name="&gt;&gt;tbx_Screach.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbl_Change.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_Change.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
+  </data>
+  <data name="lbl_Change.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 120</value>
+  </data>
+  <data name="lbl_Change.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 29</value>
+  </data>
+  <data name="lbl_Change.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="lbl_Change.Text" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="&gt;&gt;lbl_Change.Name" xml:space="preserve">
+    <value>lbl_Change</value>
+  </data>
+  <data name="&gt;&gt;lbl_Change.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_Change.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_Change.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbl_Home.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_Home.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
+  </data>
+  <data name="lbl_Home.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 67</value>
+  </data>
+  <data name="lbl_Home.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 29</value>
+  </data>
+  <data name="lbl_Home.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lbl_Home.Text" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="&gt;&gt;lbl_Home.Name" xml:space="preserve">
+    <value>lbl_Home</value>
+  </data>
+  <data name="&gt;&gt;lbl_Home.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_Home.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_Home.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_ReOpenRoot.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_ReOpenRoot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 111</value>
+  </data>
+  <data name="btn_ReOpenRoot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="btn_ReOpenRoot.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;btn_ReOpenRoot.Name" xml:space="preserve">
+    <value>btn_ReOpenRoot</value>
+  </data>
+  <data name="&gt;&gt;btn_ReOpenRoot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_ReOpenRoot.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_ReOpenRoot.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lbl_Menu.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_Menu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
+  </data>
+  <data name="lbl_Menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 14</value>
+  </data>
+  <data name="lbl_Menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 29</value>
+  </data>
+  <data name="lbl_Menu.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lbl_Menu.Text" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="&gt;&gt;lbl_Menu.Name" xml:space="preserve">
+    <value>lbl_Menu</value>
+  </data>
+  <data name="&gt;&gt;lbl_Menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_Menu.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_Menu.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btn_NoteBook.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_NoteBook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 273</value>
+  </data>
+  <data name="btn_NoteBook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="btn_NoteBook.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btn_NoteBook.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btn_NoteBook.Name" xml:space="preserve">
+    <value>btn_NoteBook</value>
+  </data>
+  <data name="&gt;&gt;btn_NoteBook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_NoteBook.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_NoteBook.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btn_Note.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_Note.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 219</value>
+  </data>
+  <data name="btn_Note.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="btn_Note.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btn_Note.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btn_Note.Name" xml:space="preserve">
+    <value>btn_Note</value>
+  </data>
+  <data name="&gt;&gt;btn_Note.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Note.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_Note.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lbl_Note.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_Note.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
+  </data>
+  <data name="lbl_Note.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 228</value>
+  </data>
+  <data name="lbl_Note.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 29</value>
+  </data>
+  <data name="lbl_Note.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="lbl_Note.Text" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="lbl_Note.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lbl_Note.Name" xml:space="preserve">
+    <value>lbl_Note</value>
+  </data>
+  <data name="&gt;&gt;lbl_Note.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_Note.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_Note.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lbl_NoteBook.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_NoteBook.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
+  </data>
+  <data name="lbl_NoteBook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 282</value>
+  </data>
+  <data name="lbl_NoteBook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 29</value>
+  </data>
+  <data name="lbl_NoteBook.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lbl_NoteBook.Text" xml:space="preserve">
+    <value>Notebook</value>
+  </data>
+  <data name="lbl_NoteBook.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lbl_NoteBook.Name" xml:space="preserve">
+    <value>lbl_NoteBook</value>
+  </data>
+  <data name="&gt;&gt;lbl_NoteBook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_NoteBook.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_NoteBook.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lbl_New.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_New.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
+  </data>
+  <data name="lbl_New.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 175</value>
   </data>
   <data name="lbl_New.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 29</value>
@@ -471,347 +1419,287 @@
   <data name="lbl_New.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="lbl_By.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8pt</value>
-  </data>
-  <data name="&gt;&gt;Panel_Right.Parent" xml:space="preserve">
-    <value>Panel_Main</value>
-  </data>
-  <data name="btn_ReOpenRoot.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;Panel_NoteAndNotebooks.Name" xml:space="preserve">
-    <value>Panel_NoteAndNotebooks</value>
-  </data>
-  <data name="&gt;&gt;Panel_Top.Parent" xml:space="preserve">
-    <value>Panel_Main</value>
-  </data>
-  <data name="&gt;&gt;PanelGoldNotes.Name" xml:space="preserve">
-    <value>PanelGoldNotes</value>
-  </data>
-  <data name="PanelGoldNotes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 55</value>
-  </data>
-  <data name="pic_Noty.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Panel_Welcome.Name" xml:space="preserve">
-    <value>Panel_Welcome</value>
-  </data>
-  <data name="pic_Noty.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 230</value>
-  </data>
-  <data name="&gt;&gt;Panel_NoteBooks.Parent" xml:space="preserve">
-    <value>Panel_NoteAndNotebooks</value>
-  </data>
-  <data name="btn_New.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 15pt</value>
-  </data>
-  <data name="&gt;&gt;TextArea.Parent" xml:space="preserve">
-    <value>Panel_Main</value>
-  </data>
-  <data name="&gt;&gt;lbl_SelectRoot.Parent" xml:space="preserve">
-    <value>Panel_Welcome</value>
-  </data>
-  <data name="&gt;&gt;btn_Note.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Panel_SeparatorRight.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_DeleteNoteBook.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lbl_Home.Text" xml:space="preserve">
-    <value>Home</value>
-  </data>
-  <data name="lbl_Home.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 29</value>
-  </data>
-  <data name="lbl_New.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 175</value>
-  </data>
-  <data name="&gt;&gt;Panel_Right.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="Panel_Left.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lbl_NoteBook.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tbx_NameNotebook.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;Panel_SeparatorRight.Name" xml:space="preserve">
-    <value>Panel_SeparatorRight</value>
-  </data>
-  <data name="btn_New.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 165</value>
-  </data>
-  <data name="&gt;&gt;Panel_Top.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_SortNoteBooks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_Note.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="Panel_Left.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>184, 0</value>
-  </data>
-  <data name="Panel_NoteAndNotebooks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 488</value>
-  </data>
-  <data name="tbx_NameNotebook.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pic_Noty.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="btn_NoteBook.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="lbl_GoldNoteBooks.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lbl_New.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
-  </data>
-  <data name="&gt;&gt;Panel_Left.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="lbl_Noty.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 72</value>
-  </data>
-  <data name="btn_Undo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 0</value>
-  </data>
-  <data name="ls_NoteBooks.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Panel_Top.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;Panel_Bottom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ls_Notes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 145</value>
-  </data>
-  <data name="&gt;&gt;tbx_Screach.Name" xml:space="preserve">
-    <value>tbx_Screach</value>
-  </data>
-  <data name="btn_Redo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 48</value>
-  </data>
-  <data name="&gt;&gt;lbl_GoldNotes.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btn_DeleteNoteBook.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;lbl_By.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="lbl_New.Text" xml:space="preserve">
     <value>New</value>
   </data>
-  <data name="tbx_Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>379, 54</value>
+  <data name="&gt;&gt;lbl_New.Name" xml:space="preserve">
+    <value>lbl_New</value>
   </data>
-  <data name="&gt;&gt;tbx_Title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lbl_New.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_New.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;lbl_New.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btn_Expand.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_Expand.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="btn_Expand.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="btn_Expand.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btn_Expand.Name" xml:space="preserve">
+    <value>btn_Expand</value>
+  </data>
+  <data name="&gt;&gt;btn_Expand.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Expand.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_Expand.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btn_Home.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_Home.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 57</value>
+  </data>
+  <data name="btn_Home.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="btn_Home.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btn_Home.Name" xml:space="preserve">
+    <value>btn_Home</value>
   </data>
   <data name="&gt;&gt;btn_Home.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btn_Note.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="&gt;&gt;btn_Home.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
+  </data>
+  <data name="&gt;&gt;btn_Home.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btn_New.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="lbl_GoldNoteBooks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 13</value>
+  <data name="btn_New.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 15pt</value>
   </data>
-  <data name="btn_DeleteNoteBook.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 0</value>
+  <data name="btn_New.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 165</value>
   </data>
-  <data name="lbl_Change.Text" xml:space="preserve">
-    <value>Change</value>
+  <data name="btn_New.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
   </data>
-  <data name="&gt;&gt;btn_ReOpenRoot.Type" xml:space="preserve">
+  <data name="btn_New.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btn_New.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;btn_New.Name" xml:space="preserve">
+    <value>btn_New</value>
+  </data>
+  <data name="&gt;&gt;btn_New.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>979, 543</value>
+  <data name="&gt;&gt;btn_New.Parent" xml:space="preserve">
+    <value>Panel_Left</value>
   </data>
-  <data name="lbl_Menu.Text" xml:space="preserve">
-    <value>Menu</value>
+  <data name="&gt;&gt;btn_New.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="lbl_By.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_By.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8pt</value>
+  </data>
+  <data name="lbl_By.Location" type="System.Drawing.Point, System.Drawing">
+    <value>841, 517</value>
+  </data>
+  <data name="lbl_By.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 19</value>
+  </data>
+  <data name="lbl_By.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lbl_By.Text" xml:space="preserve">
+    <value>By Francisco-vm</value>
+  </data>
+  <data name="&gt;&gt;lbl_By.Name" xml:space="preserve">
+    <value>lbl_By</value>
+  </data>
+  <data name="&gt;&gt;lbl_By.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_By.Parent" xml:space="preserve">
+    <value>Panel_Welcome</value>
+  </data>
+  <data name="&gt;&gt;lbl_By.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lbl_SelectRoot.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_SelectRoot.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 10pt</value>
+  </data>
+  <data name="lbl_SelectRoot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>686, 180</value>
+  </data>
+  <data name="lbl_SelectRoot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 24</value>
+  </data>
+  <data name="lbl_SelectRoot.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lbl_SelectRoot.Text" xml:space="preserve">
+    <value>Select your root folder</value>
+  </data>
+  <data name="&gt;&gt;lbl_SelectRoot.Name" xml:space="preserve">
+    <value>lbl_SelectRoot</value>
+  </data>
+  <data name="&gt;&gt;lbl_SelectRoot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_SelectRoot.Parent" xml:space="preserve">
+    <value>Panel_Welcome</value>
+  </data>
+  <data name="&gt;&gt;lbl_SelectRoot.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btn_OpenRoot.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_OpenRoot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>731, 210</value>
+  </data>
+  <data name="btn_OpenRoot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 98</value>
+  </data>
+  <data name="btn_OpenRoot.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btn_OpenRoot.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btn_OpenRoot.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
   </data>
   <data name="&gt;&gt;btn_OpenRoot.Name" xml:space="preserve">
     <value>btn_OpenRoot</value>
   </data>
-  <data name="&gt;&gt;lbl_New.Type" xml:space="preserve">
+  <data name="&gt;&gt;btn_OpenRoot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_OpenRoot.Parent" xml:space="preserve">
+    <value>Panel_Welcome</value>
+  </data>
+  <data name="&gt;&gt;btn_OpenRoot.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lbl_Noty.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_Noty.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 30pt</value>
+  </data>
+  <data name="lbl_Noty.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 358</value>
+  </data>
+  <data name="lbl_Noty.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 72</value>
+  </data>
+  <data name="lbl_Noty.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lbl_Noty.Text" xml:space="preserve">
+    <value>Noty</value>
+  </data>
+  <data name="&gt;&gt;lbl_Noty.Name" xml:space="preserve">
+    <value>lbl_Noty</value>
+  </data>
+  <data name="&gt;&gt;lbl_Noty.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbl_Noty.Parent" xml:space="preserve">
     <value>Panel_Welcome</value>
   </data>
-  <data name="btn_Home.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="&gt;&gt;ls_Notes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextArea.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_Note.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;lbl_GoldNotes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Panel_SeparatorLeft.Parent" xml:space="preserve">
-    <value>Panel_Main</value>
-  </data>
   <data name="&gt;&gt;lbl_Noty.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;btn_Home.Name" xml:space="preserve">
-    <value>btn_Home</value>
+  <data name="pic_Noty.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 113</value>
   </data>
-  <data name="&gt;&gt;btn_New.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
+  <data name="pic_Noty.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 230</value>
   </data>
-  <data name="btn_Delete.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="pic_Noty.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
   </data>
-  <data name="lbl_SelectRoot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 24</value>
-  </data>
-  <data name="lbl_SelectRoot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>686, 180</value>
-  </data>
-  <data name="Panel_Bottom.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="TextArea.Size" type="System.Drawing.Size, System.Drawing">
-    <value>379, 386</value>
-  </data>
-  <data name="Panel_Top.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 0</value>
-  </data>
-  <data name="Panel_Right.Location" type="System.Drawing.Point, System.Drawing">
-    <value>939, 0</value>
-  </data>
-  <data name="btn_Redo.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;ls_NoteBooks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_SortNoteBooks.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbl_Change.Name" xml:space="preserve">
-    <value>lbl_Change</value>
-  </data>
-  <data name="btn_Undo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;Panel_Notes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Panel_NoteBooks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Panel_Notes.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="TextArea.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="ls_Notes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;lbl_By.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btn_SortNoteBooks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 55</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Noty</value>
-  </data>
-  <data name="&gt;&gt;TextArea.Name" xml:space="preserve">
-    <value>TextArea</value>
-  </data>
-  <data name="Panel_Right.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;Panel_NoteBooks.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btn_DeleteNoteBook.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;ls_NoteBooks.Parent" xml:space="preserve">
-    <value>Panel_NoteBooks</value>
-  </data>
-  <data name="Panel_NoteBooks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 233</value>
-  </data>
-  <data name="btn_New.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="Panel_Top.TabIndex" type="System.Int32, mscorlib">
+  <data name="pic_Noty.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;btn_Expand.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="&gt;&gt;pic_Noty.Name" xml:space="preserve">
+    <value>pic_Noty</value>
   </data>
-  <data name="Panel_SeparatorRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
+  <data name="&gt;&gt;pic_Noty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btn_SortNotes.Name" xml:space="preserve">
-    <value>btn_SortNotes</value>
+  <data name="&gt;&gt;pic_Noty.Parent" xml:space="preserve">
+    <value>Panel_Welcome</value>
   </data>
-  <data name="tbx_Title.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
+  <data name="&gt;&gt;pic_Noty.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="btn_Delete.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="Panel_Welcome.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="&gt;&gt;btn_Redo.Parent" xml:space="preserve">
-    <value>Panel_Bottom</value>
-  </data>
-  <data name="btn_SortNotes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>354, 0</value>
-  </data>
-  <data name="&gt;&gt;btn_NoteBook.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="&gt;&gt;btn_RenameNoteBook.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Panel_Main.Name" xml:space="preserve">
-    <value>Panel_Main</value>
-  </data>
-  <data name="ls_Notes.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="Panel_Welcome.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;btn_Expand.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Panel_Welcome.Size" type="System.Drawing.Size, System.Drawing">
+    <value>979, 543</value>
   </data>
-  <data name="&gt;&gt;btn_Home.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="Panel_Welcome.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="lbl_GoldNoteBooks.AutoSize" type="System.Boolean, mscorlib">
+  <data name="&gt;&gt;Panel_Welcome.Name" xml:space="preserve">
+    <value>Panel_Welcome</value>
+  </data>
+  <data name="&gt;&gt;Panel_Welcome.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_Welcome.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Panel_Welcome.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="Panel_LeftTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>61</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>10, 25</value>
+  </data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ls_NoteBooks.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>979, 543</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1469,586 +2357,22 @@
         1j9qv7C98PF/z3lN27M+uQEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="lbl_GoldNoteBooks.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt, style=Bold</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
-  <data name="&gt;&gt;Panel_Notes.Name" xml:space="preserve">
-    <value>Panel_Notes</value>
-  </data>
-  <data name="&gt;&gt;btn_SortNoteBooks.Name" xml:space="preserve">
-    <value>btn_SortNoteBooks</value>
-  </data>
-  <data name="lbl_Menu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
-  </data>
-  <data name="pic_Noty.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 113</value>
-  </data>
-  <data name="btn_SortNotes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 55</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Noty</value>
   </data>
   <data name="&gt;&gt;Panel_LeftTimer.Name" xml:space="preserve">
     <value>Panel_LeftTimer</value>
   </data>
-  <data name="&gt;&gt;lbl_Home.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Panel_LeftTimer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PanelGoldNotes.Parent" xml:space="preserve">
-    <value>Panel_NoteAndNotebooks</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Main</value>
   </data>
-  <data name="&gt;&gt;btn_SortNoteBooks.Parent" xml:space="preserve">
-    <value>Panel_GoldNoteBooks</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Panel_Top.Name" xml:space="preserve">
-    <value>Panel_Top</value>
-  </data>
-  <data name="&gt;&gt;lbl_By.Parent" xml:space="preserve">
-    <value>Panel_Welcome</value>
-  </data>
-  <data name="&gt;&gt;Panel_GoldNoteBooks.Parent" xml:space="preserve">
-    <value>Panel_NoteAndNotebooks</value>
-  </data>
-  <data name="Panel_Welcome.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="Panel_Welcome.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="Panel_SeparatorRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>906, 55</value>
-  </data>
-  <data name="lbl_By.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 19</value>
-  </data>
-  <data name="&gt;&gt;Panel_Main.Parent" xml:space="preserve">
-    <value>Panel_Welcome</value>
-  </data>
-  <data name="Panel_Right.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 543</value>
-  </data>
-  <data name="tbx_Screach.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 12</value>
-  </data>
-  <data name="TextArea.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;tbx_NameNotebook.Parent" xml:space="preserve">
-    <value>Panel_GoldNoteBooks</value>
-  </data>
-  <data name="TextArea.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
-  </data>
-  <data name="&gt;&gt;lbl_New.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="btn_Undo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 48</value>
-  </data>
-  <data name="lbl_By.Location" type="System.Drawing.Point, System.Drawing">
-    <value>841, 517</value>
-  </data>
-  <data name="lbl_NoteBook.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btn_Redo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;Panel_NoteBooks.Name" xml:space="preserve">
-    <value>Panel_NoteBooks</value>
-  </data>
-  <data name="&gt;&gt;Panel_Welcome.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbl_Note.Text" xml:space="preserve">
-    <value>Note</value>
-  </data>
-  <data name="&gt;&gt;btn_Redo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_Note.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="Panel_SeparatorLeft.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="Panel_SeparatorRight.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Panel_SeparatorLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="Panel_GoldNoteBooks.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;btn_RenameNoteBook.Name" xml:space="preserve">
-    <value>btn_RenameNoteBook</value>
-  </data>
-  <data name="&gt;&gt;btn_SortNotes.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lbl_Note.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_By.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btn_OpenRoot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>731, 210</value>
-  </data>
-  <data name="&gt;&gt;ls_NoteBooks.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btn_DeleteNoteBook.Name" xml:space="preserve">
-    <value>btn_DeleteNoteBook</value>
-  </data>
-  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lbl_GoldNotes.Name" xml:space="preserve">
-    <value>lbl_GoldNotes</value>
-  </data>
-  <data name="btn_SortNotes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;Panel_Bottom.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbl_Change.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="&gt;&gt;lbl_Home.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="lbl_Change.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;pic_Noty.Name" xml:space="preserve">
-    <value>pic_Noty</value>
-  </data>
-  <data name="&gt;&gt;lbl_GoldNoteBooks.Parent" xml:space="preserve">
-    <value>Panel_GoldNoteBooks</value>
-  </data>
-  <data name="&gt;&gt;Panel_Welcome.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lbl_By.Name" xml:space="preserve">
-    <value>lbl_By</value>
-  </data>
-  <data name="&gt;&gt;btn_Expand.Name" xml:space="preserve">
-    <value>btn_Expand</value>
-  </data>
-  <data name="lbl_SelectRoot.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lbl_New.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="&gt;&gt;btn_Redo.Name" xml:space="preserve">
-    <value>btn_Redo</value>
-  </data>
-  <data name="btn_Home.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="btn_Note.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="btn_OpenRoot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 98</value>
-  </data>
-  <data name="lbl_Change.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 29</value>
-  </data>
-  <data name="Panel_SeparatorLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>488, 55</value>
-  </data>
-  <data name="ls_NoteBooks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="btn_Delete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 0</value>
-  </data>
-  <data name="&gt;&gt;lbl_Home.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbl_Home.Name" xml:space="preserve">
-    <value>lbl_Home</value>
-  </data>
-  <data name="&gt;&gt;Panel_GoldNoteBooks.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_SortNotes.Parent" xml:space="preserve">
-    <value>PanelGoldNotes</value>
-  </data>
-  <data name="tbx_Title.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;Panel_Notes.Parent" xml:space="preserve">
-    <value>Panel_NoteAndNotebooks</value>
-  </data>
-  <data name="Panel_Main.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="lbl_GoldNotes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_Note.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 228</value>
-  </data>
-  <data name="&gt;&gt;btn_NoteBook.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_SortNoteBooks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>354, 0</value>
-  </data>
-  <data name="lbl_By.Text" xml:space="preserve">
-    <value>By Francisco-vm</value>
-  </data>
-  <data name="&gt;&gt;btn_OpenRoot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_RenameNoteBook.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tbx_NameNotebook.Location" type="System.Drawing.Point, System.Drawing">
-    <value>155, 13</value>
-  </data>
-  <data name="pic_Noty.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="lbl_GoldNoteBooks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 29</value>
-  </data>
-  <data name="lbl_Menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 14</value>
-  </data>
-  <data name="&gt;&gt;tbx_Screach.Parent" xml:space="preserve">
-    <value>Panel_Top</value>
-  </data>
-  <data name="&gt;&gt;btn_SortNotes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_Noty.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_Undo.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="Panel_NoteAndNotebooks.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lbl_NoteBook.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 282</value>
-  </data>
-  <data name="&gt;&gt;lbl_Note.Name" xml:space="preserve">
-    <value>lbl_Note</value>
-  </data>
-  <data name="lbl_SelectRoot.Text" xml:space="preserve">
-    <value>Select your root folder</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btn_ReOpenRoot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 111</value>
-  </data>
-  <data name="lbl_Home.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 67</value>
-  </data>
-  <data name="&gt;&gt;lbl_Menu.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tbx_NameNotebook.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
-  </data>
-  <data name="ls_Notes.ItemHeight" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="lbl_NoteBook.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 29</value>
-  </data>
-  <data name="btn_OpenRoot.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>BottomCenter</value>
-  </data>
-  <data name="&gt;&gt;lbl_GoldNoteBooks.Name" xml:space="preserve">
-    <value>lbl_GoldNoteBooks</value>
-  </data>
-  <data name="&gt;&gt;Panel_Bottom.Parent" xml:space="preserve">
-    <value>Panel_Main</value>
-  </data>
-  <data name="&gt;&gt;btn_New.Name" xml:space="preserve">
-    <value>btn_New</value>
-  </data>
-  <data name="btn_New.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="lbl_New.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ls_NoteBooks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 233</value>
-  </data>
-  <data name="lbl_Note.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btn_SortNotes.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Panel_Left.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Panel_SeparatorLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 488</value>
-  </data>
-  <data name="btn_Expand.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btn_NoteBook.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 273</value>
-  </data>
-  <data name="btn_RenameNoteBook.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="lbl_Home.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;lbl_Change.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btn_OpenRoot.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;Panel_SeparatorRight.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Panel_SeparatorLeft.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextArea.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btn_Note.Name" xml:space="preserve">
-    <value>btn_Note</value>
-  </data>
-  <data name="Panel_GoldNoteBooks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 55</value>
-  </data>
-  <data name="btn_Redo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 0</value>
-  </data>
-  <data name="btn_DeleteNoteBook.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 55</value>
-  </data>
-  <data name="lbl_GoldNotes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 15</value>
-  </data>
-  <data name="&gt;&gt;pic_Noty.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Panel_Left.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;lbl_Menu.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="&gt;&gt;btn_OpenRoot.Parent" xml:space="preserve">
-    <value>Panel_Welcome</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Panel_Right.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Panel_Top.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btn_RenameNoteBook.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 0</value>
-  </data>
-  <data name="&gt;&gt;Panel_GoldNoteBooks.Name" xml:space="preserve">
-    <value>Panel_GoldNoteBooks</value>
-  </data>
-  <data name="&gt;&gt;Panel_Left.Name" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="&gt;&gt;lbl_Change.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btn_OpenRoot.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="Panel_Top.Size" type="System.Drawing.Size, System.Drawing">
-    <value>885, 55</value>
-  </data>
-  <data name="btn_Undo.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="lbl_GoldNotes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 29</value>
-  </data>
-  <data name="lbl_Menu.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Panel_Notes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 343</value>
-  </data>
-  <data name="&gt;&gt;tbx_NameNotebook.Name" xml:space="preserve">
-    <value>tbx_NameNotebook</value>
-  </data>
-  <data name="Panel_Left.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 543</value>
-  </data>
-  <data name="ls_NoteBooks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;lbl_Menu.Name" xml:space="preserve">
-    <value>lbl_Menu</value>
-  </data>
-  <data name="&gt;&gt;ls_Notes.Parent" xml:space="preserve">
-    <value>Panel_Notes</value>
-  </data>
-  <data name="&gt;&gt;tbx_NameNotebook.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ls_Notes.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="Panel_NoteBooks.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="Panel_Main.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="ls_Notes.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
-  </data>
-  <data name="Panel_Main.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;btn_New.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbl_Menu.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="Panel_Top.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btn_Delete.Parent" xml:space="preserve">
-    <value>PanelGoldNotes</value>
-  </data>
-  <data name="btn_SortNotes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;pic_Noty.Parent" xml:space="preserve">
-    <value>Panel_Welcome</value>
-  </data>
-  <data name="btn_ReOpenRoot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="lbl_By.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="TextArea.Location" type="System.Drawing.Point, System.Drawing">
-    <value>527, 109</value>
-  </data>
-  <data name="&gt;&gt;btn_NoteBook.Name" xml:space="preserve">
-    <value>btn_NoteBook</value>
-  </data>
-  <data name="lbl_Change.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
-  </data>
-  <data name="lbl_Note.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
-  </data>
-  <data name="&gt;&gt;btn_Undo.Parent" xml:space="preserve">
-    <value>Panel_Bottom</value>
-  </data>
-  <data name="btn_RenameNoteBook.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;btn_Home.Parent" xml:space="preserve">
-    <value>Panel_Left</value>
-  </data>
-  <data name="&gt;&gt;lbl_GoldNotes.Parent" xml:space="preserve">
-    <value>PanelGoldNotes</value>
-  </data>
-  <data name="PanelGoldNotes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;lbl_NoteBook.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;tbx_Screach.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="Panel_Left.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>54, 0</value>
-  </data>
-  <data name="btn_NoteBook.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="Panel_Notes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 145</value>
-  </data>
-  <data name="&gt;&gt;ls_Notes.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ls_Notes.Name" xml:space="preserve">
-    <value>ls_Notes</value>
-  </data>
-  <data name="&gt;&gt;tbx_Title.Parent" xml:space="preserve">
-    <value>Panel_Main</value>
-  </data>
-  <data name="&gt;&gt;PanelGoldNotes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Panel_Right.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;btn_RenameNoteBook.Parent" xml:space="preserve">
-    <value>Panel_GoldNoteBooks</value>
-  </data>
-  <data name="&gt;&gt;Panel_SeparatorLeft.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btn_Note.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btn_Undo.Name" xml:space="preserve">
-    <value>btn_Undo</value>
-  </data>
-  <data name="&gt;&gt;tbx_NameNotebook.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lbl_New.Name" xml:space="preserve">
-    <value>lbl_New</value>
-  </data>
-  <data name="tbx_Title.Location" type="System.Drawing.Point, System.Drawing">
-    <value>527, 55</value>
-  </data>
-  <data name="btn_Expand.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btn_NoteBook.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btn_NoteBook.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>61</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Panel_LeftTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

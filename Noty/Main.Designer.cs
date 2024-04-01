@@ -91,7 +91,6 @@
             // 
             // Panel_Main
             // 
-            resources.ApplyResources(Panel_Main, "Panel_Main");
             Panel_Main.BackColor = SystemColors.ActiveBorder;
             Panel_Main.Controls.Add(TextArea);
             Panel_Main.Controls.Add(Panel_Bottom);
@@ -102,25 +101,26 @@
             Panel_Main.Controls.Add(Panel_Top);
             Panel_Main.Controls.Add(Panel_Right);
             Panel_Main.Controls.Add(Panel_Left);
+            resources.ApplyResources(Panel_Main, "Panel_Main");
             Panel_Main.Name = "Panel_Main";
             // 
             // TextArea
             // 
             TextArea.AcceptsTab = true;
-            resources.ApplyResources(TextArea, "TextArea");
             TextArea.BackColor = Color.White;
             TextArea.BorderStyle = BorderStyle.None;
             TextArea.Cursor = Cursors.IBeam;
+            resources.ApplyResources(TextArea, "TextArea");
             TextArea.Name = "TextArea";
             TextArea.ReadOnly = true;
             TextArea.TextChanged += TextArea_TextChanged;
             // 
             // Panel_Bottom
             // 
-            resources.ApplyResources(Panel_Bottom, "Panel_Bottom");
             Panel_Bottom.BackColor = Color.WhiteSmoke;
             Panel_Bottom.Controls.Add(btn_Undo);
             Panel_Bottom.Controls.Add(btn_Redo);
+            resources.ApplyResources(Panel_Bottom, "Panel_Bottom");
             Panel_Bottom.Name = "Panel_Bottom";
             // 
             // btn_Undo
@@ -141,10 +141,10 @@
             // 
             // tbx_Title
             // 
-            resources.ApplyResources(tbx_Title, "tbx_Title");
             tbx_Title.BackColor = Color.White;
             tbx_Title.BorderStyle = BorderStyle.None;
             tbx_Title.Cursor = Cursors.IBeam;
+            resources.ApplyResources(tbx_Title, "tbx_Title");
             tbx_Title.Name = "tbx_Title";
             tbx_Title.ReadOnly = true;
             tbx_Title.TextChanged += tbx_Title_TextChanged;
@@ -152,36 +152,36 @@
             // 
             // Panel_SeparatorRight
             // 
-            resources.ApplyResources(Panel_SeparatorRight, "Panel_SeparatorRight");
             Panel_SeparatorRight.BackColor = Color.White;
+            resources.ApplyResources(Panel_SeparatorRight, "Panel_SeparatorRight");
             Panel_SeparatorRight.Name = "Panel_SeparatorRight";
             // 
             // Panel_SeparatorLeft
             // 
-            resources.ApplyResources(Panel_SeparatorLeft, "Panel_SeparatorLeft");
             Panel_SeparatorLeft.BackColor = Color.WhiteSmoke;
+            resources.ApplyResources(Panel_SeparatorLeft, "Panel_SeparatorLeft");
             Panel_SeparatorLeft.Name = "Panel_SeparatorLeft";
             // 
             // Panel_NoteAndNotebooks
             // 
-            resources.ApplyResources(Panel_NoteAndNotebooks, "Panel_NoteAndNotebooks");
             Panel_NoteAndNotebooks.BackColor = Color.White;
             Panel_NoteAndNotebooks.Controls.Add(Panel_Notes);
             Panel_NoteAndNotebooks.Controls.Add(PanelGoldNotes);
             Panel_NoteAndNotebooks.Controls.Add(Panel_NoteBooks);
             Panel_NoteAndNotebooks.Controls.Add(Panel_GoldNoteBooks);
+            resources.ApplyResources(Panel_NoteAndNotebooks, "Panel_NoteAndNotebooks");
             Panel_NoteAndNotebooks.Name = "Panel_NoteAndNotebooks";
             // 
             // Panel_Notes
             // 
-            resources.ApplyResources(Panel_Notes, "Panel_Notes");
             Panel_Notes.Controls.Add(ls_Notes);
+            resources.ApplyResources(Panel_Notes, "Panel_Notes");
             Panel_Notes.Name = "Panel_Notes";
             // 
             // ls_Notes
             // 
-            resources.ApplyResources(ls_Notes, "ls_Notes");
             ls_Notes.BorderStyle = BorderStyle.None;
+            resources.ApplyResources(ls_Notes, "ls_Notes");
             ls_Notes.FormattingEnabled = true;
             ls_Notes.Name = "ls_Notes";
             ls_Notes.DrawItem += ls_Notes_DrawItem;
@@ -189,11 +189,11 @@
             // 
             // PanelGoldNotes
             // 
-            resources.ApplyResources(PanelGoldNotes, "PanelGoldNotes");
             PanelGoldNotes.BackColor = Color.Gold;
             PanelGoldNotes.Controls.Add(btn_SortNotes);
             PanelGoldNotes.Controls.Add(lbl_GoldNotes);
             PanelGoldNotes.Controls.Add(btn_Delete);
+            resources.ApplyResources(PanelGoldNotes, "PanelGoldNotes");
             PanelGoldNotes.Name = "PanelGoldNotes";
             // 
             // btn_SortNotes
@@ -221,16 +221,16 @@
             // 
             // Panel_NoteBooks
             // 
-            resources.ApplyResources(Panel_NoteBooks, "Panel_NoteBooks");
             Panel_NoteBooks.BackColor = Color.White;
             Panel_NoteBooks.Controls.Add(ls_NoteBooks);
+            resources.ApplyResources(Panel_NoteBooks, "Panel_NoteBooks");
             Panel_NoteBooks.Name = "Panel_NoteBooks";
             // 
             // ls_NoteBooks
             // 
-            resources.ApplyResources(ls_NoteBooks, "ls_NoteBooks");
             ls_NoteBooks.BackColor = Color.White;
             ls_NoteBooks.BorderStyle = BorderStyle.None;
+            resources.ApplyResources(ls_NoteBooks, "ls_NoteBooks");
             ls_NoteBooks.ForeColor = Color.Black;
             ls_NoteBooks.FormattingEnabled = true;
             ls_NoteBooks.Name = "ls_NoteBooks";
@@ -239,13 +239,13 @@
             // 
             // Panel_GoldNoteBooks
             // 
-            resources.ApplyResources(Panel_GoldNoteBooks, "Panel_GoldNoteBooks");
             Panel_GoldNoteBooks.BackColor = Color.Gold;
             Panel_GoldNoteBooks.Controls.Add(btn_RenameNoteBook);
             Panel_GoldNoteBooks.Controls.Add(tbx_NameNotebook);
             Panel_GoldNoteBooks.Controls.Add(btn_SortNoteBooks);
             Panel_GoldNoteBooks.Controls.Add(lbl_GoldNoteBooks);
             Panel_GoldNoteBooks.Controls.Add(btn_DeleteNoteBook);
+            resources.ApplyResources(Panel_GoldNoteBooks, "Panel_GoldNoteBooks");
             Panel_GoldNoteBooks.Name = "Panel_GoldNoteBooks";
             // 
             // btn_RenameNoteBook
@@ -259,9 +259,9 @@
             // 
             // tbx_NameNotebook
             // 
-            resources.ApplyResources(tbx_NameNotebook, "tbx_NameNotebook");
             tbx_NameNotebook.BackColor = Color.Gold;
             tbx_NameNotebook.BorderStyle = BorderStyle.None;
+            resources.ApplyResources(tbx_NameNotebook, "tbx_NameNotebook");
             tbx_NameNotebook.Name = "tbx_NameNotebook";
             tbx_NameNotebook.ReadOnly = true;
             // 
@@ -291,26 +291,25 @@
             // 
             // Panel_Top
             // 
-            resources.ApplyResources(Panel_Top, "Panel_Top");
             Panel_Top.BackColor = Color.Gainsboro;
             Panel_Top.Controls.Add(tbx_Screach);
+            resources.ApplyResources(Panel_Top, "Panel_Top");
             Panel_Top.Name = "Panel_Top";
             // 
             // tbx_Screach
             // 
-            resources.ApplyResources(tbx_Screach, "tbx_Screach");
             tbx_Screach.BackColor = Color.WhiteSmoke;
+            resources.ApplyResources(tbx_Screach, "tbx_Screach");
             tbx_Screach.Name = "tbx_Screach";
             // 
             // Panel_Right
             // 
-            resources.ApplyResources(Panel_Right, "Panel_Right");
             Panel_Right.BackColor = Color.Black;
+            resources.ApplyResources(Panel_Right, "Panel_Right");
             Panel_Right.Name = "Panel_Right";
             // 
             // Panel_Left
             // 
-            resources.ApplyResources(Panel_Left, "Panel_Left");
             Panel_Left.BackColor = Color.FromArgb(35, 40, 45);
             Panel_Left.Controls.Add(lbl_Change);
             Panel_Left.Controls.Add(lbl_Home);
@@ -324,6 +323,7 @@
             Panel_Left.Controls.Add(btn_Expand);
             Panel_Left.Controls.Add(btn_Home);
             Panel_Left.Controls.Add(btn_New);
+            resources.ApplyResources(Panel_Left, "Panel_Left");
             Panel_Left.ForeColor = SystemColors.ControlLightLight;
             Panel_Left.Name = "Panel_Left";
             // 
@@ -341,8 +341,8 @@
             // 
             // btn_ReOpenRoot
             // 
-            resources.ApplyResources(btn_ReOpenRoot, "btn_ReOpenRoot");
             btn_ReOpenRoot.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(btn_ReOpenRoot, "btn_ReOpenRoot");
             btn_ReOpenRoot.ForeColor = SystemColors.Desktop;
             btn_ReOpenRoot.Image = Properties.Resources.icon_Folder_x24;
             btn_ReOpenRoot.Name = "btn_ReOpenRoot";
@@ -357,8 +357,8 @@
             // 
             // btn_NoteBook
             // 
-            resources.ApplyResources(btn_NoteBook, "btn_NoteBook");
             btn_NoteBook.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(btn_NoteBook, "btn_NoteBook");
             btn_NoteBook.ForeColor = SystemColors.Desktop;
             btn_NoteBook.Image = Properties.Resources.icon_Notebook_x24;
             btn_NoteBook.Name = "btn_NoteBook";
@@ -367,8 +367,8 @@
             // 
             // btn_Note
             // 
-            resources.ApplyResources(btn_Note, "btn_Note");
             btn_Note.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(btn_Note, "btn_Note");
             btn_Note.ForeColor = SystemColors.Desktop;
             btn_Note.Image = Properties.Resources.icon_Note_x24;
             btn_Note.Name = "btn_Note";
@@ -395,8 +395,8 @@
             // 
             // btn_Expand
             // 
-            resources.ApplyResources(btn_Expand, "btn_Expand");
             btn_Expand.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(btn_Expand, "btn_Expand");
             btn_Expand.Image = Properties.Resources.icon_Menu_x24;
             btn_Expand.Name = "btn_Expand";
             btn_Expand.UseVisualStyleBackColor = true;
@@ -404,8 +404,8 @@
             // 
             // btn_Home
             // 
-            resources.ApplyResources(btn_Home, "btn_Home");
             btn_Home.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(btn_Home, "btn_Home");
             btn_Home.ForeColor = SystemColors.Desktop;
             btn_Home.Image = Properties.Resources.icon_Home_x24;
             btn_Home.Name = "btn_Home";
@@ -414,8 +414,8 @@
             // 
             // btn_New
             // 
-            resources.ApplyResources(btn_New, "btn_New");
             btn_New.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(btn_New, "btn_New");
             btn_New.ForeColor = Color.Black;
             btn_New.Image = Properties.Resources.icon_New_x24;
             btn_New.Name = "btn_New";
@@ -424,7 +424,6 @@
             // 
             // Panel_Welcome
             // 
-            resources.ApplyResources(Panel_Welcome, "Panel_Welcome");
             Panel_Welcome.BackColor = Color.White;
             Panel_Welcome.Controls.Add(Panel_Main);
             Panel_Welcome.Controls.Add(lbl_By);
@@ -432,6 +431,7 @@
             Panel_Welcome.Controls.Add(btn_OpenRoot);
             Panel_Welcome.Controls.Add(lbl_Noty);
             Panel_Welcome.Controls.Add(pic_Noty);
+            resources.ApplyResources(Panel_Welcome, "Panel_Welcome");
             Panel_Welcome.Name = "Panel_Welcome";
             // 
             // lbl_By
@@ -446,9 +446,9 @@
             // 
             // btn_OpenRoot
             // 
-            resources.ApplyResources(btn_OpenRoot, "btn_OpenRoot");
             btn_OpenRoot.BackColor = Color.White;
             btn_OpenRoot.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(btn_OpenRoot, "btn_OpenRoot");
             btn_OpenRoot.Image = Properties.Resources.icon_FolderRoot_x64;
             btn_OpenRoot.Name = "btn_OpenRoot";
             btn_OpenRoot.UseVisualStyleBackColor = false;
@@ -461,8 +461,8 @@
             // 
             // pic_Noty
             // 
-            resources.ApplyResources(pic_Noty, "pic_Noty");
             pic_Noty.Image = Properties.Resources.Noty_notbg;
+            resources.ApplyResources(pic_Noty, "pic_Noty");
             pic_Noty.Name = "pic_Noty";
             pic_Noty.TabStop = false;
             // 

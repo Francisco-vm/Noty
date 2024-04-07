@@ -902,11 +902,45 @@ namespace Noty
 
         //============= In work =============//
 
-        //Bug encontrado. Notas con nombres identicos. ***
 
-        // Diccionario para almacenar el contenido de las notas utilizando la ruta completa como clave
-        private Dictionary<string, string> noteContents = new Dictionary<string, string>();
+        private void btn_Copy_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TextArea.SelectedText))
+            {
+                TextArea.Copy();
+            }
+        }
 
+        private void btn_Paste_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText() && TextArea.Enabled)
+            {
+                TextArea.Paste();
+            }
+        }
 
+        private void btn_Undo_Click(object sender, EventArgs e)
+        {
+            if (TextArea.CanUndo)
+            {
+                TextArea.Undo();
+            }
+        }
+
+        private void btn_Redo_Click(object sender, EventArgs e)
+        {
+            if (TextArea.CanRedo)
+            {
+                TextArea.Redo();
+            }
+        }
+
+        private void btn_Cut_Click(object sender, EventArgs e)
+        {
+            if (TextArea.SelectionLength > 0)
+            {
+                TextArea.Cut();
+            }
+        }
     }
 }

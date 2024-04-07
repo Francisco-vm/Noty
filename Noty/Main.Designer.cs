@@ -33,6 +33,9 @@
             Panel_Main = new Panel();
             TextArea = new RichTextBox();
             Panel_Bottom = new Panel();
+            btn_Cut = new Button();
+            btn_Paste = new Button();
+            btn_Copy = new Button();
             btn_Undo = new Button();
             btn_Redo = new Button();
             tbx_Title = new TextBox();
@@ -76,9 +79,6 @@
             lbl_Noty = new Label();
             pic_Noty = new PictureBox();
             Panel_LeftTimer = new System.Windows.Forms.Timer(components);
-            btn_Copy = new Button();
-            btn_Paste = new Button();
-            btn_Cut = new Button();
             Panel_Main.SuspendLayout();
             Panel_Bottom.SuspendLayout();
             Panel_NoteAndNotebooks.SuspendLayout();
@@ -129,6 +129,33 @@
             resources.ApplyResources(Panel_Bottom, "Panel_Bottom");
             Panel_Bottom.Name = "Panel_Bottom";
             // 
+            // btn_Cut
+            // 
+            resources.ApplyResources(btn_Cut, "btn_Cut");
+            btn_Cut.FlatAppearance.BorderSize = 0;
+            btn_Cut.Image = Properties.Resources.icon_Cut_x24;
+            btn_Cut.Name = "btn_Cut";
+            btn_Cut.UseVisualStyleBackColor = true;
+            btn_Cut.Click += btn_Cut_Click;
+            // 
+            // btn_Paste
+            // 
+            resources.ApplyResources(btn_Paste, "btn_Paste");
+            btn_Paste.FlatAppearance.BorderSize = 0;
+            btn_Paste.Image = Properties.Resources.icon_Paste_x24;
+            btn_Paste.Name = "btn_Paste";
+            btn_Paste.UseVisualStyleBackColor = true;
+            btn_Paste.Click += btn_Paste_Click;
+            // 
+            // btn_Copy
+            // 
+            resources.ApplyResources(btn_Copy, "btn_Copy");
+            btn_Copy.FlatAppearance.BorderSize = 0;
+            btn_Copy.Image = Properties.Resources.icon_Copy_x24;
+            btn_Copy.Name = "btn_Copy";
+            btn_Copy.UseVisualStyleBackColor = true;
+            btn_Copy.Click += btn_Copy_Click;
+            // 
             // btn_Undo
             // 
             resources.ApplyResources(btn_Undo, "btn_Undo");
@@ -136,6 +163,7 @@
             btn_Undo.Image = Properties.Resources.icon_Undo_x24;
             btn_Undo.Name = "btn_Undo";
             btn_Undo.UseVisualStyleBackColor = true;
+            btn_Undo.Click += btn_Undo_Click;
             // 
             // btn_Redo
             // 
@@ -144,6 +172,7 @@
             btn_Redo.Image = Properties.Resources.icon_Redo_x24;
             btn_Redo.Name = "btn_Redo";
             btn_Redo.UseVisualStyleBackColor = true;
+            btn_Redo.Click += btn_Redo_Click;
             // 
             // tbx_Title
             // 
@@ -476,30 +505,6 @@
             // 
             Panel_LeftTimer.Interval = 16;
             Panel_LeftTimer.Tick += slidebarTimer_Tick;
-            // 
-            // btn_Copy
-            // 
-            resources.ApplyResources(btn_Copy, "btn_Copy");
-            btn_Copy.FlatAppearance.BorderSize = 0;
-            btn_Copy.Image = Properties.Resources.icon_Copy_x24;
-            btn_Copy.Name = "btn_Copy";
-            btn_Copy.UseVisualStyleBackColor = true;
-            // 
-            // btn_Paste
-            // 
-            resources.ApplyResources(btn_Paste, "btn_Paste");
-            btn_Paste.FlatAppearance.BorderSize = 0;
-            btn_Paste.Image = Properties.Resources.icon_Paste_x24;
-            btn_Paste.Name = "btn_Paste";
-            btn_Paste.UseVisualStyleBackColor = true;
-            // 
-            // btn_Cut
-            // 
-            resources.ApplyResources(btn_Cut, "btn_Cut");
-            btn_Cut.FlatAppearance.BorderSize = 0;
-            btn_Cut.Image = Properties.Resources.icon_Cut_x24;
-            btn_Cut.Name = "btn_Cut";
-            btn_Cut.UseVisualStyleBackColor = true;
             // 
             // Main
             // 

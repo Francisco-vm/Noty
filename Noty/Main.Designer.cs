@@ -76,6 +76,9 @@
             lbl_Noty = new Label();
             pic_Noty = new PictureBox();
             Panel_LeftTimer = new System.Windows.Forms.Timer(components);
+            btn_Copy = new Button();
+            btn_Paste = new Button();
+            btn_Cut = new Button();
             Panel_Main.SuspendLayout();
             Panel_Bottom.SuspendLayout();
             Panel_NoteAndNotebooks.SuspendLayout();
@@ -118,6 +121,9 @@
             // Panel_Bottom
             // 
             Panel_Bottom.BackColor = Color.WhiteSmoke;
+            Panel_Bottom.Controls.Add(btn_Cut);
+            Panel_Bottom.Controls.Add(btn_Paste);
+            Panel_Bottom.Controls.Add(btn_Copy);
             Panel_Bottom.Controls.Add(btn_Undo);
             Panel_Bottom.Controls.Add(btn_Redo);
             resources.ApplyResources(Panel_Bottom, "Panel_Bottom");
@@ -471,6 +477,30 @@
             Panel_LeftTimer.Interval = 16;
             Panel_LeftTimer.Tick += slidebarTimer_Tick;
             // 
+            // btn_Copy
+            // 
+            resources.ApplyResources(btn_Copy, "btn_Copy");
+            btn_Copy.FlatAppearance.BorderSize = 0;
+            btn_Copy.Image = Properties.Resources.icon_Copy_x24;
+            btn_Copy.Name = "btn_Copy";
+            btn_Copy.UseVisualStyleBackColor = true;
+            // 
+            // btn_Paste
+            // 
+            resources.ApplyResources(btn_Paste, "btn_Paste");
+            btn_Paste.FlatAppearance.BorderSize = 0;
+            btn_Paste.Image = Properties.Resources.icon_Paste_x24;
+            btn_Paste.Name = "btn_Paste";
+            btn_Paste.UseVisualStyleBackColor = true;
+            // 
+            // btn_Cut
+            // 
+            resources.ApplyResources(btn_Cut, "btn_Cut");
+            btn_Cut.FlatAppearance.BorderSize = 0;
+            btn_Cut.Image = Properties.Resources.icon_Cut_x24;
+            btn_Cut.Name = "btn_Cut";
+            btn_Cut.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
@@ -546,5 +576,8 @@
         private Label lbl_Home;
         private Button btn_Redo;
         private Button btn_Undo;
+        private Button btn_Cut;
+        private Button btn_Paste;
+        private Button btn_Copy;
     }
 }

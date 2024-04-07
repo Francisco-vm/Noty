@@ -150,6 +150,93 @@
   <data name="&gt;&gt;TextArea.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="btn_Cut.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="btn_Cut.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_Cut.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_Cut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>126, 0</value>
+  </data>
+  <data name="btn_Cut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 48</value>
+  </data>
+  <data name="btn_Cut.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btn_Cut.Name" xml:space="preserve">
+    <value>btn_Cut</value>
+  </data>
+  <data name="&gt;&gt;btn_Cut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Cut.Parent" xml:space="preserve">
+    <value>Panel_Bottom</value>
+  </data>
+  <data name="&gt;&gt;btn_Cut.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btn_Paste.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="btn_Paste.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_Paste.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_Paste.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 0</value>
+  </data>
+  <data name="btn_Paste.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 48</value>
+  </data>
+  <data name="btn_Paste.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btn_Paste.Name" xml:space="preserve">
+    <value>btn_Paste</value>
+  </data>
+  <data name="&gt;&gt;btn_Paste.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Paste.Parent" xml:space="preserve">
+    <value>Panel_Bottom</value>
+  </data>
+  <data name="&gt;&gt;btn_Paste.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_Copy.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="btn_Copy.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_Copy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btn_Copy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 48</value>
+  </data>
+  <data name="btn_Copy.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;btn_Copy.Name" xml:space="preserve">
+    <value>btn_Copy</value>
+  </data>
+  <data name="&gt;&gt;btn_Copy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_Copy.Parent" xml:space="preserve">
+    <value>Panel_Bottom</value>
+  </data>
+  <data name="&gt;&gt;btn_Copy.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="btn_Undo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
@@ -175,7 +262,7 @@
     <value>Panel_Bottom</value>
   </data>
   <data name="&gt;&gt;btn_Undo.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="btn_Redo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -202,7 +289,7 @@
     <value>Panel_Bottom</value>
   </data>
   <data name="&gt;&gt;btn_Redo.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="Panel_Bottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>

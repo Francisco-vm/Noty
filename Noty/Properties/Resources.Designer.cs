@@ -63,6 +63,26 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_Copy_x24 {
+            get {
+                object obj = ResourceManager.GetObject("icon-Copy-x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_Cut_x24 {
+            get {
+                object obj = ResourceManager.GetObject("icon-Cut-x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_Delete_x24 {
             get {
                 object obj = ResourceManager.GetObject("icon-Delete-x24", resourceCulture);
@@ -146,6 +166,16 @@ namespace Noty.Properties {
         internal static System.Drawing.Bitmap icon_Notebook_x24 {
             get {
                 object obj = ResourceManager.GetObject("icon-Notebook-x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_Paste_x24 {
+            get {
+                object obj = ResourceManager.GetObject("icon-Paste-x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

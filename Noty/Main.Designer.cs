@@ -79,6 +79,7 @@
             lbl_Noty = new Label();
             pic_Noty = new PictureBox();
             Panel_LeftTimer = new System.Windows.Forms.Timer(components);
+            toolTip = new ToolTip(components);
             Panel_Main.SuspendLayout();
             Panel_Bottom.SuspendLayout();
             Panel_NoteAndNotebooks.SuspendLayout();
@@ -584,5 +585,6 @@
         private Button btn_Cut;
         private Button btn_Paste;
         private Button btn_Copy;
+        private ToolTip toolTip;
     }
 }

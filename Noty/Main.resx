@@ -160,10 +160,10 @@
     <value>NoControl</value>
   </data>
   <data name="btn_Cut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 0</value>
+    <value>96, 0</value>
   </data>
   <data name="btn_Cut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 48</value>
+    <value>48, 48</value>
   </data>
   <data name="btn_Cut.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -190,10 +190,10 @@
     <value>NoControl</value>
   </data>
   <data name="btn_Paste.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 0</value>
+    <value>48, 0</value>
   </data>
   <data name="btn_Paste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 48</value>
+    <value>48, 48</value>
   </data>
   <data name="btn_Paste.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -220,7 +220,7 @@
     <value>0, 0</value>
   </data>
   <data name="btn_Copy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 48</value>
+    <value>48, 48</value>
   </data>
   <data name="btn_Copy.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -244,10 +244,10 @@
     <value>Flat</value>
   </data>
   <data name="btn_Undo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 0</value>
+    <value>283, 0</value>
   </data>
   <data name="btn_Undo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 48</value>
+    <value>48, 48</value>
   </data>
   <data name="btn_Undo.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -271,10 +271,10 @@
     <value>Flat</value>
   </data>
   <data name="btn_Redo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 0</value>
+    <value>331, 0</value>
   </data>
   <data name="btn_Redo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 48</value>
+    <value>48, 48</value>
   </data>
   <data name="btn_Redo.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1446,6 +1446,9 @@
   <metadata name="Panel_LeftTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>205, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -2131,6 +2134,12 @@
   </data>
   <data name="&gt;&gt;Panel_LeftTimer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolTip.Name" xml:space="preserve">
+    <value>toolTip</value>
+  </data>
+  <data name="&gt;&gt;toolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Main</value>

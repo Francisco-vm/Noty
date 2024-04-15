@@ -35,6 +35,36 @@ namespace Noty
         {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+
+
+            //ToolTip - New Visual Aid//
+
+            ToolTip toolTip = new ToolTip();
+
+            //LeftPanel
+            toolTip.SetToolTip(btn_Expand, "Expand");
+            toolTip.SetToolTip(btn_New, "New");
+            toolTip.SetToolTip(btn_Home, "Home");
+            toolTip.SetToolTip(btn_Note, "Note");
+            toolTip.SetToolTip(btn_NoteBook, "NoteBook");
+            toolTip.SetToolTip(btn_ReOpenRoot, "Change");
+
+            //Notebooks
+            toolTip.SetToolTip(btn_RenameNoteBook, "Rename");
+            toolTip.SetToolTip(btn_SortNoteBooks, "Sort");
+            toolTip.SetToolTip(btn_DeleteNoteBook, "Delete");
+
+            //Notes
+            toolTip.SetToolTip(btn_SortNotes, "Sort");
+            toolTip.SetToolTip(btn_Delete, "Delete");
+
+            //EditZone
+            toolTip.SetToolTip(btn_Copy, "Copy");
+            toolTip.SetToolTip(btn_Paste, "Paste");
+            toolTip.SetToolTip(btn_Cut, "Cut");
+            toolTip.SetToolTip(btn_Undo, "Undo");
+            toolTip.SetToolTip(btn_Redo, "Redo");
+
         }
 
         //Permite seleccionar la carpeta Raíz en la cual se almacenarán Notas y Cuadernos//

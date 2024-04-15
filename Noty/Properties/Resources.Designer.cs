@@ -123,6 +123,16 @@ namespace Noty.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_Github_x16 {
+            get {
+                object obj = ResourceManager.GetObject("icon-Github-x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_Home_x24 {
             get {
                 object obj = ResourceManager.GetObject("icon-Home-x24", resourceCulture);

@@ -73,11 +73,14 @@
             btn_Home = new Button();
             btn_New = new Button();
             Panel_Welcome = new Panel();
-            lbl_By = new Label();
+            Panel_WelcomeTop = new Panel();
+            pic_Github = new PictureBox();
+            pic_Noty = new PictureBox();
             lbl_SelectRoot = new Label();
+            lbl_By = new Label();
             btn_OpenRoot = new Button();
             lbl_Noty = new Label();
-            pic_Noty = new PictureBox();
+            lbl_Thanks = new Label();
             Panel_LeftTimer = new System.Windows.Forms.Timer(components);
             toolTip = new ToolTip(components);
             Panel_Main.SuspendLayout();
@@ -90,6 +93,8 @@
             Panel_Top.SuspendLayout();
             Panel_Left.SuspendLayout();
             Panel_Welcome.SuspendLayout();
+            Panel_WelcomeTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_Github).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_Noty).BeginInit();
             SuspendLayout();
             // 
@@ -461,24 +466,46 @@
             // Panel_Welcome
             // 
             Panel_Welcome.BackColor = Color.White;
-            Panel_Welcome.Controls.Add(Panel_Main);
-            Panel_Welcome.Controls.Add(lbl_By);
-            Panel_Welcome.Controls.Add(lbl_SelectRoot);
-            Panel_Welcome.Controls.Add(btn_OpenRoot);
-            Panel_Welcome.Controls.Add(lbl_Noty);
-            Panel_Welcome.Controls.Add(pic_Noty);
+            Panel_Welcome.Controls.Add(Panel_WelcomeTop);
             resources.ApplyResources(Panel_Welcome, "Panel_Welcome");
             Panel_Welcome.Name = "Panel_Welcome";
             // 
-            // lbl_By
+            // Panel_WelcomeTop
             // 
-            resources.ApplyResources(lbl_By, "lbl_By");
-            lbl_By.Name = "lbl_By";
+            Panel_WelcomeTop.Controls.Add(Panel_Main);
+            Panel_WelcomeTop.Controls.Add(pic_Github);
+            Panel_WelcomeTop.Controls.Add(pic_Noty);
+            Panel_WelcomeTop.Controls.Add(lbl_SelectRoot);
+            Panel_WelcomeTop.Controls.Add(lbl_By);
+            Panel_WelcomeTop.Controls.Add(btn_OpenRoot);
+            Panel_WelcomeTop.Controls.Add(lbl_Noty);
+            Panel_WelcomeTop.Controls.Add(lbl_Thanks);
+            resources.ApplyResources(Panel_WelcomeTop, "Panel_WelcomeTop");
+            Panel_WelcomeTop.Name = "Panel_WelcomeTop";
+            // 
+            // pic_Github
+            // 
+            pic_Github.Image = Properties.Resources.icon_Github_x16;
+            resources.ApplyResources(pic_Github, "pic_Github");
+            pic_Github.Name = "pic_Github";
+            pic_Github.TabStop = false;
+            // 
+            // pic_Noty
+            // 
+            pic_Noty.Image = Properties.Resources.Noty_notbg;
+            resources.ApplyResources(pic_Noty, "pic_Noty");
+            pic_Noty.Name = "pic_Noty";
+            pic_Noty.TabStop = false;
             // 
             // lbl_SelectRoot
             // 
             resources.ApplyResources(lbl_SelectRoot, "lbl_SelectRoot");
             lbl_SelectRoot.Name = "lbl_SelectRoot";
+            // 
+            // lbl_By
+            // 
+            resources.ApplyResources(lbl_By, "lbl_By");
+            lbl_By.Name = "lbl_By";
             // 
             // btn_OpenRoot
             // 
@@ -495,12 +522,10 @@
             resources.ApplyResources(lbl_Noty, "lbl_Noty");
             lbl_Noty.Name = "lbl_Noty";
             // 
-            // pic_Noty
+            // lbl_Thanks
             // 
-            pic_Noty.Image = Properties.Resources.Noty_notbg;
-            resources.ApplyResources(pic_Noty, "pic_Noty");
-            pic_Noty.Name = "pic_Noty";
-            pic_Noty.TabStop = false;
+            resources.ApplyResources(lbl_Thanks, "lbl_Thanks");
+            lbl_Thanks.Name = "lbl_Thanks";
             // 
             // Panel_LeftTimer
             // 
@@ -512,6 +537,7 @@
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(Panel_Welcome);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Main";
             Load += Main_Load;
             Panel_Main.ResumeLayout(false);
@@ -529,7 +555,9 @@
             Panel_Left.ResumeLayout(false);
             Panel_Left.PerformLayout();
             Panel_Welcome.ResumeLayout(false);
-            Panel_Welcome.PerformLayout();
+            Panel_WelcomeTop.ResumeLayout(false);
+            Panel_WelcomeTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic_Github).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic_Noty).EndInit();
             ResumeLayout(false);
         }
@@ -586,5 +614,8 @@
         private Button btn_Paste;
         private Button btn_Copy;
         private ToolTip toolTip;
+        private Panel Panel_WelcomeTop;
+        private PictureBox pic_Github;
+        private Label lbl_Thanks;
     }
 }

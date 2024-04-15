@@ -1270,40 +1270,58 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Panel_Main.Parent" xml:space="preserve">
-    <value>Panel_Welcome</value>
+    <value>Panel_WelcomeTop</value>
   </data>
   <data name="&gt;&gt;Panel_Main.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lbl_By.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="pic_Github.Location" type="System.Drawing.Point, System.Drawing">
+    <value>817, 515</value>
   </data>
-  <data name="lbl_By.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8pt</value>
+  <data name="pic_Github.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
   </data>
-  <data name="lbl_By.Location" type="System.Drawing.Point, System.Drawing">
-    <value>841, 517</value>
+  <data name="pic_Github.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
-  <data name="lbl_By.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 19</value>
+  <data name="pic_Github.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="lbl_By.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;pic_Github.Name" xml:space="preserve">
+    <value>pic_Github</value>
   </data>
-  <data name="lbl_By.Text" xml:space="preserve">
-    <value>By Francisco-vm</value>
+  <data name="&gt;&gt;pic_Github.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbl_By.Name" xml:space="preserve">
-    <value>lbl_By</value>
+  <data name="&gt;&gt;pic_Github.Parent" xml:space="preserve">
+    <value>Panel_WelcomeTop</value>
   </data>
-  <data name="&gt;&gt;lbl_By.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_By.Parent" xml:space="preserve">
-    <value>Panel_Welcome</value>
-  </data>
-  <data name="&gt;&gt;lbl_By.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;pic_Github.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="pic_Noty.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 51</value>
+  </data>
+  <data name="pic_Noty.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 230</value>
+  </data>
+  <data name="pic_Noty.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="pic_Noty.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pic_Noty.Name" xml:space="preserve">
+    <value>pic_Noty</value>
+  </data>
+  <data name="&gt;&gt;pic_Noty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pic_Noty.Parent" xml:space="preserve">
+    <value>Panel_WelcomeTop</value>
+  </data>
+  <data name="&gt;&gt;pic_Noty.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="lbl_SelectRoot.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1312,7 +1330,7 @@
     <value>Tahoma, 10pt</value>
   </data>
   <data name="lbl_SelectRoot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>686, 180</value>
+    <value>655, 136</value>
   </data>
   <data name="lbl_SelectRoot.Size" type="System.Drawing.Size, System.Drawing">
     <value>208, 24</value>
@@ -1330,16 +1348,46 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbl_SelectRoot.Parent" xml:space="preserve">
-    <value>Panel_Welcome</value>
+    <value>Panel_WelcomeTop</value>
   </data>
   <data name="&gt;&gt;lbl_SelectRoot.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <data name="lbl_By.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_By.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8pt</value>
+  </data>
+  <data name="lbl_By.Location" type="System.Drawing.Point, System.Drawing">
+    <value>843, 515</value>
+  </data>
+  <data name="lbl_By.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 19</value>
+  </data>
+  <data name="lbl_By.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lbl_By.Text" xml:space="preserve">
+    <value>By Francisco-vm</value>
+  </data>
+  <data name="&gt;&gt;lbl_By.Name" xml:space="preserve">
+    <value>lbl_By</value>
+  </data>
+  <data name="&gt;&gt;lbl_By.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_By.Parent" xml:space="preserve">
+    <value>Panel_WelcomeTop</value>
+  </data>
+  <data name="&gt;&gt;lbl_By.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="btn_OpenRoot.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="btn_OpenRoot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>731, 210</value>
+    <value>700, 183</value>
   </data>
   <data name="btn_OpenRoot.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 98</value>
@@ -1360,10 +1408,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btn_OpenRoot.Parent" xml:space="preserve">
-    <value>Panel_Welcome</value>
+    <value>Panel_WelcomeTop</value>
   </data>
   <data name="&gt;&gt;btn_OpenRoot.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="lbl_Noty.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1372,7 +1420,7 @@
     <value>Tahoma, 30pt</value>
   </data>
   <data name="lbl_Noty.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 358</value>
+    <value>184, 284</value>
   </data>
   <data name="lbl_Noty.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 72</value>
@@ -1390,34 +1438,74 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbl_Noty.Parent" xml:space="preserve">
-    <value>Panel_Welcome</value>
+    <value>Panel_WelcomeTop</value>
   </data>
   <data name="&gt;&gt;lbl_Noty.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
-  <data name="pic_Noty.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 113</value>
+  <data name="lbl_Thanks.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="pic_Noty.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 230</value>
+  <data name="lbl_Thanks.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8pt</value>
   </data>
-  <data name="pic_Noty.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
+  <data name="lbl_Thanks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="pic_Noty.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="lbl_Thanks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 378</value>
   </data>
-  <data name="&gt;&gt;pic_Noty.Name" xml:space="preserve">
-    <value>pic_Noty</value>
+  <data name="lbl_Thanks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>478, 152</value>
   </data>
-  <data name="&gt;&gt;pic_Noty.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lbl_Thanks.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;pic_Noty.Parent" xml:space="preserve">
+  <data name="lbl_Thanks.Text" xml:space="preserve">
+    <value>Thank you for using "Noty". 
+
+It is currently being tested for performance and bugs. 
+If you have any issues, please report them on GitHub or to email. 
+
+Enjoy Noty!
+
+~Dev. Francisco.</value>
+  </data>
+  <data name="&gt;&gt;lbl_Thanks.Name" xml:space="preserve">
+    <value>lbl_Thanks</value>
+  </data>
+  <data name="&gt;&gt;lbl_Thanks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_Thanks.Parent" xml:space="preserve">
+    <value>Panel_WelcomeTop</value>
+  </data>
+  <data name="&gt;&gt;lbl_Thanks.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Panel_WelcomeTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="Panel_WelcomeTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="Panel_WelcomeTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>979, 543</value>
+  </data>
+  <data name="Panel_WelcomeTop.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Panel_WelcomeTop.Name" xml:space="preserve">
+    <value>Panel_WelcomeTop</value>
+  </data>
+  <data name="&gt;&gt;Panel_WelcomeTop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel_WelcomeTop.Parent" xml:space="preserve">
     <value>Panel_Welcome</value>
   </data>
-  <data name="&gt;&gt;pic_Noty.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;Panel_WelcomeTop.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="Panel_Welcome.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

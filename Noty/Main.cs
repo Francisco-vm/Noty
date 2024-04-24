@@ -226,6 +226,15 @@ namespace Noty
         //Realiza el auto guardado del titulo de la nota//
         private void tbx_Title_TextChanged(object sender, EventArgs e)
         {
+            // Guardar el cursor actual
+            int cursorPosition = tbx_Title.SelectionStart;
+
+            // Eliminar el punto del texto del cuadro de texto
+            tbx_Title.Text = tbx_Title.Text.Replace(".", "");
+
+            // Restaurar el cursor a su posición original
+            tbx_Title.SelectionStart = cursorPosition;
+
             AutoSaveTitle();
         }
 

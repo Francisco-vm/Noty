@@ -33,6 +33,8 @@
             Panel_Main = new Panel();
             TextArea = new RichTextBox();
             Panel_Bottom = new Panel();
+            btn_List = new Button();
+            btn_NumList = new Button();
             btn_Cut = new Button();
             btn_Paste = new Button();
             btn_Copy = new Button();
@@ -127,6 +129,8 @@
             // Panel_Bottom
             // 
             Panel_Bottom.BackColor = Color.WhiteSmoke;
+            Panel_Bottom.Controls.Add(btn_List);
+            Panel_Bottom.Controls.Add(btn_NumList);
             Panel_Bottom.Controls.Add(btn_Cut);
             Panel_Bottom.Controls.Add(btn_Paste);
             Panel_Bottom.Controls.Add(btn_Copy);
@@ -134,6 +138,22 @@
             Panel_Bottom.Controls.Add(btn_Redo);
             resources.ApplyResources(Panel_Bottom, "Panel_Bottom");
             Panel_Bottom.Name = "Panel_Bottom";
+            // 
+            // btn_List
+            // 
+            resources.ApplyResources(btn_List, "btn_List");
+            btn_List.FlatAppearance.BorderSize = 0;
+            btn_List.Name = "btn_List";
+            btn_List.UseVisualStyleBackColor = true;
+            btn_List.Click += btn_List_Click;
+            // 
+            // btn_NumList
+            // 
+            resources.ApplyResources(btn_NumList, "btn_NumList");
+            btn_NumList.FlatAppearance.BorderSize = 0;
+            btn_NumList.Name = "btn_NumList";
+            btn_NumList.UseVisualStyleBackColor = true;
+            btn_NumList.Click += btn_NumList_Click;
             // 
             // btn_Cut
             // 
@@ -617,5 +637,7 @@
         private Panel Panel_WelcomeTop;
         private PictureBox pic_Github;
         private Label lbl_Thanks;
+        private Button btn_List;
+        private Button btn_NumList;
     }
 }

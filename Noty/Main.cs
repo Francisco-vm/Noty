@@ -395,6 +395,46 @@ namespace Noty
             }
         }
 
+        private void btn_Copy_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TextArea.SelectedText))
+            {
+                TextArea.Copy();
+            }
+        }
+
+        private void btn_Paste_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText() && TextArea.Enabled)
+            {
+                TextArea.Paste();
+            }
+        }
+
+        private void btn_Undo_Click(object sender, EventArgs e)
+        {
+            if (TextArea.CanUndo)
+            {
+                TextArea.Undo();
+            }
+        }
+
+        private void btn_Redo_Click(object sender, EventArgs e)
+        {
+            if (TextArea.CanRedo)
+            {
+                TextArea.Redo();
+            }
+        }
+
+        private void btn_Cut_Click(object sender, EventArgs e)
+        {
+            if (TextArea.SelectionLength > 0)
+            {
+                TextArea.Cut();
+            }
+        }
+
 
         //=============Interface=============//
 
@@ -947,44 +987,24 @@ namespace Noty
         //============= In work =============//
 
 
-        private void btn_Copy_Click(object sender, EventArgs e)
+        private void btn_List_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TextArea.SelectedText))
-            {
-                TextArea.Copy();
-            }
+            InsertList(TextArea, 0);
         }
 
-        private void btn_Paste_Click(object sender, EventArgs e)
+        private void btn_NumList_Click(object sender, EventArgs e)
         {
-            if (Clipboard.ContainsText() && TextArea.Enabled)
-            {
-                TextArea.Paste();
-            }
+            InsertList(TextArea, 1);
         }
 
-        private void btn_Undo_Click(object sender, EventArgs e)
+        private void InsertList(RichTextBox TextArea, int tipoLista)
         {
-            if (TextArea.CanUndo)
-            {
-                TextArea.Undo();
-            }
-        }
+            string prefijo = tipoLista == 1 ? "1.- " : "\u2022 ";
+            int start = TextArea.SelectionStart;
+            int length = TextArea.SelectionLength;
 
-        private void btn_Redo_Click(object sender, EventArgs e)
-        {
-            if (TextArea.CanRedo)
-            {
-                TextArea.Redo();
-            }
-        }
-
-        private void btn_Cut_Click(object sender, EventArgs e)
-        {
-            if (TextArea.SelectionLength > 0)
-            {
-                TextArea.Cut();
-            }
+            TextArea.SelectedText = $"{prefijo} {Environment.NewLine}";
+            TextArea.Select(start + prefijo.Length + Environment.NewLine.Length, 0);
         }
     }
 }

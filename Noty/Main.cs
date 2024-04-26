@@ -36,6 +36,11 @@ namespace Noty
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
+            //Sangría//
+            TextArea.SelectionIndent = 24;
+            TextArea.SelectionHangingIndent = 0;
+            TextArea.SelectionRightIndent = 24;
+
 
             //ToolTip - New Visual Aid//
 

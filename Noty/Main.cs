@@ -140,17 +140,29 @@ namespace Noty
 
                 foreach (var note in notes)
                 {
-                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(note));
+                    // Obtener el nombre de la nota y reemplazar los puntos decimales
+                    string noteName = Path.GetFileNameWithoutExtension(note);
+                    string replacedNoteName = ReplaceDot(noteName);
+
+                    // Agregar la nota a la lista con el nombre reemplazado
+                    ls_Notes.Items.Add(replacedNoteName);
+
+                    // Renombrar el archivo si es necesario
+                    if (noteName != replacedNoteName)
+                    {
+                        string newNotePath = Path.Combine(folderPath, $"{replacedNoteName}.txt");
+                        File.Move(note, newNotePath);
+                    }
                 }
             }
 
             ls_Notes.SelectedItem = selectedNote;
         }
 
-        //Actualiza la lista de notas que se encuentran dentro de algun Notebook//
+        // Sobrecarga del método UpdateNotes para actualizar las notas dentro de un cuaderno específico
         private void UpdateNotes(string selectedNotebook)
         {
-            // Guarda la selección actual
+            // Guardar la selección actual
             string selectedNote = ls_Notes.SelectedItem?.ToString();
 
             ls_Notes.Items.Clear();
@@ -161,12 +173,23 @@ namespace Noty
 
                 foreach (var note in notes)
                 {
-                    // Agregar solo el nombre del archivo, no la ruta completa
-                    ls_Notes.Items.Add(Path.GetFileNameWithoutExtension(note));
+                    // Obtener el nombre de la nota y reemplazar los puntos decimales
+                    string noteName = Path.GetFileNameWithoutExtension(note);
+                    string replacedNoteName = ReplaceDot(noteName);
+
+                    // Agregar la nota a la lista con el nombre reemplazado
+                    ls_Notes.Items.Add(replacedNoteName);
+
+                    // Renombrar el archivo si es necesario
+                    if (noteName != replacedNoteName)
+                    {
+                        string newNotePath = Path.Combine(folderPath, selectedNotebook, $"{replacedNoteName}.txt");
+                        File.Move(note, newNotePath);
+                    }
                 }
             }
 
-            // Restaura la selección después de actualizar la lista
+            // Restaurar la selección después de actualizar la lista
             ls_Notes.SelectedItem = selectedNote;
         }
 
@@ -183,7 +206,19 @@ namespace Noty
 
                 foreach (var Notebook in Notebooks)
                 {
-                    ls_NoteBooks.Items.Add(Path.GetFileNameWithoutExtension(Notebook));
+                    // Obtener el nombre del cuaderno y reemplazar los puntos decimales
+                    string notebookName = Path.GetFileName(Notebook);
+                    string replacedNotebookName = ReplaceDot(notebookName);
+
+                    // Agregar el cuaderno a la lista con el nombre reemplazado
+                    ls_NoteBooks.Items.Add(replacedNotebookName);
+
+                    // Actualizar la carpeta en el sistema de archivos si el nombre fue cambiado
+                    if (notebookName != replacedNotebookName)
+                    {
+                        string newNotebookPath = Path.Combine(folderPath, replacedNotebookName);
+                        Directory.Move(Notebook, newNotebookPath);
+                    }
                 }
             }
 
@@ -235,7 +270,7 @@ namespace Noty
             int cursorPosition = tbx_Title.SelectionStart;
 
             // Eliminar el punto del texto del cuadro de texto
-            tbx_Title.Text = tbx_Title.Text.Replace(".", "");
+            tbx_Title.Text = tbx_Title.Text.Replace(".", "·");
 
             // Restaurar el cursor a su posición original
             tbx_Title.SelectionStart = cursorPosition;
@@ -714,18 +749,21 @@ namespace Noty
                 // Obtener la carpeta seleccionada en la ListBox de cuadernos
                 string selectedNotebook = ls_NoteBooks.SelectedItem?.ToString();
 
+                // Reemplazar los puntos en el nombre de la nota
+                string replacedNoteName = ReplaceDot(selectedNote);
+
                 // Obtener la ruta completa del archivo
                 string fullRoute;
 
                 if (string.IsNullOrEmpty(selectedNotebook))
                 {
                     // Carpeta raíz
-                    fullRoute = Path.Combine(folderPath, $"{selectedNote}.txt");
+                    fullRoute = Path.Combine(folderPath, $"{replacedNoteName}.txt");
                 }
                 else
                 {
                     // Cuaderno seleccionado
-                    fullRoute = Path.Combine(folderPath, selectedNotebook, $"{selectedNote}.txt");
+                    fullRoute = Path.Combine(folderPath, selectedNotebook, $"{replacedNoteName}.txt");
                 }
 
                 try
@@ -736,7 +774,7 @@ namespace Noty
                     tbx_Title.ReadOnly = false;
 
                     // Establecer el título de la nota en el TextBox
-                    tbx_Title.Text = Path.GetFileNameWithoutExtension(selectedNote);
+                    tbx_Title.Text = replacedNoteName;
                 }
                 catch (Exception ex)
                 {
@@ -871,7 +909,7 @@ namespace Noty
                             // Se está intentando renombrar un cuaderno
                             string selectedNotebook = ls_NoteBooks.SelectedItem.ToString();
                             string currentFolderPath = creatingInNotebook ? Path.Combine(folderPath, selectedNotebook) : folderPath;
-                            string newFolderPath = Path.Combine(Path.GetDirectoryName(currentFolderPath), newName);
+                            string newFolderPath = Path.Combine(Path.GetDirectoryName(currentFolderPath), ReplaceDot(newName));
 
                             // Renombrar la carpeta (cuaderno)
                             Directory.Move(currentFolderPath, newFolderPath);
@@ -895,7 +933,7 @@ namespace Noty
                         else
                         {
                             // Se está intentando renombrar la carpeta raíz
-                            string newRootFolderPath = Path.Combine(Path.GetDirectoryName(folderPath), newName);
+                            string newRootFolderPath = Path.Combine(Path.GetDirectoryName(folderPath), ReplaceDot(newName));
                             Directory.Move(folderPath, newRootFolderPath);
 
                             // Actualizar la ruta de la carpeta raíz y las listas de cuadernos y notas
@@ -1005,6 +1043,12 @@ namespace Noty
 
             TextArea.SelectedText = $"{prefijo} {Environment.NewLine}";
             TextArea.Select(start + prefijo.Length + Environment.NewLine.Length, 0);
+        }
+
+        private string ReplaceDot(string input)
+        {
+            // Reemplazar los puntos por el carácter especial
+            return input.Replace(".", "·");
         }
     }
 }
